@@ -29,8 +29,10 @@ public class Config extends Application {
     @Override
     public Set<Class<?>> getClasses() {
         HashSet<Class<?>> providers = new HashSet<>();
-        providers.add(dev.phillip.m133_autoscout.service.Bookservice.class);
-        providers.add(dev.phillip.m133_autoscout.service.TestService.class);
+        providers.add(Fahrzeugservice.class);
+        providers.add(Haendlerservice.class);
+        providers.add(Kaeuferservice.class);
+        providers.add(Merklisteservice.class);
         return providers;
     }
 

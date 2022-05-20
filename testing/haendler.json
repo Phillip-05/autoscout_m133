@@ -1,0 +1,15 @@
+[
+    {
+        "haendlerUUID": "3247c340-c712-402e-b400-0a23a93686969",
+        "vorname": "franz",
+        "nachname": "meier",
+        "strasse": "bachweg 10"
+
+    },{
+    "haendlerUUID": "3247c340-c712-402e-b400-0a23a93686970",
+    "vorname": "hans",
+    "nachname": "meier",
+    "strasse": "bachweg 200"
+
+}
+]

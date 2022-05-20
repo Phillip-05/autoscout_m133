@@ -3,6 +3,7 @@ package dev.phill.autoscout.service;
 
 import dev.phill.autoscout.data.DataHandler;
 import dev.phill.autoscout.model.Fahrzeug;
+import dev.phill.autoscout.model.Merkliste;
 import jakarta.ws.rs.GET;
 import jakarta.ws.rs.Path;
 import jakarta.ws.rs.Produces;
@@ -15,31 +16,31 @@ import java.util.List;
 /**
  * test service
  */
-@Path("fahrzeug")
-public class Fahrzeugservice {
+@Path("merkliste")
+public class Merklisteservice {
 
     @GET
     @Path("list")
     @Produces(MediaType.APPLICATION_JSON)
-    public Response listFahrzeuge() {
-        List<Fahrzeug> fahrzeugList = DataHandler.getInstance().readallFahrzeuge();
+    public Response listMerliste() {
+        List<Merkliste> merklisteList = DataHandler.getInstance().readallMerkliste();
         return Response
                 .status(200)
-                .entity(fahrzeugList)
+                .entity(merklisteList)
                 .build();
     }
 
     @GET
     @Path("read")
     @Produces(MediaType.APPLICATION_JSON)
-    public Response readFahrzeug(
-            @QueryParam("uuid") String fahrzeugUUID
+    public Response readMerkliste(
+            @QueryParam("uuid") String merklisteUUID
 
     ){
-        Fahrzeug fahrzeug = DataHandler.getInstance().readFahrzeugByUUID(fahrzeugUUID);
+        Merkliste merkliste = DataHandler.getInstance().readMerklisteByUUID(merklisteUUID);
         return Response
                 .status(200)
-                .entity(fahrzeug)
+                .entity(merkliste)
                 .build();
     }
 

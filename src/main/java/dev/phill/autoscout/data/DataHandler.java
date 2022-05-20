@@ -4,6 +4,9 @@ package dev.phill.autoscout.data;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import dev.phill.autoscout.model.Fahrzeug;
+import dev.phill.autoscout.model.Haendler;
+import dev.phill.autoscout.model.Kaeufer;
+import dev.phill.autoscout.model.Merkliste;
 import dev.phill.autoscout.service.Config;
 
 import java.io.IOException;
@@ -18,22 +21,25 @@ import java.util.List;
 public class DataHandler {
     private static DataHandler instance = null;
     private List<Fahrzeug> fahrzeugList;
-//    private List<Publisher> publisherList;
+    private List<Haendler> haendlerList;
+    private List<Kaeufer> kaeuferList;
+    private List<Merkliste> merklisteList;
 
     /**
      * private constructor defeats instantiation
      */
     private DataHandler() {
-//        setPublisherList(new ArrayList<>());
-//        readPublisherJSON();
+        setHaendlerList(new ArrayList<>());
+        readHaendlerJSON();
         setFahrzeugList(new ArrayList<>());
         readFahrzeugJSON();
+        setKaeuferList(new ArrayList<>());
+        readKaeuferJSON();
+        setMerklisteList(new ArrayList<>());
+        readMerklisteJSON();
     }
 
-    /**
-     * gets the only instance of this class
-     * @return
-     */
+
     public static DataHandler getInstance() {
         if (instance == null)
             instance = new DataHandler();
@@ -41,19 +47,11 @@ public class DataHandler {
     }
 
 
-    /**
-     * reads all books
-     * @return list of books
-     */
     public List<Fahrzeug> readallFahrzeuge() {
         return getFahrzeugList();
     }
 
-    /**
-     * reads a book by its uuid
-     * @param fahrzeugUUID
-     * @return the Book (null=not found)
-     */
+
     public Fahrzeug readFahrzeugByUUID(String fahrzeugUUID) {
         Fahrzeug fahrzeug = null;
         for (Fahrzeug entry : getFahrzeugList()) {
@@ -64,33 +62,54 @@ public class DataHandler {
         return fahrzeug;
     }
 
-//    /**
-//     * reads all Publishers
-//     * @return list of publishers
-//     */
-//    public List<Publisher> readAllPublishers() {
-//
-//        return getPublisherList();
-//    }
-//
-//    /**
-//     * reads a publisher by its uuid
-//     * @param publisherUUID
-//     * @return the Publisher (null=not found)
-//     */
-//    public Publisher readPublisherByUUID(String publisherUUID) {
-//        Publisher publisher = null;
-//        for (Publisher entry : getPublisherList()) {
-//            if (entry.getPublisherUUID().equals(publisherUUID)) {
-//                publisher = entry;
-//            }
-//        }
-//        return publisher;
-//    }
+    public List<Kaeufer> readallKaeufer() {
+        return getKaeuferList();
+    }
 
-    /**
-     * reads the books from the JSON-file
-     */
+
+    public Kaeufer readKaeuferByUUID(String kaeuferUUID) {
+        Kaeufer kaeufer = null;
+        for (Kaeufer entry : getKaeuferList()) {
+            if (entry.getKaeuferUUID().equals(kaeuferUUID)) {
+                kaeufer = entry;
+            }
+        }
+        return kaeufer;
+    }
+
+    public List<Merkliste> readallMerkliste() {
+        return getMerklisteList();
+    }
+
+
+    public Merkliste readMerklisteByUUID(String merklisteUUID) {
+        Merkliste merkliste = null;
+        for (Merkliste entry : getMerklisteList()) {
+            if (entry.getMerklisteUUID().equals(merklisteUUID)) {
+                merkliste = entry;
+            }
+        }
+        return merkliste;
+    }
+
+
+    public List<Haendler> readAllHaendlers() {
+
+        return getHaendlerList();
+    }
+
+
+    public Haendler readHaendlerByUUID(String haendlerUUID) {
+        Haendler haendler = null;
+        for (Haendler entry : getHaendlerList()) {
+            if (entry.getHaendlerUUID().equals(haendlerUUID)) {
+                haendler = entry;
+            }
+        }
+        return haendler;
+    }
+
+
     private void readFahrzeugJSON() {
         try {
             String path = Config.getProperty("fahrzeugJSON");
@@ -107,60 +126,92 @@ public class DataHandler {
         }
     }
 
-//    /**
-//     * reads the publishers from the JSON-file
-//     */
-//    private void readPublisherJSON() {
-//        try {
-//            byte[] jsonData = Files.readAllBytes(
-//                    Paths.get(
-//                            Config.getProperty("publisherJSON")
-//                    )
-//            );
-//            ObjectMapper objectMapper = new ObjectMapper();
-//            Publisher[] publishers = objectMapper.readValue(jsonData, Publisher[].class);
-//            for (Publisher publisher : publishers) {
-//                getPublisherList().add(publisher);
-//            }
-//        } catch (IOException ex) {
-//            ex.printStackTrace();
-//        }
-//    }
-    /**
-     * gets bookList
-     *
-     * @return value of bookList
-     */
+    private void readKaeuferJSON() {
+        try {
+            String path = Config.getProperty("kaeuferJSON");
+            byte[] jsonData = Files.readAllBytes(
+                    Paths.get(path)
+            );
+            ObjectMapper objectMapper = new ObjectMapper();
+            Kaeufer[] kaeufers = objectMapper.readValue(jsonData, Kaeufer[].class);
+            for (Kaeufer kaeufer : kaeufers) {
+                getKaeuferList().add(kaeufer);
+            }
+        } catch (IOException ex) {
+            ex.printStackTrace();
+        }
+    }
+
+    private void readMerklisteJSON() {
+        try {
+            String path = Config.getProperty("merklistJSON");
+            byte[] jsonData = Files.readAllBytes(
+                    Paths.get(path)
+            );
+            ObjectMapper objectMapper = new ObjectMapper();
+            Merkliste[] merklistes = objectMapper.readValue(jsonData, Merkliste[].class);
+            for (Merkliste merkliste : merklistes) {
+                getMerklisteList().add(merkliste);
+            }
+        } catch (IOException ex) {
+            ex.printStackTrace();
+        }
+    }
+
+
+    private void readHaendlerJSON() {
+        try {
+            byte[] jsonData = Files.readAllBytes(
+                    Paths.get(
+                            Config.getProperty("haendlerJSON")
+                    )
+            );
+            ObjectMapper objectMapper = new ObjectMapper();
+            Haendler[] haendlers = objectMapper.readValue(jsonData, Haendler[].class);
+            for (Haendler haendler : haendlers) {
+                getHaendlerList().add(haendler);
+            }
+        } catch (IOException ex) {
+            ex.printStackTrace();
+        }
+    }
+
+
     private List<Fahrzeug> getFahrzeugList() {
         return fahrzeugList;
     }
 
-    /**
-     * sets bookList
-     *
-     * @param fahrzeugList the value to set
-     */
+
     private void setFahrzeugList(List<Fahrzeug> fahrzeugList) {
         this.fahrzeugList = fahrzeugList;
     }
 
-//    /**
-//     * gets publisherList
-//     *
-//     * @return value of publisherList
-//     */
-//    private List<Publisher> getPublisherList() {
-//        return publisherList;
-//    }
-//
-//    /**
-//     * sets publisherList
-//     *
-//     * @param publisherList the value to set
-//     */
-//    private void setPublisherList(List<Publisher> publisherList) {
-//        this.publisherList = publisherList;
-//    }
+    private List<Kaeufer> getKaeuferList() {
+        return kaeuferList;
+    }
+
+
+    private void setKaeuferList(List<Kaeufer> kaeuferList) {
+        this.kaeuferList = kaeuferList;
+    }
+
+    private List<Merkliste> getMerklisteList() {
+        return merklisteList;
+    }
+
+
+    private void setMerklisteList(List<Merkliste> merklisteList) {
+        this.merklisteList = merklisteList;
+    }
+
+    private List<Haendler> getHaendlerList() {
+        return haendlerList;
+    }
+
+
+    private void setHaendlerList(List<Haendler> haendlerList) {
+        this.haendlerList = haendlerList;
+    }
 
 
 }

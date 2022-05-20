@@ -1,17 +1,37 @@
 package dev.phill.autoscout.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import dev.phill.autoscout.data.DataHandler;
+
 public class Fahrzeug {
 
     private String fahrzeugUUID;
     private String marke;
     private String modell;
     private Float preis;
+
+    @JsonIgnore
+    private Haendler heandler;
+
     private Integer baujahr;
     private Float hubraum;
     private Float leistung;
     private Boolean tuning;
     private Boolean mfk;
     private Float leergewicht;
+
+    public String getHeandlerUUID() {
+        return getHeandler().getHaendlerUUID();
+    }
+
+
+    public void setHeandlerUUID(String heandlerUUID) {
+        setHeandler( new Haendler());
+        Haendler haendler = DataHandler.getInstance().readHaendlerByUUID(heandlerUUID);
+        getHeandler().setHaendlerUUID(heandlerUUID);
+        getHeandler().setHaendlerUUID(haendler.getHaendlerUUID());
+
+    }
 
     public String getMarke() {
         return marke;
@@ -91,5 +111,13 @@ public class Fahrzeug {
 
     public void setFahrzeugUUID(String fahrzeugUUID) {
         this.fahrzeugUUID = fahrzeugUUID;
+    }
+
+    public Haendler getHeandler() {
+        return heandler;
+    }
+
+    public void setHeandler(Haendler heandler) {
+        this.heandler = heandler;
     }
 }

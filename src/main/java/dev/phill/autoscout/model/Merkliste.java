@@ -3,15 +3,16 @@ package dev.phill.autoscout.model;
 import java.util.Date;
 
 public class Merkliste {
-    private dev.phillip.m133_autoscout.model.Fahrzeug[] fahrzeugliste;
+    private String MerklisteUUID;
+    private Fahrzeug[] fahrzeugliste;
     private String beschreibung;
     private Date erstellungsdatum;
 
-    public dev.phillip.m133_autoscout.model.Fahrzeug[] getFahrzeugliste() {
+    public Fahrzeug[] getFahrzeugliste() {
         return fahrzeugliste;
     }
 
-    public void setFahrzeugliste(dev.phillip.m133_autoscout.model.Fahrzeug[] fahrzeugliste) {
+    public void setFahrzeugliste(Fahrzeug[] fahrzeugliste) {
         this.fahrzeugliste = fahrzeugliste;
     }
 
@@ -29,5 +30,13 @@ public class Merkliste {
 
     public void setErstellungsdatum(Date erstellungsdatum) {
         this.erstellungsdatum = erstellungsdatum;
+    }
+
+    public String getMerklisteUUID() {
+        return MerklisteUUID;
+    }
+
+    public void setMerklisteUUID(String merklisteUUID) {
+        MerklisteUUID = merklisteUUID;
     }
 }
