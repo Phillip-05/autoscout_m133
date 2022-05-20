@@ -1,20 +1,17 @@
 package dev.phill.autoscout.model;
 
 import java.util.Date;
+import java.util.Vector;
 
 public class Merkliste {
     private String MerklisteUUID;
-    private Fahrzeug[] fahrzeugliste;
+    private Vector<Fahrzeug> fahrzeugliste = new Vector<Fahrzeug>();
     private String beschreibung;
     private Date erstellungsdatum;
 
-    public Fahrzeug[] getFahrzeugliste() {
-        return fahrzeugliste;
-    }
 
-    public void setFahrzeugliste(Fahrzeug[] fahrzeugliste) {
-        this.fahrzeugliste = fahrzeugliste;
-    }
+
+
 
     public String getBeschreibung() {
         return beschreibung;
@@ -38,5 +35,13 @@ public class Merkliste {
 
     public void setMerklisteUUID(String merklisteUUID) {
         MerklisteUUID = merklisteUUID;
+    }
+
+    public Vector<Fahrzeug> getFahrzeugliste() {
+        return fahrzeugliste;
+    }
+
+    public void setFahrzeugliste(Vector<Fahrzeug> fahrzeugliste) {
+        this.fahrzeugliste = fahrzeugliste;
     }
 }

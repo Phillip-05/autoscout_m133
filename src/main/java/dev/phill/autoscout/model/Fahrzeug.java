@@ -24,6 +24,23 @@ public class Fahrzeug {
         return getHeandler().getHaendlerUUID();
     }
 
+    public Fahrzeug(){
+
+    }
+
+    public Fahrzeug(String fahrzeugUUID, String marke, String modell, Float preis, Integer baujahr, Float hubraum,Haendler heandler, Float leistung, Boolean tuning, Boolean mfk, Float leergewicht) {
+        this.fahrzeugUUID = fahrzeugUUID;
+        this.marke = marke;
+        this.modell = modell;
+        this.preis = preis;
+        this.heandler = heandler;
+        this.hubraum = hubraum;
+        this.baujahr = baujahr;
+        this.leistung = leistung;
+        this.tuning = tuning;
+        this.mfk = mfk;
+        this.leergewicht = leergewicht;
+    }
 
     public void setHeandlerUUID(String heandlerUUID) {
         setHeandler( new Haendler());

@@ -7,6 +7,16 @@ public class Haendler {
     private String nachname;
     private String strasse;
 
+    public Haendler(){
+
+    }
+    public Haendler(String haendlerUUID, String vorname, String nachname, String strasse) {
+        this.haendlerUUID = haendlerUUID;
+        this.vorname = vorname;
+        this.nachname = nachname;
+        this.strasse = strasse;
+    }
+
     public String getHaendlerUUID() {
         return haendlerUUID;
     }

@@ -21,20 +21,6 @@ public class Config extends Application {
     private static final String PROPERTIES_PATH = "C:\\Github\\autoscout_m133\\testing\\bookList.properties";
     private static Properties properties = null;
 
-    /**
-     * define all provider classes
-     *
-     * @return set of classes
-     */
-    @Override
-    public Set<Class<?>> getClasses() {
-        HashSet<Class<?>> providers = new HashSet<>();
-        providers.add(Fahrzeugservice.class);
-        providers.add(Haendlerservice.class);
-        providers.add(Kaeuferservice.class);
-        providers.add(Merklisteservice.class);
-        return providers;
-    }
 
     /**
      * Gets the value of a property

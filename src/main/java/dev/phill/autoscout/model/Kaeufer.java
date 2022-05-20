@@ -1,16 +1,13 @@
 package dev.phill.autoscout.model;
 
+import java.util.Vector;
+
 public class Kaeufer {
     private String KaeuferUUID;
-    private Merkliste[] merkliste;
 
-    public Merkliste[] getMerkliste() {
-        return merkliste;
-    }
+    private Vector<Merkliste> merklisten = new Vector<Merkliste>();
 
-    public void setMerkliste(Merkliste[] merkliste) {
-        this.merkliste = merkliste;
-    }
+
 
     public String getKaeuferUUID() {
         return KaeuferUUID;
@@ -18,5 +15,13 @@ public class Kaeufer {
 
     public void setKaeuferUUID(String kaeuferUUID) {
         KaeuferUUID = kaeuferUUID;
+    }
+
+    public Vector<Merkliste> getMerklisten() {
+        return merklisten;
+    }
+
+    public void setMerklisten(Vector<Merkliste> merklisten) {
+        this.merklisten = merklisten;
     }
 }
