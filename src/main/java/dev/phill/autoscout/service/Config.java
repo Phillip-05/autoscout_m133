@@ -18,7 +18,7 @@ import java.util.Set;
 @ApplicationPath("/resource")
 
 public class Config extends Application {
-    private static final String PROPERTIES_PATH = "C:\\Users\\phill\\OneDrive\\Dokumente\\BZZ\\M133\\bookshelf\\bookList.properties";
+    private static final String PROPERTIES_PATH = "C:\\Github\\autoscout_m133\\testing\\bookList.properties";
     private static Properties properties = null;
 
     /**

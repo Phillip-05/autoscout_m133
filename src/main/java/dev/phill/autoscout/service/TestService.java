@@ -12,7 +12,6 @@ import jakarta.ws.rs.core.Response;
  */
 @Path("test")
 public class TestService {
-
     @GET
     @Path("test")
     @Produces(MediaType.TEXT_PLAIN)

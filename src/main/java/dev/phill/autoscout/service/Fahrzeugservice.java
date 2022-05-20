@@ -1,7 +1,8 @@
 package dev.phill.autoscout.service;
 
-import dev.phillip.m133_autoscout.data.DataHandler;
-import dev.phillip.m133_autoscout.model.Fahrzeug;
+
+import dev.phill.autoscout.data.DataHandler;
+import dev.phill.autoscout.model.Fahrzeug;
 import jakarta.ws.rs.GET;
 import jakarta.ws.rs.Path;
 import jakarta.ws.rs.Produces;
@@ -24,7 +25,7 @@ public class Fahrzeugservice {
         List<Fahrzeug> fahrzeugList = DataHandler.getInstance();
         return Response
                 .status(200)
-                .entity(booklist)
+                .entity(fahrzeugList)
                 .build();
     }
 

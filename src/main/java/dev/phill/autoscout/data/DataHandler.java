@@ -3,8 +3,8 @@ package dev.phill.autoscout.data;
 
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import dev.phillip.m133_autoscout.model.Fahrzeug;
-import dev.phillip.m133_autoscout.service.Config;
+import dev.phill.autoscout.model.Fahrzeug;
+import dev.phill.autoscout.service.Config;
 
 import java.io.IOException;
 import java.nio.file.Files;
@@ -27,7 +27,7 @@ public class DataHandler {
 //        setPublisherList(new ArrayList<>());
 //        readPublisherJSON();
         setFahrzeugList(new ArrayList<>());
-        readBookJSON();
+        readFahrzeugJSON();
     }
 
     /**
@@ -64,29 +64,29 @@ public class DataHandler {
         return fahrzeug;
     }
 
-    /**
-     * reads all Publishers
-     * @return list of publishers
-     */
-    public List<Publisher> readAllPublishers() {
-
-        return getPublisherList();
-    }
-
-    /**
-     * reads a publisher by its uuid
-     * @param publisherUUID
-     * @return the Publisher (null=not found)
-     */
-    public Publisher readPublisherByUUID(String publisherUUID) {
-        Publisher publisher = null;
-        for (Publisher entry : getPublisherList()) {
-            if (entry.getPublisherUUID().equals(publisherUUID)) {
-                publisher = entry;
-            }
-        }
-        return publisher;
-    }
+//    /**
+//     * reads all Publishers
+//     * @return list of publishers
+//     */
+//    public List<Publisher> readAllPublishers() {
+//
+//        return getPublisherList();
+//    }
+//
+//    /**
+//     * reads a publisher by its uuid
+//     * @param publisherUUID
+//     * @return the Publisher (null=not found)
+//     */
+//    public Publisher readPublisherByUUID(String publisherUUID) {
+//        Publisher publisher = null;
+//        for (Publisher entry : getPublisherList()) {
+//            if (entry.getPublisherUUID().equals(publisherUUID)) {
+//                publisher = entry;
+//            }
+//        }
+//        return publisher;
+//    }
 
     /**
      * reads the books from the JSON-file
@@ -107,25 +107,25 @@ public class DataHandler {
         }
     }
 
-    /**
-     * reads the publishers from the JSON-file
-     */
-    private void readPublisherJSON() {
-        try {
-            byte[] jsonData = Files.readAllBytes(
-                    Paths.get(
-                            Config.getProperty("publisherJSON")
-                    )
-            );
-            ObjectMapper objectMapper = new ObjectMapper();
-            Publisher[] publishers = objectMapper.readValue(jsonData, Publisher[].class);
-            for (Publisher publisher : publishers) {
-                getPublisherList().add(publisher);
-            }
-        } catch (IOException ex) {
-            ex.printStackTrace();
-        }
-    }
+//    /**
+//     * reads the publishers from the JSON-file
+//     */
+//    private void readPublisherJSON() {
+//        try {
+//            byte[] jsonData = Files.readAllBytes(
+//                    Paths.get(
+//                            Config.getProperty("publisherJSON")
+//                    )
+//            );
+//            ObjectMapper objectMapper = new ObjectMapper();
+//            Publisher[] publishers = objectMapper.readValue(jsonData, Publisher[].class);
+//            for (Publisher publisher : publishers) {
+//                getPublisherList().add(publisher);
+//            }
+//        } catch (IOException ex) {
+//            ex.printStackTrace();
+//        }
+//    }
     /**
      * gets bookList
      *
@@ -144,23 +144,23 @@ public class DataHandler {
         this.fahrzeugList = fahrzeugList;
     }
 
-    /**
-     * gets publisherList
-     *
-     * @return value of publisherList
-     */
-    private List<Publisher> getPublisherList() {
-        return publisherList;
-    }
-
-    /**
-     * sets publisherList
-     *
-     * @param publisherList the value to set
-     */
-    private void setPublisherList(List<Publisher> publisherList) {
-        this.publisherList = publisherList;
-    }
+//    /**
+//     * gets publisherList
+//     *
+//     * @return value of publisherList
+//     */
+//    private List<Publisher> getPublisherList() {
+//        return publisherList;
+//    }
+//
+//    /**
+//     * sets publisherList
+//     *
+//     * @param publisherList the value to set
+//     */
+//    private void setPublisherList(List<Publisher> publisherList) {
+//        this.publisherList = publisherList;
+//    }
 
 
 }
