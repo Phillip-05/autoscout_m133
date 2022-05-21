@@ -11,7 +11,7 @@ public class Fahrzeug {
     private Float preis;
 
     @JsonIgnore
-    private Haendler heandler;
+    private Haendler haendler;
 
     private Integer baujahr;
     private Float hubraum;
@@ -19,10 +19,6 @@ public class Fahrzeug {
     private Boolean tuning;
     private Boolean mfk;
     private Float leergewicht;
-
-    public String getHeandlerUUID() {
-        return getHeandler().getHaendlerUUID();
-    }
 
     public Fahrzeug(){
 
@@ -33,7 +29,7 @@ public class Fahrzeug {
         this.marke = marke;
         this.modell = modell;
         this.preis = preis;
-        this.heandler = heandler;
+        this.haendler = heandler;
         this.hubraum = hubraum;
         this.baujahr = baujahr;
         this.leistung = leistung;
@@ -42,7 +38,11 @@ public class Fahrzeug {
         this.leergewicht = leergewicht;
     }
 
-    public void setHeandlerUUID(String heandlerUUID) {
+    public String getHaendlerUUID() {
+        return getHeandler().getHaendlerUUID();
+    }
+
+    public void setHaendlerUUID(String heandlerUUID) {
         setHeandler( new Haendler());
         Haendler haendler = DataHandler.getInstance().readHaendlerByUUID(heandlerUUID);
         getHeandler().setHaendlerUUID(heandlerUUID);
