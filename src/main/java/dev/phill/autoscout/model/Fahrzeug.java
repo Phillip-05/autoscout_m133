@@ -131,10 +131,10 @@ public class Fahrzeug {
     }
 
     public Haendler getHeandler() {
-        return heandler;
+        return haendler;
     }
 
     public void setHeandler(Haendler heandler) {
-        this.heandler = heandler;
+        this.haendler = heandler;
     }
 }

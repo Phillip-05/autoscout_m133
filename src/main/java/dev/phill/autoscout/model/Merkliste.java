@@ -12,17 +12,27 @@ public class Merkliste {
     private Vector<Fahrzeug> fahrzeugliste;
     private String beschreibung;
 
-//    public String getFahrzeugUUID() {
-//        return getFahrzeugliste().firstElement().getFahrzeugUUID();
-//    }
-//
-//    public void setFahrzeugUUID(String merklisteUUID) {
-//        setFahrzeugliste(new Vector<Merkliste>(new Fahrzeug()));
-//        Haendler haendler = DataHandler.getInstance().readHaendlerByUUID(merklisteUUID);
-//        getFahrzeugliste().firstElement.(merklisteUUID);
-//        getFahrzeugliste().setHaendlerUUID(haendler.getHaendlerUUID());
-//
-//    }
+    public Vector<String> getFahrzeugUUID() {
+        Vector<String> uuids = new Vector<>();
+        if(fahrzeugliste != null){
+            for (Fahrzeug fahrzeug : fahrzeugliste) {
+                uuids.add(fahrzeug.getFahrzeugUUID());
+            }
+        }
+        return uuids;
+    }
+
+    public void setFahrzeugUUID(Vector<String> fahrzeugUUIDs) {
+        fahrzeugliste = new Vector<>();
+        if(fahrzeugUUIDs != null) {
+            for (String fahrzeugUUID : fahrzeugUUIDs) {
+                Fahrzeug fahrzeug = DataHandler.getInstance().readFahrzeugByUUID(fahrzeugUUID);
+                fahrzeugliste.add(fahrzeug);
+            }
+        }
+
+
+    }
 
 
     public Merkliste() {
