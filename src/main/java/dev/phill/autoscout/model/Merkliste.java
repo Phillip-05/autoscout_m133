@@ -2,10 +2,16 @@ package dev.phill.autoscout.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import dev.phill.autoscout.data.DataHandler;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 import java.util.Date;
 import java.util.Vector;
 
+@Getter
+@Setter
+@NoArgsConstructor
 public class Merkliste {
     private String MerklisteUUID;
     @JsonIgnore
@@ -34,11 +40,6 @@ public class Merkliste {
 
     }
 
-
-    public Merkliste() {
-
-    }
-
     public Merkliste(String merklisteUUID, Vector<Fahrzeug> fahrzeugliste, String beschreibung) {
         this.MerklisteUUID = merklisteUUID;
         this.fahrzeugliste = fahrzeugliste;
@@ -54,27 +55,4 @@ public class Merkliste {
         return fahrzeugliste.get(index);
     }
 
-    public String getBeschreibung() {
-        return beschreibung;
-    }
-
-    public void setBeschreibung(String beschreibung) {
-        this.beschreibung = beschreibung;
-    }
-
-    public String getMerklisteUUID() {
-        return MerklisteUUID;
-    }
-
-    public void setMerklisteUUID(String merklisteUUID) {
-        MerklisteUUID = merklisteUUID;
-    }
-
-    public Vector<Fahrzeug> getFahrzeugliste() {
-        return fahrzeugliste;
-    }
-
-    public void setFahrzeugliste(Vector<Fahrzeug> fahrzeugliste) {
-        this.fahrzeugliste = fahrzeugliste;
-    }
 }

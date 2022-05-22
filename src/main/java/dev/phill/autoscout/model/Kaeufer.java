@@ -2,16 +2,20 @@ package dev.phill.autoscout.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import dev.phill.autoscout.data.DataHandler;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
+
+@Getter
+@Setter
+@NoArgsConstructor
 public class Kaeufer {
     private String KaeuferUUID;
     private Integer jahrgang;
     @JsonIgnore
     private Merkliste merkliste;
 
-    public Kaeufer(){
-
-    }
 
     public String getMerklisteUUID() {
         return getMerkliste().getMerklisteUUID();
@@ -29,30 +33,6 @@ public class Kaeufer {
         KaeuferUUID = kaeuferUUID;
         this.jahrgang = jahrgang;
 
-        this.merkliste = merkliste;
-    }
-
-    public String getKaeuferUUID() {
-        return KaeuferUUID;
-    }
-
-    public void setKaeuferUUID(String kaeuferUUID) {
-        KaeuferUUID = kaeuferUUID;
-    }
-
-    public Integer getJahrgang() {
-        return jahrgang;
-    }
-
-    public void setJahrgang(Integer jahrgang) {
-        this.jahrgang = jahrgang;
-    }
-
-    public Merkliste getMerkliste() {
-        return merkliste;
-    }
-
-    public void setMerkliste(Merkliste merkliste) {
         this.merkliste = merkliste;
     }
 }

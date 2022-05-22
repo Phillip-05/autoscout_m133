@@ -1,5 +1,13 @@
 package dev.phill.autoscout.model;
 
+
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+
+@Getter
+@Setter
+@NoArgsConstructor
 public class Haendler {
 
     private String haendlerUUID;
@@ -7,9 +15,6 @@ public class Haendler {
     private String nachname;
     private String strasse;
 
-    public Haendler(){
-
-    }
     public Haendler(String haendlerUUID, String vorname, String nachname, String strasse) {
         this.haendlerUUID = haendlerUUID;
         this.vorname = vorname;
@@ -17,35 +22,5 @@ public class Haendler {
         this.strasse = strasse;
     }
 
-    public String getHaendlerUUID() {
-        return haendlerUUID;
-    }
 
-    public void setHaendlerUUID(String haendlerUUID) {
-        this.haendlerUUID = haendlerUUID;
-    }
-
-    public String getVorname() {
-        return vorname;
-    }
-
-    public void setVorname(String vorname) {
-        this.vorname = vorname;
-    }
-
-    public String getNachname() {
-        return nachname;
-    }
-
-    public void setNachname(String nachname) {
-        this.nachname = nachname;
-    }
-
-    public String getStrasse() {
-        return strasse;
-    }
-
-    public void setStrasse(String strasse) {
-        this.strasse = strasse;
-    }
 }
