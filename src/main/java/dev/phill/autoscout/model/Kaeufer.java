@@ -16,11 +16,16 @@ public class Kaeufer {
     @JsonIgnore
     private Merkliste merkliste;
 
-
+    /**
+     * gets Merkliste by its uuid
+     */
     public String getMerklisteUUID() {
         return getMerkliste().getMerklisteUUID();
     }
 
+    /**
+     * sets Merkliste by its uuid
+     */
     public void setMerklisteUUID(String merklisteUUID) {
         setMerkliste(new Merkliste());
         Merkliste merkliste = DataHandler.getInstance().readMerklisteByUUID(merklisteUUID);

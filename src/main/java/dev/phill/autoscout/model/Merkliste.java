@@ -18,6 +18,9 @@ public class Merkliste {
     private Vector<Fahrzeug> fahrzeugliste;
     private String beschreibung;
 
+    /**
+     * gets Fahrzeug by its uuid
+     */
     public Vector<String> getFahrzeugUUID() {
         Vector<String> uuids = new Vector<>();
         if(fahrzeugliste != null){
@@ -28,6 +31,9 @@ public class Merkliste {
         return uuids;
     }
 
+    /**
+     * set Fahrzeug by its uuid
+     */
     public void setFahrzeugUUID(Vector<String> fahrzeugUUIDs) {
         fahrzeugliste = new Vector<>();
         if(fahrzeugUUIDs != null) {
@@ -40,6 +46,9 @@ public class Merkliste {
 
     }
 
+    /**
+     * Merkliste constructor
+     */
     public Merkliste(String merklisteUUID, Vector<Fahrzeug> fahrzeugliste, String beschreibung) {
         this.MerklisteUUID = merklisteUUID;
         this.fahrzeugliste = fahrzeugliste;
@@ -47,10 +56,16 @@ public class Merkliste {
 
     }
 
+    /**
+     * add Fahrzeug to Merkliste
+     */
     public void addFahrzeug(Fahrzeug fahrzeug) {
         fahrzeugliste.add(fahrzeug);
     }
 
+    /**
+     * get Fahrzeug to Merkliste
+     */
     public Fahrzeug getFahrzeug(int index) {
         return fahrzeugliste.get(index);
     }

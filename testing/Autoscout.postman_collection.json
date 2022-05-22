@@ -1,0 +1,445 @@
+{
+	"info": {
+		"_postman_id": "55458a44-9c87-4ed6-a562-95c847061d09",
+		"name": "Autoscout",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "read list Fahrzeug",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status test 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/Autoscout-1.0-SNAPSHOT/resource/fahrzeug/list/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"Autoscout-1.0-SNAPSHOT",
+						"resource",
+						"fahrzeug",
+						"list",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "successful read one Fahrzeug",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status test 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/Autoscout-1.0-SNAPSHOT/resource/fahrzeug/read/495505b7-f069-4a61-aff0-7ce833634bf8",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"Autoscout-1.0-SNAPSHOT",
+						"resource",
+						"fahrzeug",
+						"read",
+						"495505b7-f069-4a61-aff0-7ce833634bf8"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "read list Haendler",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status test 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/Autoscout-1.0-SNAPSHOT/resource/haendler/list/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"Autoscout-1.0-SNAPSHOT",
+						"resource",
+						"haendler",
+						"list",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "successful read one Haendler",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status test 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/Autoscout-1.0-SNAPSHOT/resource/haendler/read/4cf30aef-4321-47ca-ab14-2c55b515b16b",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"Autoscout-1.0-SNAPSHOT",
+						"resource",
+						"haendler",
+						"read",
+						"4cf30aef-4321-47ca-ab14-2c55b515b16b"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "read list Kaeufer",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status test 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/Autoscout-1.0-SNAPSHOT/resource/kaeufer/list/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"Autoscout-1.0-SNAPSHOT",
+						"resource",
+						"kaeufer",
+						"list",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "successful read one Kaeufer",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status test 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/Autoscout-1.0-SNAPSHOT/resource/kaeufer/read/9f3ef303-dc2f-476a-b3ea-911a1eba9f13",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"Autoscout-1.0-SNAPSHOT",
+						"resource",
+						"kaeufer",
+						"read",
+						"9f3ef303-dc2f-476a-b3ea-911a1eba9f13"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "read list Merkliste",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status test 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/Autoscout-1.0-SNAPSHOT/resource/merkliste/list/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"Autoscout-1.0-SNAPSHOT",
+						"resource",
+						"merkliste",
+						"list",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "successful read one Merkliste",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status test 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/Autoscout-1.0-SNAPSHOT/resource/merkliste/read/4f8cda75-c359-4ade-bf23-9cdb1e86f65c",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"Autoscout-1.0-SNAPSHOT",
+						"resource",
+						"merkliste",
+						"read",
+						"4f8cda75-c359-4ade-bf23-9cdb1e86f65c"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "failing read one Fahrzeug",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status test 404\", function () {\r",
+							"    pm.response.to.have.status(404);\r",
+							"});\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/Autoscout-1.0-SNAPSHOT/resource/fahrzeug/read/495505b7-f069-4a61-aff0-7ce833634bf",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"Autoscout-1.0-SNAPSHOT",
+						"resource",
+						"fahrzeug",
+						"read",
+						"495505b7-f069-4a61-aff0-7ce833634bf"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "failing read one Haendler",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status test 404\", function () {\r",
+							"    pm.response.to.have.status(404);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/Autoscout-1.0-SNAPSHOT/resource/haendler/read/4cf30aef-4321-47ca-ab14-2c55b515b16",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"Autoscout-1.0-SNAPSHOT",
+						"resource",
+						"haendler",
+						"read",
+						"4cf30aef-4321-47ca-ab14-2c55b515b16"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "failing read one Kaeufer",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status test 404\", function () {\r",
+							"    pm.response.to.have.status(404);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/Autoscout-1.0-SNAPSHOT/resource/kaeufer/read/9f3ef303-dc2f-476a-b3ea-911a1eba9f1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"Autoscout-1.0-SNAPSHOT",
+						"resource",
+						"kaeufer",
+						"read",
+						"9f3ef303-dc2f-476a-b3ea-911a1eba9f1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "failing read one Merkliste",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status test 404\", function () {\r",
+							"    pm.response.to.have.status(404);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/Autoscout-1.0-SNAPSHOT/resource/merkliste/read/4f8cda75-c359-4ade-bf23-9cdb1e86f65",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"Autoscout-1.0-SNAPSHOT",
+						"resource",
+						"merkliste",
+						"read",
+						"4f8cda75-c359-4ade-bf23-9cdb1e86f65"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

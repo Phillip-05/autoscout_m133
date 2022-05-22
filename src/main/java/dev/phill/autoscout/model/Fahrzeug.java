@@ -29,7 +29,9 @@ public class Fahrzeug {
     private Boolean mfk;
     private Float leergewicht;
 
-
+    /**
+     * constructor for a new Fahrzeug
+     */
     public Fahrzeug(String fahrzeugUUID, String marke, String modell, Float preis, Integer baujahr, Float hubraum,Haendler heandler, Float leistung, Boolean tuning, Boolean mfk, Float leergewicht) {
         this.fahrzeugUUID = fahrzeugUUID;
         this.marke = marke;
@@ -44,10 +46,16 @@ public class Fahrzeug {
         this.leergewicht = leergewicht;
     }
 
+    /**
+     * gets Haendler by its uuid
+     */
     public String getHaendlerUUID() {
         return getHaendler().getHaendlerUUID();
     }
 
+    /**
+     * sets Haendler by its uuid
+     */
     public void setHaendlerUUID(String heandlerUUID) {
         setHaendler( new Haendler());
         Haendler haendler = DataHandler.getInstance().readHaendlerByUUID(heandlerUUID);

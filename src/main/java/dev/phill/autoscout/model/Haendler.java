@@ -15,6 +15,9 @@ public class Haendler {
     private String nachname;
     private String strasse;
 
+    /**
+     * heandler constructor
+     */
     public Haendler(String haendlerUUID, String vorname, String nachname, String strasse) {
         this.haendlerUUID = haendlerUUID;
         this.vorname = vorname;

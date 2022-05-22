@@ -39,19 +39,25 @@ public class DataHandler {
         readMerklisteJSON();
     }
 
-
+    /**
+     * gets the Instance of this class
+     */
     public static DataHandler getInstance() {
         if (instance == null)
             instance = new DataHandler();
         return instance;
     }
 
-
+    /**
+     * reads all Fahrzeuge
+     */
     public List<Fahrzeug> readallFahrzeuge() {
         return getFahrzeugList();
     }
 
-
+    /**
+     * reads a Fahrzeug by its uuid
+     */
     public Fahrzeug readFahrzeugByUUID(String fahrzeugUUID) {
         Fahrzeug fahrzeug = null;
         for (Fahrzeug entry : getFahrzeugList()) {
@@ -62,11 +68,17 @@ public class DataHandler {
         return fahrzeug;
     }
 
+    /**
+     * reads all Haendler
+     */
     public List<Kaeufer> readallKaeufer() {
         return getKaeuferList();
     }
 
 
+    /**
+     * reads a Kaeufer by its uuid
+     */
     public Kaeufer readKaeuferByUUID(String kaeuferUUID) {
         Kaeufer kaeufer = null;
         for (Kaeufer entry : getKaeuferList()) {
@@ -77,11 +89,16 @@ public class DataHandler {
         return kaeufer;
     }
 
+    /**
+     * reads all Haendler
+     */
     public List<Merkliste> readallMerkliste() {
         return getMerklisteList();
     }
 
-
+    /**
+     * reads a Merkliste by its uuid
+     */
     public Merkliste readMerklisteByUUID(String merklisteUUID) {
         Merkliste merkliste = null;
         for (Merkliste entry : getMerklisteList()) {
@@ -92,13 +109,17 @@ public class DataHandler {
         return merkliste;
     }
 
-
+    /**
+     * reads all Haendler
+     */
     public List<Haendler> readAllHaendlers() {
 
         return getHaendlerList();
     }
 
-
+    /**
+     * reads a Haendler by its uuid
+     */
     public Haendler readHaendlerByUUID(String haendlerUUID) {
         Haendler haendler = null;
         for (Haendler entry : getHaendlerList()) {
@@ -109,7 +130,9 @@ public class DataHandler {
         return haendler;
     }
 
-
+    /**
+     * gets the fahrzeuge von JSON
+     */
     private void readFahrzeugJSON() {
         try {
             String path = Config.getProperty("fahrzeugJSON");
@@ -126,6 +149,9 @@ public class DataHandler {
         }
     }
 
+    /**
+     * gets the haendler von JSON
+     */
     private void readKaeuferJSON() {
         try {
             String path = Config.getProperty("kaeuferJSON");
@@ -142,6 +168,9 @@ public class DataHandler {
         }
     }
 
+    /**
+     * gets the haendler von JSON
+     */
     private void readMerklisteJSON() {
         try {
             String path = Config.getProperty("merklistJSON");
@@ -158,7 +187,9 @@ public class DataHandler {
         }
     }
 
-
+    /**
+     * gets the haendler von JSON
+     */
     private void readHaendlerJSON() {
         try {
             byte[] jsonData = Files.readAllBytes(
@@ -176,39 +207,58 @@ public class DataHandler {
         }
     }
 
-
+    /**
+     * gets all fahrzeuge
+     */
     private List<Fahrzeug> getFahrzeugList() {
         return fahrzeugList;
     }
 
-
+    /**
+     * sets all fahrzeuge
+     */
     private void setFahrzeugList(List<Fahrzeug> fahrzeugList) {
         this.fahrzeugList = fahrzeugList;
     }
 
+    /**
+     * gets kaeufer list
+     */
     private List<Kaeufer> getKaeuferList() {
         return kaeuferList;
     }
 
-
+    /**
+     * sets kaeufer list
+     */
     private void setKaeuferList(List<Kaeufer> kaeuferList) {
         this.kaeuferList = kaeuferList;
     }
 
+    /**
+     * gets merkliste list
+     */
     private List<Merkliste> getMerklisteList() {
         return merklisteList;
     }
 
-
+    /**
+     * sets merkliste list
+     */
     private void setMerklisteList(List<Merkliste> merklisteList) {
         this.merklisteList = merklisteList;
     }
 
+    /**
+     * gets haendler list
+     */
     private List<Haendler> getHaendlerList() {
         return haendlerList;
     }
 
-
+    /**
+     * sets haendler list
+     */
     private void setHaendlerList(List<Haendler> haendlerList) {
         this.haendlerList = haendlerList;
     }
