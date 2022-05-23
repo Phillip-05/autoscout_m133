@@ -20,6 +20,7 @@ public class Merkliste {
 
     /**
      * gets Fahrzeug by its uuid
+     * @return Fahrzeuguuids
      */
     public Vector<String> getFahrzeugUUID() {
         Vector<String> uuids = new Vector<>();
@@ -33,6 +34,7 @@ public class Merkliste {
 
     /**
      * set Fahrzeug by its uuid
+     * @param: FahrzeugUUIDs
      */
     public void setFahrzeugUUID(Vector<String> fahrzeugUUIDs) {
         fahrzeugliste = new Vector<>();
@@ -48,6 +50,9 @@ public class Merkliste {
 
     /**
      * Merkliste constructor
+     * @param: MerklisteUUID
+     * @param: fahrzeugliste
+     * @param: beschreibung
      */
     public Merkliste(String merklisteUUID, Vector<Fahrzeug> fahrzeugliste, String beschreibung) {
         this.MerklisteUUID = merklisteUUID;

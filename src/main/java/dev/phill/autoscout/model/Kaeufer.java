@@ -18,6 +18,7 @@ public class Kaeufer {
 
     /**
      * gets Merkliste by its uuid
+     * @return Merkliste
      */
     public String getMerklisteUUID() {
         return getMerkliste().getMerklisteUUID();
@@ -25,6 +26,7 @@ public class Kaeufer {
 
     /**
      * sets Merkliste by its uuid
+     * @param: MerklisteUUID
      */
     public void setMerklisteUUID(String merklisteUUID) {
         setMerkliste(new Merkliste());
@@ -34,6 +36,12 @@ public class Kaeufer {
 
     }
 
+    /**
+     * Kaeufer constructor
+     * @param: KaeuferUUID
+     * @param: jahrgang
+     * @param: merkliste
+     */
     public Kaeufer(String kaeuferUUID, Integer jahrgang, Merkliste merkliste) {
         KaeuferUUID = kaeuferUUID;
         this.jahrgang = jahrgang;

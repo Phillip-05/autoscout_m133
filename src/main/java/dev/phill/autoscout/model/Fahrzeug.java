@@ -31,6 +31,18 @@ public class Fahrzeug {
 
     /**
      * constructor for a new Fahrzeug
+     * @param: fahrzeugUUID
+     * @param: marke
+     * @param: modell
+     * @param: preis
+     * @param: haendler
+     * @param: baujahr
+     * @param: hubraum
+     * @param: leistung
+     * @param: tuning
+     * @param: mfk
+     * @param: leergewicht
+     *
      */
     public Fahrzeug(String fahrzeugUUID, String marke, String modell, Float preis, Integer baujahr, Float hubraum,Haendler heandler, Float leistung, Boolean tuning, Boolean mfk, Float leergewicht) {
         this.fahrzeugUUID = fahrzeugUUID;
@@ -48,6 +60,7 @@ public class Fahrzeug {
 
     /**
      * gets Haendler by its uuid
+     * @param:
      */
     public String getHaendlerUUID() {
         return getHaendler().getHaendlerUUID();
@@ -55,6 +68,7 @@ public class Fahrzeug {
 
     /**
      * sets Haendler by its uuid
+     * @param: haendlerUUID
      */
     public void setHaendlerUUID(String heandlerUUID) {
         setHaendler( new Haendler());
