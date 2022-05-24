@@ -56,4 +56,26 @@ public class Haendlerservice {
                 .build();
     }
 
+    /*
+    *
+    *
+     */
+    @DELETE
+    @Path("delete/{uuid}")
+    @Produces(MediaType.TEXT_PLAIN)
+    public Response deleteHaendler(
+            @PathParam("uuid") String haendlerUUID
+    ) {
+        int httpStatus = 200;
+
+        if(!DataHandler.getInstance().deleteHaendler(haendlerUUID)){
+            httpStatus = 404;
+        }
+
+        return Response
+                .status(httpStatus)
+                .entity("")
+                .build();
+    }
+
 }
