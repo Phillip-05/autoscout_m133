@@ -21,6 +21,7 @@ public class Fahrzeug {
 
     @JsonIgnore
     private Haendler haendler;
+
     private Integer baujahr;
     private Float hubraum;
     private Float leistung;

@@ -2,17 +2,14 @@ package dev.phill.autoscout.data;
 
 
 
-import com.fasterxml.jackson.core.util.DefaultPrettyPrinter;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.fasterxml.jackson.databind.ObjectWriter;
 import dev.phill.autoscout.model.Fahrzeug;
 import dev.phill.autoscout.model.Haendler;
 import dev.phill.autoscout.model.Kaeufer;
 import dev.phill.autoscout.model.Merkliste;
 import dev.phill.autoscout.service.Config;
 
-import java.io.*;
-import java.nio.charset.StandardCharsets;
+import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.ArrayList;
@@ -131,56 +128,6 @@ public class DataHandler {
             }
         }
         return haendler;
-    }
-
-    /**
-     * inserts a new haendler into the heandlerlist
-     *
-     * @param heandler the heandler to be saved
-     */
-    public void insertHaendler(Haendler heandler) {
-        getHaendlerList().add(heandler);
-        writeHaendlerJSON();
-    }
-
-    /**
-     * updates the bookList
-     */
-    public void updateBook() {
-        writeHaendlerJSON();
-    }
-
-    private void writeHaendlerJSON() {
-        ObjectMapper objectMapper = new ObjectMapper();
-        ObjectWriter objectWriter = objectMapper.writer(new DefaultPrettyPrinter());
-        FileOutputStream fileOutputStream = null;
-        Writer fileWriter;
-
-        String haendlerPath = Config.getProperty("haendlerJSON");
-        try {
-            fileOutputStream = new FileOutputStream(haendlerPath);
-            fileWriter = new BufferedWriter(new OutputStreamWriter(fileOutputStream, StandardCharsets.UTF_8));
-            objectWriter.writeValue(fileWriter, getInstance().getHaendlerList());
-        } catch (IOException ex) {
-            ex.printStackTrace();
-        }
-    }
-
-
-    /**
-     * deletes a book identified by the bookUUID
-     * @param haendlerUUID  the key
-     * @return  success=true/false
-     */
-    public boolean deleteHaendler(String haendlerUUID) {
-        Haendler haendler = getInstance().readHaendlerByUUID(haendlerUUID);
-        if (haendler != null) {
-            getInstance().getHaendlerList().remove(haendler);
-            writeHaendlerJSON();
-            return true;
-        } else {
-            return false;
-        }
     }
 
     /**
