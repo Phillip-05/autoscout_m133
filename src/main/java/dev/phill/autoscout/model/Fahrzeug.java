@@ -2,6 +2,9 @@ package dev.phill.autoscout.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import dev.phill.autoscout.data.DataHandler;
+import jakarta.validation.constraints.NotEmpty;
+import jakarta.validation.constraints.Size;
+import jakarta.ws.rs.FormParam;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -15,17 +18,49 @@ import lombok.Setter;
 public class Fahrzeug {
 
     private String fahrzeugUUID;
+
+    @FormParam("marke")
+    @NotEmpty
     private String marke;
+
+    @FormParam("modell")
+    @NotEmpty
     private String modell;
+
+    @FormParam("preis")
+    @Size(min = 0)
+    @NotEmpty
     private Float preis;
 
     @JsonIgnore
     private Haendler haendler;
+
+    @FormParam("baujahr")
+    @Size(min = 1900)
+    @NotEmpty
     private Integer baujahr;
+
+    @FormParam("hubraum")
+    @Size(min = 0)
+    @NotEmpty
     private Float hubraum;
+
+    @FormParam("leistung")
+    @Size(min = 0)
+    @NotEmpty
     private Float leistung;
+
+    @FormParam("tuning")
+    @NotEmpty
     private Boolean tuning;
+
+    @FormParam("mfk")
+    @NotEmpty
     private Boolean mfk;
+
+    @FormParam("leergewicht")
+    @Size(min = 0)
+    @NotEmpty
     private Float leergewicht;
 
     /**

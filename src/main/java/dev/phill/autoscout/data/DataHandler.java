@@ -146,7 +146,7 @@ public class DataHandler {
     /**
      * updates the bookList
      */
-    public void updateBook() {
+    public void updateHaendler() {
         writeHaendlerJSON();
     }
 

@@ -1,6 +1,1 @@
-[ {
-  "haendlerUUID" : "041080b3-eccb-4378-ad06-e9017deb41ea",
-  "vorname" : "hans",
-  "nachname" : "mueller",
-  "strasse" : "strasse"
-} ]
+[{"haendlerUUID":"18f37e5d-4588-4cc8-b86d-5c75dd98a627","vorname":"franz","nachname":"meier","strasse":"bachweg"},{"haendlerUUID":"3a03a592-a8fe-44be-adf4-1a1aa9c9489a","vorname":"hans","nachname":"mueller","strasse":"strasse"}]
