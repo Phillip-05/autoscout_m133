@@ -6,6 +6,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import dev.phill.autoscout.data.DataHandler;
 import dev.phill.autoscout.model.Fahrzeug;
 import dev.phill.autoscout.model.Haendler;
+import jakarta.validation.Valid;
 import jakarta.validation.constraints.PastOrPresent;
 import jakarta.ws.rs.*;
 import jakarta.ws.rs.core.MediaType;
@@ -95,6 +96,37 @@ public class Haendlerservice {
         try {
             Haendler haendler = new Haendler(UUID.randomUUID().toString(), vorname, strasse, nachname);
             DataHandler.getInstance().insertHaendler(haendler);
+        } catch (Exception e) {
+            httpStatus = 500;
+
+        }
+
+        return Response
+                .status(httpStatus)
+                .entity("")
+                .build();
+    }
+
+    @PUT
+    @Path("update")
+    @Produces(MediaType.TEXT_PLAIN)
+    public Response updateHaendler(
+
+            @FormParam("vorname") String vorname,
+            @FormParam("strasse") String strasse,
+            @FormParam("nachname") String nachname,
+            @FormParam("haendlerUUID") String haendlerUUID
+    ) {
+        int httpStatus = 200;
+
+        try {
+            Haendler haendler = DataHandler.getInstance().readHaendlerByUUID(haendlerUUID);
+
+            haendler.setNachname(nachname);
+            haendler.setVorname(vorname);
+            haendler.setStrasse(strasse);
+
+            DataHandler.getInstance().updateHaendler();
         } catch (Exception e) {
             httpStatus = 500;
 

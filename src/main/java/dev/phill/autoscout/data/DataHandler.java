@@ -1,7 +1,6 @@
 package dev.phill.autoscout.data;
 
 
-
 import com.fasterxml.jackson.core.util.DefaultPrettyPrinter;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.ObjectWriter;
@@ -72,6 +71,57 @@ public class DataHandler {
     }
 
     /**
+     * inserts a new fahrzeug into the fahrzeuglist
+     *
+     * @param fahrzeug the fahrzeug to be saved
+     */
+    public void insertFahrzeug(Fahrzeug fahrzeug) {
+        getFahrzeugList().add(fahrzeug);
+        writeFahrzeugJSON();
+    }
+
+    /**
+     * updates the bookList
+     */
+    public void updateFahrzeug() {
+        writeFahrzeugJSON();
+    }
+
+    private void writeFahrzeugJSON() {
+        ObjectMapper objectMapper = new ObjectMapper();
+        ObjectWriter objectWriter = objectMapper.writer(new DefaultPrettyPrinter());
+        FileOutputStream fileOutputStream = null;
+        Writer fileWriter;
+
+        String fahrzeugPath = Config.getProperty("fahrzeugJSON");
+        try {
+            fileOutputStream = new FileOutputStream(fahrzeugPath);
+            fileWriter = new BufferedWriter(new OutputStreamWriter(fileOutputStream, StandardCharsets.UTF_8));
+            objectWriter.writeValue(fileWriter, getInstance().getFahrzeugList());
+        } catch (IOException ex) {
+            ex.printStackTrace();
+        }
+    }
+
+
+    /**
+     * deletes a fahrzeug identified by the fahrzeugUUID
+     *
+     * @param fahrzeugUUID the key
+     * @return success=true/false
+     */
+    public boolean deleteFahrzeug(String fahrzeugUUID) {
+        Fahrzeug fahrzeug = getInstance().readFahrzeugByUUID(fahrzeugUUID);
+        if (fahrzeug != null) {
+            getInstance().getFahrzeugList().remove(fahrzeug);
+            writeFahrzeugJSON();
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    /**
      * reads all Haendler
      */
     public List<Kaeufer> readallKaeufer() {
@@ -93,6 +143,57 @@ public class DataHandler {
     }
 
     /**
+     * inserts a new haendler into the heandlerlist
+     *
+     * @param kaeufer the heandler to be saved
+     */
+    public void insertKaeufer(Kaeufer kaeufer) {
+        getKaeuferList().add(kaeufer);
+        writeKaeuferJSON();
+    }
+
+    /**
+     * updates the bookList
+     */
+    public void updateKaeufer() {
+        writeKaeuferJSON();
+    }
+
+    private void writeKaeuferJSON() {
+        ObjectMapper objectMapper = new ObjectMapper();
+        ObjectWriter objectWriter = objectMapper.writer(new DefaultPrettyPrinter());
+        FileOutputStream fileOutputStream = null;
+        Writer fileWriter;
+
+        String kaeuferPath = Config.getProperty("kaeuferJSON");
+        try {
+            fileOutputStream = new FileOutputStream(kaeuferPath);
+            fileWriter = new BufferedWriter(new OutputStreamWriter(fileOutputStream, StandardCharsets.UTF_8));
+            objectWriter.writeValue(fileWriter, getInstance().getKaeuferList());
+        } catch (IOException ex) {
+            ex.printStackTrace();
+        }
+    }
+
+
+    /**
+     * deletes a kaeufer identified by the kaeuferUUID
+     *
+     * @param kaeuferUUID the key
+     * @return success=true/false
+     */
+    public boolean deleteKaeufer(String kaeuferUUID) {
+        Kaeufer kaeufer = getInstance().readKaeuferByUUID(kaeuferUUID);
+        if (kaeufer != null) {
+            getInstance().getKaeuferList().remove(kaeufer);
+            writeKaeuferJSON();
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    /**
      * reads all Haendler
      */
     public List<Merkliste> readallMerkliste() {
@@ -110,6 +211,57 @@ public class DataHandler {
             }
         }
         return merkliste;
+    }
+
+    /**
+     * inserts a new haendler into the heandlerlist
+     *
+     * @param merkliste the heandler to be saved
+     */
+    public void insertMerkliste(Merkliste merkliste) {
+        getMerklisteList().add(merkliste);
+        writeMerklisteJSON();
+    }
+
+    /**
+     * updates the bookList
+     */
+    public void updateMerkliste() {
+        writeMerklisteJSON();
+    }
+
+    private void writeMerklisteJSON() {
+        ObjectMapper objectMapper = new ObjectMapper();
+        ObjectWriter objectWriter = objectMapper.writer(new DefaultPrettyPrinter());
+        FileOutputStream fileOutputStream = null;
+        Writer fileWriter;
+
+        String merklistePath = Config.getProperty("merklistJSON");
+        try {
+            fileOutputStream = new FileOutputStream(merklistePath);
+            fileWriter = new BufferedWriter(new OutputStreamWriter(fileOutputStream, StandardCharsets.UTF_8));
+            objectWriter.writeValue(fileWriter, getInstance().getMerklisteList());
+        } catch (IOException ex) {
+            ex.printStackTrace();
+        }
+    }
+
+
+    /**
+     * deletes a Merkliste identified by the merklisteUUID
+     *
+     * @param merklisteUUID the key
+     * @return success=true/false
+     */
+    public boolean deleteMerkliste(String merklisteUUID) {
+        Merkliste merkliste = getInstance().readMerklisteByUUID(merklisteUUID);
+        if (merkliste != null) {
+            getInstance().getMerklisteList().remove(merkliste);
+            writeMerklisteJSON();
+            return true;
+        } else {
+            return false;
+        }
     }
 
     /**
@@ -169,8 +321,9 @@ public class DataHandler {
 
     /**
      * deletes a book identified by the bookUUID
-     * @param haendlerUUID  the key
-     * @return  success=true/false
+     *
+     * @param haendlerUUID the key
+     * @return success=true/false
      */
     public boolean deleteHaendler(String haendlerUUID) {
         Haendler haendler = getInstance().readHaendlerByUUID(haendlerUUID);
