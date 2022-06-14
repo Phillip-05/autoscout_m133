@@ -1,1 +1,28 @@
-[{"fahrzeugUUID":"a1d0a3b1-c0fa-4a3c-a3d5-5cf0c0fa6080","marke":"Porsche","modell":"911 Sport Classic","preis":338900.0,"baujahr":2022,"hubraum":3700.0,"leistung":550.0,"tuning":false,"mfk":true,"leergewicht":1645.0,"haendlerUUID":"eb37b55e-a2a0-4f0e-9de7-81ce506aab6f"},{"fahrzeugUUID":"143c3cbc-7c1f-41b8-b52c-11f00f9627ab","marke":"Porsche","modell":"911 Sport Classic","preis":300000.0,"baujahr":2012,"hubraum":3700.0,"leistung":550.0,"tuning":false,"mfk":true,"leergewicht":1645.0,"haendlerUUID":"496483fb-c64a-43ee-9b09-c7429777fef6"}]
+[
+  {
+    "fahrzeugUUID": "a1d0a3b1-c0fa-4a3c-a3d5-5cf0c0fa6080",
+    "marke": "Porsche",
+    "modell": "911 Sport Classic",
+    "preis": 338900.0,
+    "baujahr": 2022,
+    "hubraum": 3700.0,
+    "leistung": 550.0,
+    "tuning": false,
+    "mfk": true,
+    "leergewicht": 1645.0,
+    "haendlerUUID": "eb37b55e-a2a0-4f0e-9de7-81ce506aab6f"
+  },
+  {
+    "fahrzeugUUID": "143c3cbc-7c1f-41b8-b52c-11f00f9627ab",
+    "marke": "Porsche",
+    "modell": "911 Sport Classic",
+    "preis": 300000.0,
+    "baujahr": 2012,
+    "hubraum": 3700.0,
+    "leistung": 550.0,
+    "tuning": false,
+    "mfk": true,
+    "leergewicht": 1645.0,
+    "haendlerUUID": "496483fb-c64a-43ee-9b09-c7429777fef6"
+  }
+]

@@ -1,1 +1,18 @@
-[{"beschreibung":"Merkliste 1","fahrzeugUUID":["a1d0a3b1-c0fa-4a3c-a3d5-5cf0c0fa6080","143c3cbc-7c1f-41b8-b52c-11f00f9627ab"],"merklisteUUID":"6f5ed8a4-33f2-424c-afca-8a76cf7a9fac"},{"beschreibung":"Merkliste 2","fahrzeugUUID":["a1d0a3b1-c0fa-4a3c-a3d5-5cf0c0fa6080","143c3cbc-7c1f-41b8-b52c-11f00f9627ab"],"merklisteUUID":"9944014b-073f-431e-a3c3-f7979af8fa52"}]
+[
+  {
+    "beschreibung": "Merkliste 1",
+    "fahrzeugUUID": [
+      "a1d0a3b1-c0fa-4a3c-a3d5-5cf0c0fa6080",
+      "143c3cbc-7c1f-41b8-b52c-11f00f9627ab"
+    ],
+    "merklisteUUID": "6f5ed8a4-33f2-424c-afca-8a76cf7a9fac"
+  },
+  {
+    "beschreibung": "Merkliste 2",
+    "fahrzeugUUID": [
+      "a1d0a3b1-c0fa-4a3c-a3d5-5cf0c0fa6080",
+      "143c3cbc-7c1f-41b8-b52c-11f00f9627ab"
+    ],
+    "merklisteUUID": "9944014b-073f-431e-a3c3-f7979af8fa52"
+  }
+]
