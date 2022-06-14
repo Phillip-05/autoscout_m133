@@ -1,1 +1,12 @@
-[{"jahrgang":2022,"kaeuferUUID":"62c74fbd-d324-4d03-8f1e-577836250da2","merklisteUUID":"4a0139a1-1773-41a9-9de4-3a8fa3d28e54"},{"jahrgang":2022,"kaeuferUUID":"7b1af934-fc46-4da4-b500-bc73b411a51a","merklisteUUID":"ac1db514-4f8a-45a7-902a-d09be120ed3f"}]
+[
+  {
+    "jahrgang": 2022,
+    "kaeuferUUID": "62c74fbd-d324-4d03-8f1e-577836250da2",
+    "merklisteUUID": "4a0139a1-1773-41a9-9de4-3a8fa3d28e54"
+  },
+  {
+    "jahrgang": 2022,
+    "kaeuferUUID": "7b1af934-fc46-4da4-b500-bc73b411a51a",
+    "merklisteUUID": "ac1db514-4f8a-45a7-902a-d09be120ed3f"
+  }
+]

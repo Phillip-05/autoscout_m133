@@ -19,26 +19,26 @@ public class createJSON {
 
 
         Haendler[] haendlers = {
-                new Haendler(UUID.randomUUID().toString(), "franz", "meier", "bachweg"),
-                new Haendler(UUID.randomUUID().toString(), "hans", "mueller", "strasse")
+                new Haendler("d3cbe97e-9c39-4df3-8097-4f4fb45a5e9d", "franz", "meier", "bachweg"),
+                new Haendler("08b6dfc2-004e-4e0b-9c41-a1ba8665aa48", "hans", "mueller", "strasse")
         };
 
         Fahrzeug[] fahrzeuge = {
-                new Fahrzeug(UUID.randomUUID().toString(), "Porsche", "911 Sport Classic", 338900f, 2022, 3700f, haendlers[0], 550f, false, true, 1645f),
-                new Fahrzeug(UUID.randomUUID().toString(), "Porsche", "911 Sport Classic", 300000f, 2012, 3700f, haendlers[1], 550f, false, true, 1645f)
+                new Fahrzeug("e2cfaa52-83e5-4c5c-b32a-abbf03c3c151", "Porsche", "911 Sport Classic", 338900f, 2022, 3700f, haendlers[0], 550f, false, true, 1645f),
+                new Fahrzeug("bc8907ed-298d-4065-befb-84af4886e718", "Porsche", "911 Sport Classic", 300000f, 2012, 3700f, haendlers[1], 550f, false, true, 1645f)
         };
 
         Vector<Fahrzeug> fahrzeugVector = new Vector<>();
         fahrzeugVector.add(fahrzeuge[0]);
         fahrzeugVector.add(fahrzeuge[1]);
         Merkliste[] merklistes = {
-                new Merkliste(UUID.randomUUID().toString(),fahrzeugVector, "Merkliste 1"),
-                new Merkliste(UUID.randomUUID().toString(),fahrzeugVector, "Merkliste 2")
+                new Merkliste("4a0139a1-1773-41a9-9de4-3a8fa3d28e54",fahrzeugVector, "Merkliste 1"),
+                new Merkliste("ac1db514-4f8a-45a7-902a-d09be120ed3f",fahrzeugVector, "Merkliste 2")
         };
 
         Kaeufer[] kaeufers = {
-                new Kaeufer(UUID.randomUUID().toString(), 2022, merklistes[0]),
-                new Kaeufer(UUID.randomUUID().toString(), 2022, merklistes[1])
+                new Kaeufer("62c74fbd-d324-4d03-8f1e-577836250da2", 2022, merklistes[0]),
+                new Kaeufer("7b1af934-fc46-4da4-b500-bc73b411a51a", 2022, merklistes[1])
         };
 
         ObjectMapper om = new ObjectMapper();
