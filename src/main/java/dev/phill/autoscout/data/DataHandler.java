@@ -4,10 +4,10 @@ package dev.phill.autoscout.data;
 import com.fasterxml.jackson.core.util.DefaultPrettyPrinter;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.ObjectWriter;
-import dev.phill.autoscout.model.Fahrzeug;
-import dev.phill.autoscout.model.Haendler;
-import dev.phill.autoscout.model.Kaeufer;
-import dev.phill.autoscout.model.Merkliste;
+import dev.phill.autoscout.model.Buyer;
+import dev.phill.autoscout.model.Dealer;
+import dev.phill.autoscout.model.Vehicle;
+import dev.phill.autoscout.model.Watchlist;
 import dev.phill.autoscout.service.Config;
 
 import java.io.*;
@@ -22,23 +22,23 @@ import java.util.List;
  */
 public class DataHandler {
     private static DataHandler instance = null;
-    private List<Fahrzeug> fahrzeugList;
-    private List<Haendler> haendlerList;
-    private List<Kaeufer> kaeuferList;
-    private List<Merkliste> merklisteList;
+    private List<Vehicle> vehicleList;
+    private List<Dealer> dealerList;
+    private List<Buyer> buyerList;
+    private List<Watchlist> watchlistList;
 
     /**
      * private constructor defeats instantiation
      */
     private DataHandler() {
-        setHaendlerList(new ArrayList<>());
-        readHaendlerJSON();
-        setFahrzeugList(new ArrayList<>());
-        readFahrzeugJSON();
-        setKaeuferList(new ArrayList<>());
-        readKaeuferJSON();
-        setMerklisteList(new ArrayList<>());
-        readMerklisteJSON();
+        setDealerList(new ArrayList<>());
+        readDealerJSON();
+        setVehicleList(new ArrayList<>());
+        readVehicleJSON();
+        setBuyerList(new ArrayList<>());
+        readBuyerJSON();
+        setWatchlistList(new ArrayList<>());
+        readWatchlistJSON();
     }
 
     /**
@@ -51,53 +51,53 @@ public class DataHandler {
     }
 
     /**
-     * reads all Fahrzeuge
+     * reads all Vehicle
      */
-    public List<Fahrzeug> readallFahrzeuge() {
-        return getFahrzeugList();
+    public List<Vehicle> readallVehicle() {
+        return getVehicleList();
     }
 
     /**
-     * reads a Fahrzeug by its uuid
+     * reads a Vehicle by its uuid
      */
-    public Fahrzeug readFahrzeugByUUID(String fahrzeugUUID) {
-        Fahrzeug fahrzeug = null;
-        for (Fahrzeug entry : getFahrzeugList()) {
-            if (entry.getFahrzeugUUID().equals(fahrzeugUUID)) {
-                fahrzeug = entry;
+    public Vehicle readVehicleByUUID(String vehicleUUID) {
+        Vehicle vehicle = null;
+        for (Vehicle entry : getVehicleList()) {
+            if (entry.getVehicleUUID().equals(vehicleUUID)) {
+                vehicle = entry;
             }
         }
-        return fahrzeug;
+        return vehicle;
     }
 
     /**
-     * inserts a new fahrzeug into the fahrzeuglist
+     * inserts a new Vehicle into the Vehiclelist
      *
-     * @param fahrzeug the fahrzeug to be saved
+     * @param vehicle the vehicle to be saved
      */
-    public void insertFahrzeug(Fahrzeug fahrzeug) {
-        getFahrzeugList().add(fahrzeug);
-        writeFahrzeugJSON();
+    public void insertVehicle(Vehicle vehicle) {
+        getVehicleList().add(vehicle);
+        writeVehicleJSON();
     }
 
     /**
      * updates the bookList
      */
-    public void updateFahrzeug() {
-        writeFahrzeugJSON();
+    public void updateVehicle() {
+        writeVehicleJSON();
     }
 
-    private void writeFahrzeugJSON() {
+    private void writeVehicleJSON() {
         ObjectMapper objectMapper = new ObjectMapper();
         ObjectWriter objectWriter = objectMapper.writer(new DefaultPrettyPrinter());
         FileOutputStream fileOutputStream = null;
         Writer fileWriter;
 
-        String fahrzeugPath = Config.getProperty("fahrzeugJSON");
+        String vehiclePath = Config.getProperty("vehicleJSON");
         try {
-            fileOutputStream = new FileOutputStream(fahrzeugPath);
+            fileOutputStream = new FileOutputStream(vehiclePath);
             fileWriter = new BufferedWriter(new OutputStreamWriter(fileOutputStream, StandardCharsets.UTF_8));
-            objectWriter.writeValue(fileWriter, getInstance().getFahrzeugList());
+            objectWriter.writeValue(fileWriter, getInstance().getVehicleList());
         } catch (IOException ex) {
             ex.printStackTrace();
         }
@@ -105,16 +105,16 @@ public class DataHandler {
 
 
     /**
-     * deletes a fahrzeug identified by the fahrzeugUUID
+     * deletes a Vehicle identified by the VehicleUUID
      *
-     * @param fahrzeugUUID the key
+     * @param vehicleUUID the key
      * @return success=true/false
      */
-    public boolean deleteFahrzeug(String fahrzeugUUID) {
-        Fahrzeug fahrzeug = getInstance().readFahrzeugByUUID(fahrzeugUUID);
-        if (fahrzeug != null) {
-            getInstance().getFahrzeugList().remove(fahrzeug);
-            writeFahrzeugJSON();
+    public boolean deleteVehicle(String vehicleUUID) {
+        Vehicle vehicle = getInstance().readVehicleByUUID(vehicleUUID);
+        if (vehicle != null) {
+            getInstance().getVehicleList().remove(vehicle);
+            writeVehicleJSON();
             return true;
         } else {
             return false;
@@ -122,54 +122,54 @@ public class DataHandler {
     }
 
     /**
-     * reads all Haendler
+     * reads all Dealer
      */
-    public List<Kaeufer> readallKaeufer() {
-        return getKaeuferList();
+    public List<Buyer> readallBuyer() {
+        return getBuyerList();
     }
 
 
     /**
-     * reads a Kaeufer by its uuid
+     * reads a Buyer by its uuid
      */
-    public Kaeufer readKaeuferByUUID(String kaeuferUUID) {
-        Kaeufer kaeufer = null;
-        for (Kaeufer entry : getKaeuferList()) {
-            if (entry.getKaeuferUUID().equals(kaeuferUUID)) {
-                kaeufer = entry;
+    public Buyer readBuyerByUUID(String buyerUUID) {
+        Buyer buyer = null;
+        for (Buyer entry : getBuyerList()) {
+            if (entry.getBuyerUUID().equals(buyerUUID)) {
+                buyer = entry;
             }
         }
-        return kaeufer;
+        return buyer;
     }
 
     /**
-     * inserts a new haendler into the heandlerlist
+     * inserts a new dealer into the heandlerlist
      *
-     * @param kaeufer the heandler to be saved
+     * @param buyer the dealer to be saved
      */
-    public void insertKaeufer(Kaeufer kaeufer) {
-        getKaeuferList().add(kaeufer);
-        writeKaeuferJSON();
+    public void insertBuyer(Buyer buyer) {
+        getBuyerList().add(buyer);
+        writeBuyerJSON();
     }
 
     /**
      * updates the bookList
      */
-    public void updateKaeufer() {
-        writeKaeuferJSON();
+    public void updateBuyer() {
+        writeBuyerJSON();
     }
 
-    private void writeKaeuferJSON() {
+    private void writeBuyerJSON() {
         ObjectMapper objectMapper = new ObjectMapper();
         ObjectWriter objectWriter = objectMapper.writer(new DefaultPrettyPrinter());
         FileOutputStream fileOutputStream = null;
         Writer fileWriter;
 
-        String kaeuferPath = Config.getProperty("kaeuferJSON");
+        String buyerPath = Config.getProperty("buyerJSON");
         try {
-            fileOutputStream = new FileOutputStream(kaeuferPath);
+            fileOutputStream = new FileOutputStream(buyerPath);
             fileWriter = new BufferedWriter(new OutputStreamWriter(fileOutputStream, StandardCharsets.UTF_8));
-            objectWriter.writeValue(fileWriter, getInstance().getKaeuferList());
+            objectWriter.writeValue(fileWriter, getInstance().getBuyerList());
         } catch (IOException ex) {
             ex.printStackTrace();
         }
@@ -177,16 +177,16 @@ public class DataHandler {
 
 
     /**
-     * deletes a kaeufer identified by the kaeuferUUID
+     * deletes a Buyer identified by the buyerUUID
      *
-     * @param kaeuferUUID the key
+     * @param buyerUUID the key
      * @return success=true/false
      */
-    public boolean deleteKaeufer(String kaeuferUUID) {
-        Kaeufer kaeufer = getInstance().readKaeuferByUUID(kaeuferUUID);
-        if (kaeufer != null) {
-            getInstance().getKaeuferList().remove(kaeufer);
-            writeKaeuferJSON();
+    public boolean deleteBuyer(String buyerUUID) {
+        Buyer buyer = getInstance().readBuyerByUUID(buyerUUID);
+        if (buyer != null) {
+            getInstance().getBuyerList().remove(buyer);
+            writeBuyerJSON();
             return true;
         } else {
             return false;
@@ -194,53 +194,53 @@ public class DataHandler {
     }
 
     /**
-     * reads all Haendler
+     * reads all dealer
      */
-    public List<Merkliste> readallMerkliste() {
-        return getMerklisteList();
+    public List<Watchlist> readallWatchlist() {
+        return getWatchlistList();
     }
 
     /**
-     * reads a Merkliste by its uuid
+     * reads a Watchlist by its uuid
      */
-    public Merkliste readMerklisteByUUID(String merklisteUUID) {
-        Merkliste merkliste = null;
-        for (Merkliste entry : getMerklisteList()) {
-            if (entry.getMerklisteUUID().equals(merklisteUUID)) {
-                merkliste = entry;
+    public Watchlist readWatchlistByUUID(String watchlistUUID) {
+        Watchlist watchlist = null;
+        for (Watchlist entry : getWatchlistList()) {
+            if (entry.getWatchlistUUID().equals(watchlistUUID)) {
+                watchlist = entry;
             }
         }
-        return merkliste;
+        return watchlist;
     }
 
     /**
-     * inserts a new haendler into the heandlerlist
+     * inserts a new dealer into the heandlerlist
      *
-     * @param merkliste the heandler to be saved
+     * @param watchlist the heandler to be saved
      */
-    public void insertMerkliste(Merkliste merkliste) {
-        getMerklisteList().add(merkliste);
-        writeMerklisteJSON();
+    public void insertWatchlist(Watchlist watchlist) {
+        getWatchlistList().add(watchlist);
+        writeWatchlistJSON();
     }
 
     /**
      * updates the bookList
      */
-    public void updateMerkliste() {
-        writeMerklisteJSON();
+    public void updateWatchlist() {
+        writeWatchlistJSON();
     }
 
-    private void writeMerklisteJSON() {
+    private void writeWatchlistJSON() {
         ObjectMapper objectMapper = new ObjectMapper();
         ObjectWriter objectWriter = objectMapper.writer(new DefaultPrettyPrinter());
         FileOutputStream fileOutputStream = null;
         Writer fileWriter;
 
-        String merklistePath = Config.getProperty("merklistJSON");
+        String watchlistPath = Config.getProperty("watchlistJSON");
         try {
-            fileOutputStream = new FileOutputStream(merklistePath);
+            fileOutputStream = new FileOutputStream(watchlistPath);
             fileWriter = new BufferedWriter(new OutputStreamWriter(fileOutputStream, StandardCharsets.UTF_8));
-            objectWriter.writeValue(fileWriter, getInstance().getMerklisteList());
+            objectWriter.writeValue(fileWriter, getInstance().getWatchlistList());
         } catch (IOException ex) {
             ex.printStackTrace();
         }
@@ -248,16 +248,16 @@ public class DataHandler {
 
 
     /**
-     * deletes a Merkliste identified by the merklisteUUID
+     * deletes a Watchlist identified by the WatchlistUUID
      *
-     * @param merklisteUUID the key
+     * @param watchlistUUID the key
      * @return success=true/false
      */
-    public boolean deleteMerkliste(String merklisteUUID) {
-        Merkliste merkliste = getInstance().readMerklisteByUUID(merklisteUUID);
-        if (merkliste != null) {
-            getInstance().getMerklisteList().remove(merkliste);
-            writeMerklisteJSON();
+    public boolean deleteWatchlist(String watchlistUUID) {
+        Watchlist watchlist = getInstance().readWatchlistByUUID(watchlistUUID);
+        if (watchlist != null) {
+            getInstance().getWatchlistList().remove(watchlist);
+            writeWatchlistJSON();
             return true;
         } else {
             return false;
@@ -265,54 +265,54 @@ public class DataHandler {
     }
 
     /**
-     * reads all Haendler
+     * reads all dealer
      */
-    public List<Haendler> readAllHaendlers() {
+    public List<Dealer> readAllDealers() {
 
-        return getHaendlerList();
+        return getDealerList();
     }
 
     /**
-     * reads a Haendler by its uuid
+     * reads a Dealer by its uuid
      */
-    public Haendler readHaendlerByUUID(String haendlerUUID) {
-        Haendler haendler = null;
-        for (Haendler entry : getHaendlerList()) {
-            if (entry.getHaendlerUUID().equals(haendlerUUID)) {
-                haendler = entry;
+    public Dealer readDealerByUUID(String dealerUUID) {
+        Dealer dealer = null;
+        for (Dealer entry : getDealerList()) {
+            if (entry.getDealerUUID().equals(dealerUUID)) {
+                dealer = entry;
             }
         }
-        return haendler;
+        return dealer;
     }
 
     /**
-     * inserts a new haendler into the heandlerlist
+     * inserts a new dealer into the heandlerlist
      *
-     * @param heandler the heandler to be saved
+     * @param dealer the heandler to be saved
      */
-    public void insertHaendler(Haendler heandler) {
-        getHaendlerList().add(heandler);
-        writeHaendlerJSON();
+    public void insertDealer(Dealer dealer) {
+        getDealerList().add(dealer);
+        writeDealerJSON();
     }
 
     /**
      * updates the bookList
      */
-    public void updateHaendler() {
-        writeHaendlerJSON();
+    public void updateDealer() {
+        writeDealerJSON();
     }
 
-    private void writeHaendlerJSON() {
+    private void writeDealerJSON() {
         ObjectMapper objectMapper = new ObjectMapper();
         ObjectWriter objectWriter = objectMapper.writer(new DefaultPrettyPrinter());
         FileOutputStream fileOutputStream = null;
         Writer fileWriter;
 
-        String haendlerPath = Config.getProperty("haendlerJSON");
+        String dealerPath = Config.getProperty("dealerJSON");
         try {
-            fileOutputStream = new FileOutputStream(haendlerPath);
+            fileOutputStream = new FileOutputStream(dealerPath);
             fileWriter = new BufferedWriter(new OutputStreamWriter(fileOutputStream, StandardCharsets.UTF_8));
-            objectWriter.writeValue(fileWriter, getInstance().getHaendlerList());
+            objectWriter.writeValue(fileWriter, getInstance().getDealerList());
         } catch (IOException ex) {
             ex.printStackTrace();
         }
@@ -322,14 +322,14 @@ public class DataHandler {
     /**
      * deletes a book identified by the bookUUID
      *
-     * @param haendlerUUID the key
+     * @param dealerUUID the key
      * @return success=true/false
      */
-    public boolean deleteHaendler(String haendlerUUID) {
-        Haendler haendler = getInstance().readHaendlerByUUID(haendlerUUID);
-        if (haendler != null) {
-            getInstance().getHaendlerList().remove(haendler);
-            writeHaendlerJSON();
+    public boolean deleteDealer(String dealerUUID) {
+        Dealer dealer = getInstance().readDealerByUUID(dealerUUID);
+        if (dealer != null) {
+            getInstance().getDealerList().remove(dealer);
+            writeDealerJSON();
             return true;
         } else {
             return false;
@@ -337,18 +337,18 @@ public class DataHandler {
     }
 
     /**
-     * gets the fahrzeuge von JSON
+     * gets the Vehicle von JSON
      */
-    private void readFahrzeugJSON() {
+    private void readVehicleJSON() {
         try {
-            String path = Config.getProperty("fahrzeugJSON");
+            String path = Config.getProperty("vehicleJSON");
             byte[] jsonData = Files.readAllBytes(
                     Paths.get(path)
             );
             ObjectMapper objectMapper = new ObjectMapper();
-            Fahrzeug[] fahrzeuge = objectMapper.readValue(jsonData, Fahrzeug[].class);
-            for (Fahrzeug fahrzeug : fahrzeuge) {
-                getFahrzeugList().add(fahrzeug);
+            Vehicle[] vehicles = objectMapper.readValue(jsonData, Vehicle[].class);
+            for (Vehicle vehicle : vehicles) {
+                getVehicleList().add(vehicle);
             }
         } catch (IOException ex) {
             ex.printStackTrace();
@@ -356,18 +356,18 @@ public class DataHandler {
     }
 
     /**
-     * gets the haendler von JSON
+     * gets the healer von JSON
      */
-    private void readKaeuferJSON() {
+    private void readBuyerJSON() {
         try {
-            String path = Config.getProperty("kaeuferJSON");
+            String path = Config.getProperty("buyerJSON");
             byte[] jsonData = Files.readAllBytes(
                     Paths.get(path)
             );
             ObjectMapper objectMapper = new ObjectMapper();
-            Kaeufer[] kaeufers = objectMapper.readValue(jsonData, Kaeufer[].class);
-            for (Kaeufer kaeufer : kaeufers) {
-                getKaeuferList().add(kaeufer);
+            Buyer[] buyers = objectMapper.readValue(jsonData, Buyer[].class);
+            for (Buyer buyer : buyers) {
+                getBuyerList().add(buyer);
             }
         } catch (IOException ex) {
             ex.printStackTrace();
@@ -375,18 +375,18 @@ public class DataHandler {
     }
 
     /**
-     * gets the haendler von JSON
+     * gets the dealer von JSON
      */
-    private void readMerklisteJSON() {
+    private void readWatchlistJSON() {
         try {
-            String path = Config.getProperty("merklistJSON");
+            String path = Config.getProperty("watchlistJSON");
             byte[] jsonData = Files.readAllBytes(
                     Paths.get(path)
             );
             ObjectMapper objectMapper = new ObjectMapper();
-            Merkliste[] merklistes = objectMapper.readValue(jsonData, Merkliste[].class);
-            for (Merkliste merkliste : merklistes) {
-                getMerklisteList().add(merkliste);
+            Watchlist[] watchlists = objectMapper.readValue(jsonData, Watchlist[].class);
+            for (Watchlist watchlist : watchlists) {
+                getWatchlistList().add(watchlist);
             }
         } catch (IOException ex) {
             ex.printStackTrace();
@@ -394,19 +394,19 @@ public class DataHandler {
     }
 
     /**
-     * gets the haendler von JSON
+     * gets the dealer von JSON
      */
-    private void readHaendlerJSON() {
+    private void readDealerJSON() {
         try {
             byte[] jsonData = Files.readAllBytes(
                     Paths.get(
-                            Config.getProperty("haendlerJSON")
+                            Config.getProperty("dealerJSON")
                     )
             );
             ObjectMapper objectMapper = new ObjectMapper();
-            Haendler[] haendlers = objectMapper.readValue(jsonData, Haendler[].class);
-            for (Haendler haendler : haendlers) {
-                getHaendlerList().add(haendler);
+            Dealer[] dealers = objectMapper.readValue(jsonData, Dealer[].class);
+            for (Dealer dealer : dealers) {
+                getDealerList().add(dealer);
             }
         } catch (IOException ex) {
             ex.printStackTrace();
@@ -414,59 +414,59 @@ public class DataHandler {
     }
 
     /**
-     * gets all fahrzeuge
+     * gets all Vehicle
      */
-    private List<Fahrzeug> getFahrzeugList() {
-        return fahrzeugList;
+    private List<Vehicle> getVehicleList() {
+        return vehicleList;
     }
 
     /**
-     * sets all fahrzeuge
+     * sets all Vehicle
      */
-    private void setFahrzeugList(List<Fahrzeug> fahrzeugList) {
-        this.fahrzeugList = fahrzeugList;
+    private void setVehicleList(List<Vehicle> vehicleList) {
+        this.vehicleList = vehicleList;
     }
 
     /**
-     * gets kaeufer list
+     * gets Buyer list
      */
-    private List<Kaeufer> getKaeuferList() {
-        return kaeuferList;
+    private List<Buyer> getBuyerList() {
+        return buyerList;
     }
 
     /**
-     * sets kaeufer list
+     * sets buyer list
      */
-    private void setKaeuferList(List<Kaeufer> kaeuferList) {
-        this.kaeuferList = kaeuferList;
+    private void setBuyerList(List<Buyer> buyerList) {
+        this.buyerList = buyerList;
     }
 
     /**
-     * gets merkliste list
+     * gets Watchlist list
      */
-    private List<Merkliste> getMerklisteList() {
-        return merklisteList;
+    private List<Watchlist> getWatchlistList() {
+        return watchlistList;
     }
 
     /**
-     * sets merkliste list
+     * sets Watchlist list
      */
-    private void setMerklisteList(List<Merkliste> merklisteList) {
-        this.merklisteList = merklisteList;
+    private void setWatchlistList(List<Watchlist> watchlistList) {
+        this.watchlistList = watchlistList;
     }
 
     /**
-     * gets haendler list
+     * gets Dealer list
      */
-    private List<Haendler> getHaendlerList() {
-        return haendlerList;
+    private List<Dealer> getDealerList() {
+        return dealerList;
     }
 
     /**
-     * sets haendler list
+     * sets Dealer list
      */
-    private void setHaendlerList(List<Haendler> haendlerList) {
-        this.haendlerList = haendlerList;
+    private void setDealerList(List<Dealer> dealerList) {
+        this.dealerList = dealerList;
     }
 
 

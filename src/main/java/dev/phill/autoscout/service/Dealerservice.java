@@ -4,10 +4,7 @@ package dev.phill.autoscout.service;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import dev.phill.autoscout.data.DataHandler;
-import dev.phill.autoscout.model.Fahrzeug;
-import dev.phill.autoscout.model.Haendler;
-import jakarta.validation.Valid;
-import jakarta.validation.constraints.PastOrPresent;
+import dev.phill.autoscout.model.Dealer;
 import jakarta.ws.rs.*;
 import jakarta.ws.rs.core.MediaType;
 import jakarta.ws.rs.core.Response;
@@ -18,18 +15,18 @@ import java.util.UUID;
 /**
  * test service
  */
-@Path("haendler")
-public class Haendlerservice {
+@Path("dealer")
+public class Dealerservice {
 
     @GET
     @Path("list")
     @Produces(MediaType.APPLICATION_JSON)
-    public Response listHaendlers() {
-        List<Haendler> haendlerList = DataHandler.getInstance().readAllHaendlers();
+    public Response listDealer() {
+        List<Dealer> dealerList = DataHandler.getInstance().readAllDealers();
         try {
             return Response
                     .status(200)
-                    .entity(new ObjectMapper().writeValueAsString(haendlerList))
+                    .entity(new ObjectMapper().writeValueAsString(dealerList))
                     .build();
         } catch (JsonProcessingException e) {
             return Response
@@ -43,11 +40,11 @@ public class Haendlerservice {
     @Path("read/{uuid}")
     @Produces(MediaType.APPLICATION_JSON)
     public Response readhHaendler(
-            @PathParam("uuid") String haendlerUUID
+            @PathParam("uuid") String dealerUUID
 
     ){
-        Haendler haendler = DataHandler.getInstance().readHaendlerByUUID(haendlerUUID);
-        if (haendler == null) {
+        Dealer dealer = DataHandler.getInstance().readDealerByUUID(dealerUUID);
+        if (dealer == null) {
             return Response
                     .status(404)
                     .entity("Haendler nicht gefunden")
@@ -55,7 +52,7 @@ public class Haendlerservice {
         }
         return Response
                 .status(200)
-                .entity(haendler)
+                .entity(dealer)
                 .build();
     }
 
@@ -67,11 +64,11 @@ public class Haendlerservice {
     @Path("delete/{uuid}")
     @Produces(MediaType.TEXT_PLAIN)
     public Response deleteHaendler(
-            @PathParam("uuid") String haendlerUUID
+            @PathParam("uuid") String dealerUUID
     ) {
         int httpStatus = 200;
 
-        if(!DataHandler.getInstance().deleteHaendler(haendlerUUID)){
+        if(!DataHandler.getInstance().deleteDealer(dealerUUID)){
             httpStatus = 404;
         }
 
@@ -94,8 +91,8 @@ public class Haendlerservice {
         System.out.println(nachname);
         System.out.println(strasse);
         try {
-            Haendler haendler = new Haendler(UUID.randomUUID().toString(), vorname, strasse, nachname);
-            DataHandler.getInstance().insertHaendler(haendler);
+            Dealer dealer = new Dealer(UUID.randomUUID().toString(), vorname, strasse, nachname);
+            DataHandler.getInstance().insertDealer(dealer);
         } catch (Exception e) {
             httpStatus = 500;
 
@@ -115,18 +112,18 @@ public class Haendlerservice {
             @FormParam("vorname") String vorname,
             @FormParam("strasse") String strasse,
             @FormParam("nachname") String nachname,
-            @FormParam("haendlerUUID") String haendlerUUID
+            @FormParam("haendlerUUID") String dealerUUID
     ) {
         int httpStatus = 200;
 
         try {
-            Haendler haendler = DataHandler.getInstance().readHaendlerByUUID(haendlerUUID);
+            Dealer dealer = DataHandler.getInstance().readDealerByUUID(dealerUUID);
 
-            haendler.setNachname(nachname);
-            haendler.setVorname(vorname);
-            haendler.setStrasse(strasse);
+            dealer.setNachname(nachname);
+            dealer.setVorname(vorname);
+            dealer.setStrasse(strasse);
 
-            DataHandler.getInstance().updateHaendler();
+            DataHandler.getInstance().updateDealer();
         } catch (Exception e) {
             httpStatus = 500;
 

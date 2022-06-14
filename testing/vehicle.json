@@ -1,6 +1,6 @@
 [
   {
-    "fahrzeugUUID": "e2cfaa52-83e5-4c5c-b32a-abbf03c3c151",
+    "vehicleUUID": "e2cfaa52-83e5-4c5c-b32a-abbf03c3c151",
     "marke": "Porsche",
     "modell": "911 Sport Classic",
     "preis": 338900.0,
@@ -10,10 +10,10 @@
     "tuning": false,
     "mfk": true,
     "leergewicht": 1645.0,
-    "haendlerUUID": "d3cbe97e-9c39-4df3-8097-4f4fb45a5e9d"
+    "dealerUUID": "d3cbe97e-9c39-4df3-8097-4f4fb45a5e9d"
   },
   {
-    "fahrzeugUUID": "bc8907ed-298d-4065-befb-84af4886e718",
+    "vehicleUUID": "bc8907ed-298d-4065-befb-84af4886e718",
     "marke": "Porsche",
     "modell": "911 Sport Classic",
     "preis": 300000.0,
@@ -23,6 +23,6 @@
     "tuning": false,
     "mfk": true,
     "leergewicht": 1645.0,
-    "haendlerUUID": "08b6dfc2-004e-4e0b-9c41-a1ba8665aa48"
+    "dealerUUID": "08b6dfc2-004e-4e0b-9c41-a1ba8665aa48"
   }
 ]

@@ -8,23 +8,24 @@ import lombok.Setter;
 @Getter
 @Setter
 @NoArgsConstructor
-public class Haendler {
+public class Dealer {
 
-    private String haendlerUUID;
+    private String dealerUUID;
     private String vorname;
     private String nachname;
     private String strasse;
 
     /**
      * heandler constructor
-     * @param: haendlerUUID
+     * @param: dealerUUID
      * @param: vorname
      * @param: nachname
      * @param: strasse
      *
      */
-    public Haendler(String haendlerUUID, String vorname, String nachname, String strasse) {
-        this.haendlerUUID = haendlerUUID;
+
+    public Dealer(String dealerUUID, String vorname, String nachname, String strasse) {
+        this.dealerUUID = dealerUUID;
         this.vorname = vorname;
         this.nachname = nachname;
         this.strasse = strasse;
