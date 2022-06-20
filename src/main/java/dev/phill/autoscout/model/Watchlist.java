@@ -2,9 +2,15 @@ package dev.phill.autoscout.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import dev.phill.autoscout.data.DataHandler;
+import jakarta.validation.constraints.NotEmpty;
+import jakarta.validation.constraints.NotNull;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+
+import javax.ws.rs.FormParam;
+import java.math.BigDecimal;
+import java.time.LocalDate;
 
 import java.util.Vector;
 
@@ -12,9 +18,18 @@ import java.util.Vector;
 @Setter
 @NoArgsConstructor
 public class Watchlist {
+
+    @FormParam("WatchlistUUID")
+    @NotEmpty
+    @NotNull
     private String WatchlistUUID;
+
     @JsonIgnore
     private Vector<Vehicle> vehiclelist;
+
+    @FormParam("beschreibung")
+    @NotEmpty
+    @NotNull
     private String beschreibung;
 
     /**

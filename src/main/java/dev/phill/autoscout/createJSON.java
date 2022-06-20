@@ -23,8 +23,8 @@ public class createJSON {
         };
 
         Vehicle[] fahrzeuge = {
-                new Vehicle("e2cfaa52-83e5-4c5c-b32a-abbf03c3c151", "Porsche", "911 Sport Classic", 338900f, 2022, 3700f, dealers[0], 550f, false, true, 1645f),
-                new Vehicle("bc8907ed-298d-4065-befb-84af4886e718", "Porsche", "911 Sport Classic", 300000f, 2012, 3700f, dealers[1], 550f, false, true, 1645f)
+                new Vehicle("e2cfaa52-83e5-4c5c-b32a-abbf03c3c151", "Porsche", "911 Sport Classic", 338900f, 2022, 3700f, dealers[0], 550f, false, true, 1645f,"333"),
+                new Vehicle("bc8907ed-298d-4065-befb-84af4886e718", "Porsche", "911 Sport Classic", 300000f, 2012, 3700f, dealers[1], 550f, false, true, 1645f,"444")
         };
 
         Vector<Vehicle> vehicleVector = new Vector<>();

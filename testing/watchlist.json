@@ -1,5 +1,1 @@
-[ {
-  "beschreibung" : "UPDATEDLIST",
-  "vehicleUUID" : [ "e2cfaa52-83e5-4c5c-b32a-abbf03c3c151", "bc8907ed-298d-4065-befb-84af4886e718" ],
-  "watchlistUUID" : "4a0139a1-1773-41a9-9de4-3a8fa3d28e54"
-} ]
+[{"beschreibung":"Merkliste 1","vehicleUUID":["e2cfaa52-83e5-4c5c-b32a-abbf03c3c151","bc8907ed-298d-4065-befb-84af4886e718"],"watchlistUUID":"4a0139a1-1773-41a9-9de4-3a8fa3d28e54"},{"beschreibung":"Merkliste 2","vehicleUUID":["e2cfaa52-83e5-4c5c-b32a-abbf03c3c151","bc8907ed-298d-4065-befb-84af4886e718"],"watchlistUUID":"ac1db514-4f8a-45a7-902a-d09be120ed3f"}]

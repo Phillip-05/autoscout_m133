@@ -2,62 +2,47 @@ package dev.phill.autoscout.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import dev.phill.autoscout.data.DataHandler;
+
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import javax.validation.constraints.*;
+import javax.ws.rs.FormParam;
+import java.math.BigDecimal;
+import java.time.LocalDate;
 
 
 @Getter
 @Setter
 @NoArgsConstructor
-//@AllArgsConstructor
 public class Vehicle {
 
     private String vehicleUUID;
 
-//    @FormParam("marke")
-//    @NotEmpty
     private String marke;
 
-//    @FormParam("modell")
-//    @NotEmpty
     private String modell;
 
-//    @FormParam("preis")
-//    @Size(min = 0)
-//    @NotEmpty
     private Float preis;
 
     @JsonIgnore
     private Dealer dealer;
 
-//    @FormParam("baujahr")
-//    @Size(min = 1900)
-//    @NotEmpty
     private Integer baujahr;
 
-//    @FormParam("hubraum")
-//    @Size(min = 0)
-//    @NotEmpty
     private Float hubraum;
 
-//    @FormParam("leistung")
-//    @Size(min = 0)
-//    @NotEmpty
     private Float leistung;
 
-//    @FormParam("tuning")
-//    @NotEmpty
     private Boolean tuning;
 
-//    @FormParam("mfk")
-//    @NotEmpty
     private Boolean mfk;
 
-//    @FormParam("leergewicht")
-//    @Size(min = 0)
-//    @NotEmpty
     private Float leergewicht;
+
+    private String kennzeichen;
+
+
 
     /**
      * constructor for a new Fahrzeug
@@ -74,7 +59,7 @@ public class Vehicle {
      * @param: leergewicht
      *
      */
-    public Vehicle(String vehicleUUID, String marke, String modell, Float preis, Integer baujahr, Float hubraum, Dealer heandler, Float leistung, Boolean tuning, Boolean mfk, Float leergewicht) {
+    public Vehicle(String vehicleUUID, String marke, String modell, Float preis, Integer baujahr, Float hubraum, Dealer heandler, Float leistung, Boolean tuning, Boolean mfk, Float leergewicht,String kennzeichen) {
         this.vehicleUUID = vehicleUUID;
         this.marke = marke;
         this.modell = modell;
@@ -86,6 +71,7 @@ public class Vehicle {
         this.tuning = tuning;
         this.mfk = mfk;
         this.leergewicht = leergewicht;
+        this.kennzeichen = kennzeichen;
     }
 
     /**

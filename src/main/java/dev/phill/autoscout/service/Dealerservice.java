@@ -5,10 +5,13 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import dev.phill.autoscout.data.DataHandler;
 import dev.phill.autoscout.model.Dealer;
+import jakarta.validation.Valid;
+import jakarta.validation.constraints.NotEmpty;
 import jakarta.ws.rs.*;
 import jakarta.ws.rs.core.MediaType;
 import jakarta.ws.rs.core.Response;
 
+import javax.validation.constraints.NotNull;
 import java.util.List;
 import java.util.UUID;
 
@@ -40,6 +43,8 @@ public class Dealerservice {
     @Path("read/{uuid}")
     @Produces(MediaType.APPLICATION_JSON)
     public Response readhHaendler(
+            @NotNull
+            @NotEmpty
             @PathParam("uuid") String dealerUUID
 
     ){
@@ -64,6 +69,8 @@ public class Dealerservice {
     @Path("delete/{uuid}")
     @Produces(MediaType.TEXT_PLAIN)
     public Response deleteHaendler(
+            @NotNull
+            @NotEmpty
             @PathParam("uuid") String dealerUUID
     ) {
         int httpStatus = 200;
@@ -82,16 +89,27 @@ public class Dealerservice {
     @Path("insert")
     @Produces(MediaType.TEXT_PLAIN)
     public Response insertHaendler(
+
+            @NotNull
+            @NotEmpty
             @FormParam("vorname") String vorname,
+
+            @NotNull
+            @NotEmpty
             @FormParam("strasse") String strasse,
+
+            @NotNull
+            @NotEmpty
             @FormParam("nachname") String nachname
             ) {
         int httpStatus = 200;
-        System.out.println(vorname);
-        System.out.println(nachname);
-        System.out.println(strasse);
+
         try {
             Dealer dealer = new Dealer(UUID.randomUUID().toString(), vorname, strasse, nachname);
+
+            dealer.setVorname(vorname);
+            dealer.setNachname(nachname);
+            dealer.setStrasse(strasse);
             DataHandler.getInstance().insertDealer(dealer);
         } catch (Exception e) {
             httpStatus = 500;
@@ -108,11 +126,21 @@ public class Dealerservice {
     @Path("update")
     @Produces(MediaType.TEXT_PLAIN)
     public Response updateHaendler(
-
+            @NotNull
+            @NotEmpty
             @FormParam("vorname") String vorname,
+
+            @NotNull
+            @NotEmpty
             @FormParam("strasse") String strasse,
+
+            @NotNull
+            @NotEmpty
             @FormParam("nachname") String nachname,
-            @FormParam("haendlerUUID") String dealerUUID
+
+            @NotNull
+            @NotEmpty
+            @FormParam("dealerUUID") String dealerUUID
     ) {
         int httpStatus = 200;
 

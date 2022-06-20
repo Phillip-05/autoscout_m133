@@ -2,17 +2,32 @@ package dev.phill.autoscout.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import dev.phill.autoscout.data.DataHandler;
+import jakarta.validation.constraints.NotEmpty;
+import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Size;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-
+import javax.ws.rs.FormParam;
+import java.math.BigDecimal;
+import java.time.LocalDate;
 
 @Getter
 @Setter
 @NoArgsConstructor
 public class Buyer {
+
+    @FormParam("BuyerUUID")
+    @NotEmpty
+    @NotNull
     private String BuyerUUID;
+
+    @FormParam("jahrgang")
+    @NotEmpty
+    @Size(min = 1900)
+    @NotNull
     private Integer jahrgang;
+
     @JsonIgnore
     private Watchlist watchlist;
 

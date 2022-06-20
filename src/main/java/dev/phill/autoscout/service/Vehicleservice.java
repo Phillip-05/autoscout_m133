@@ -6,10 +6,15 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import dev.phill.autoscout.data.DataHandler;
 import dev.phill.autoscout.model.Dealer;
 import dev.phill.autoscout.model.Vehicle;
+import jakarta.validation.Valid;
 import jakarta.ws.rs.*;
 import jakarta.ws.rs.core.MediaType;
 import jakarta.ws.rs.core.Response;
 
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Pattern;
+import javax.validation.constraints.Size;
 import java.util.List;
 import java.util.UUID;
 
@@ -41,6 +46,8 @@ public class Vehicleservice {
     @Path("read/{uuid}")
     @Produces(MediaType.APPLICATION_JSON)
     public Response readVehicle(
+            @NotEmpty
+            @NotNull
             @PathParam("uuid") String vehicleUUID
 
     ) {
@@ -66,6 +73,8 @@ public class Vehicleservice {
     @Path("delete/{uuid}")
     @Produces(MediaType.TEXT_PLAIN)
     public Response deleteVehicle(
+            @NotEmpty
+            @NotNull
             @PathParam("uuid") String vehicleUUID
     ) {
         int httpStatus = 200;
@@ -84,21 +93,62 @@ public class Vehicleservice {
     @Path("insert")
     @Produces(MediaType.TEXT_PLAIN)
     public Response insertVehicle(
+
+            @NotEmpty
+            @NotNull
+            @Valid
             @FormParam("marke") String marke,
+
+            @NotEmpty
+            @NotNull
             @FormParam("modell") String modell,
+
+            @NotEmpty
+            @NotNull
+            @Size(min = 0)
             @FormParam("preis") Float preis,
+
+            @NotEmpty
+            @NotNull
             @FormParam("dealerUUID") String dealerUUID,
+
+            @NotEmpty
+            @NotNull
+            @Size(min = 1900)
             @FormParam("baujahr") Integer baujahr,
+
+            @NotEmpty
+            @NotNull
+            @Size(min = 0)
             @FormParam("hubraum") Float hubraum,
+
+            @NotEmpty
+            @NotNull
+            @Size(min = 0)
             @FormParam("leistung") Float leistung,
+
+            @NotEmpty
+            @NotNull
             @FormParam("tuning") Boolean tuning,
+
+            @NotEmpty
+            @NotNull
             @FormParam("mfk") Boolean mfk,
-            @FormParam("leergewicht") Float leergewicht
+
+            @NotEmpty
+            @NotNull
+            @Size(min = 0)
+            @FormParam("leergewicht") Float leergewicht,
+
+            @NotEmpty
+            @NotNull
+            @Pattern(regexp="([0-9]{0,4} {0,1}[0-9]{1,4})")
+            @FormParam("kennzeichen") String kennzeichen
     ) {
         int httpStatus = 200;
 
         try {
-            Vehicle vehicle = new Vehicle(UUID.randomUUID().toString(), marke, modell, preis, baujahr, hubraum, DataHandler.getInstance().readDealerByUUID(dealerUUID), leistung, tuning, mfk, leergewicht);
+            Vehicle vehicle = new Vehicle(UUID.randomUUID().toString(), marke, modell, preis, baujahr, hubraum, DataHandler.getInstance().readDealerByUUID(dealerUUID), leistung, tuning, mfk, leergewicht,kennzeichen);
             DataHandler.getInstance().insertVehicle(vehicle);
         } catch (Exception e) {
             httpStatus = 500;
@@ -116,17 +166,59 @@ public class Vehicleservice {
     @Produces(MediaType.TEXT_PLAIN)
     public Response updateVehicle(
 
-            @FormParam("marke") String marke,
-            @FormParam("modell") String modell,
-            @FormParam("preis") Float preis,
+            @NotEmpty
+            @NotEmpty
             @FormParam("vehicleUUID") String vehicleUUID,
+
+            @NotEmpty
+            @NotNull
+            @FormParam("marke") String marke,
+
+            @NotEmpty
+            @NotNull
+            @FormParam("modell") String modell,
+
+            @NotEmpty
+            @NotNull
+            @Size(min = 0)
+            @FormParam("preis") Float preis,
+
+            @NotEmpty
+            @NotNull
             @FormParam("dealerUUID") String dealerUUID,
+
+            @NotEmpty
+            @NotNull
+            @Size(min = 1900)
             @FormParam("baujahr") Integer baujahr,
+
+            @NotEmpty
+            @NotNull
+            @Size(min = 0)
             @FormParam("hubraum") Float hubraum,
+
+            @NotEmpty
+            @NotNull
+            @Size(min = 0)
             @FormParam("leistung") Float leistung,
+
+            @NotEmpty
+            @NotNull
             @FormParam("tuning") Boolean tuning,
+
+            @NotEmpty
+            @NotNull
             @FormParam("mfk") Boolean mfk,
-            @FormParam("leergewicht") Float leergewicht
+
+            @NotEmpty
+            @NotNull
+            @Size(min = 0)
+            @FormParam("leergewicht") Float leergewicht,
+
+            @NotEmpty
+            @NotNull
+            @Pattern(regexp="([0-9]{0,4} {0,1}[0-9]{1,4})")
+            @FormParam("kennzeichen") String kennzeichen
     ) {
         int httpStatus = 200;
 
