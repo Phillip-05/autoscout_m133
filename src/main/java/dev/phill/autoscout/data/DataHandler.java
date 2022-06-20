@@ -18,7 +18,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * reads and writes the data in the JSON-files
+ * This DataHandler contains all functions that are needed for writing and reading jsons
  */
 public class DataHandler {
     private static DataHandler instance = null;
@@ -52,6 +52,7 @@ public class DataHandler {
 
     /**
      * reads all Vehicle
+     * @return whole vehicle list
      */
     public List<Vehicle> readallVehicle() {
         return getVehicleList();
@@ -59,6 +60,8 @@ public class DataHandler {
 
     /**
      * reads a Vehicle by its uuid
+     * @param vehicleUUID uuid of the vehicle
+     * @return the found vehicle
      */
     public Vehicle readVehicleByUUID(String vehicleUUID) {
         Vehicle vehicle = null;
@@ -123,6 +126,7 @@ public class DataHandler {
 
     /**
      * reads all Dealer
+     * @return whole buyer list
      */
     public List<Buyer> readallBuyer() {
         return getBuyerList();
@@ -131,6 +135,8 @@ public class DataHandler {
 
     /**
      * reads a Buyer by its uuid
+     * @param buyerUUID buyer key
+     * @return the found buyer
      */
     public Buyer readBuyerByUUID(String buyerUUID) {
         Buyer buyer = null;
@@ -143,9 +149,9 @@ public class DataHandler {
     }
 
     /**
-     * inserts a new dealer into the heandlerlist
+     * inserts a new buyer into the buyerlist
      *
-     * @param buyer the dealer to be saved
+     * @param buyer the buyer to be saved
      */
     public void insertBuyer(Buyer buyer) {
         getBuyerList().add(buyer);
@@ -195,6 +201,7 @@ public class DataHandler {
 
     /**
      * reads all dealer
+     * @return gets whole watchlistlist
      */
     public List<Watchlist> readallWatchlist() {
         return getWatchlistList();
@@ -202,6 +209,8 @@ public class DataHandler {
 
     /**
      * reads a Watchlist by its uuid
+     * @param watchlistUUID watchlist key
+     * @return the found watchlist
      */
     public Watchlist readWatchlistByUUID(String watchlistUUID) {
         Watchlist watchlist = null;
@@ -214,9 +223,9 @@ public class DataHandler {
     }
 
     /**
-     * inserts a new dealer into the heandlerlist
+     * inserts a new watchlist into the watchlistlist
      *
-     * @param watchlist the heandler to be saved
+     * @param watchlist the watchlist to be saved
      */
     public void insertWatchlist(Watchlist watchlist) {
         getWatchlistList().add(watchlist);
@@ -224,12 +233,15 @@ public class DataHandler {
     }
 
     /**
-     * updates the bookList
+     * updates the watchlistlist
      */
     public void updateWatchlist() {
         writeWatchlistJSON();
     }
 
+    /**
+     * writes into watchlist json
+     */
     private void writeWatchlistJSON() {
         ObjectMapper objectMapper = new ObjectMapper();
         ObjectWriter objectWriter = objectMapper.writer(new DefaultPrettyPrinter());
@@ -266,6 +278,7 @@ public class DataHandler {
 
     /**
      * reads all dealer
+     * @return whole dealerlist
      */
     public List<Dealer> readAllDealers() {
 
@@ -274,6 +287,8 @@ public class DataHandler {
 
     /**
      * reads a Dealer by its uuid
+     * @param dealerUUID dealer key
+     * @return the found dealer
      */
     public Dealer readDealerByUUID(String dealerUUID) {
         Dealer dealer = null;
@@ -302,6 +317,9 @@ public class DataHandler {
         writeDealerJSON();
     }
 
+    /**
+     * writes into dealer json
+     */
     private void writeDealerJSON() {
         ObjectMapper objectMapper = new ObjectMapper();
         ObjectWriter objectWriter = objectMapper.writer(new DefaultPrettyPrinter());

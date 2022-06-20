@@ -18,10 +18,14 @@ import java.util.UUID;
 import java.util.Vector;
 
 /**
- * test service
+ * watchlist services
  */
 @Path("watchlist")
 public class Watchlistservice {
+
+    /**
+     * Gets whole json and returns it
+     */
 
     @GET
     @Path("list")

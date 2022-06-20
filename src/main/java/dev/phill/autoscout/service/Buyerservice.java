@@ -19,11 +19,14 @@ import java.util.UUID;
 import java.util.Vector;
 
 /**
- * test service
+ * Buyers services
  */
 @Path("buyer")
 public class Buyerservice {
 
+    /**
+     * Gets whole json and returns it
+     */
     @GET
     @Path("list")
     @Produces(MediaType.APPLICATION_JSON)

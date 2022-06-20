@@ -35,7 +35,7 @@ public class Buyer {
 
     /**
      * sets Watchlist by its uuid
-     * @param: watchlisUUID
+     * @param: watchlistUUID
      */
     public void setWatchlistUUID(String watchlistUUID) {
         setWatchlist(new Watchlist());
@@ -47,7 +47,7 @@ public class Buyer {
 
     /**
      * Buyer constructor
-     * @param: Buyeruuid
+     * @param: buyeruuid
      * @param: jahrgang
      * @param: merkliste
      */

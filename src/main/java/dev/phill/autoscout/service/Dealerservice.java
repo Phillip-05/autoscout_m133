@@ -16,10 +16,14 @@ import java.util.List;
 import java.util.UUID;
 
 /**
- * test service
+ * dealer services
  */
 @Path("dealer")
 public class Dealerservice {
+
+    /**
+     * Gets whole json and returns it
+     */
 
     @GET
     @Path("list")
