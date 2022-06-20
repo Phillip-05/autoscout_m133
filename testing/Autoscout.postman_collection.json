@@ -2,444 +2,5353 @@
 	"info": {
 		"_postman_id": "55458a44-9c87-4ed6-a562-95c847061d09",
 		"name": "Autoscout",
-		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "20905825"
 	},
 	"item": [
 		{
-			"name": "read list Fahrzeug",
-			"event": [
+			"name": "Dealer",
+			"item": [
 				{
-					"listen": "test",
-					"script": {
-						"exec": [
-							"pm.test(\"Status test 200\", function () {\r",
-							"    pm.response.to.have.status(200);\r",
-							"});\r",
-							""
-						],
-						"type": "text/javascript"
-					}
-				}
-			],
-			"request": {
-				"method": "GET",
-				"header": [],
-				"url": {
-					"raw": "http://localhost:8080/Autoscout-1.0-SNAPSHOT/resource/fahrzeug/list/",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"port": "8080",
-					"path": [
-						"Autoscout-1.0-SNAPSHOT",
-						"resource",
-						"fahrzeug",
-						"list",
-						""
+					"name": "False Attribute values",
+					"item": [
+						{
+							"name": "fail Update vorname  Dealer",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Status test 400\", function () {\r",
+											"    pm.response.to.have.status(400);\r",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": [
+										{
+											"key": "haendlerUUID",
+											"value": "d3cbe97e-9c39-4df3-8097-4f4fb45a5e9d",
+											"type": "text"
+										},
+										{
+											"key": "vorname",
+											"value": "franz3000",
+											"type": "text",
+											"disabled": true
+										},
+										{
+											"key": "nachname",
+											"value": "fritzli300",
+											"type": "text"
+										},
+										{
+											"key": "strasse",
+											"value": "1111111",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{url}}/dealer/update/",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"dealer",
+										"update",
+										""
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "fail Update nachname Dealer Copy",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Status test 400\", function () {\r",
+											"    pm.response.to.have.status(400);\r",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": [
+										{
+											"key": "haendlerUUID",
+											"value": "d3cbe97e-9c39-4df3-8097-4f4fb45a5e9d",
+											"type": "text"
+										},
+										{
+											"key": "vorname",
+											"value": "franz3000",
+											"type": "text"
+										},
+										{
+											"key": "nachname",
+											"value": "fritzli300",
+											"type": "text",
+											"disabled": true
+										},
+										{
+											"key": "strasse",
+											"value": "1111111",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{url}}/dealer/update/",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"dealer",
+										"update",
+										""
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "fail Update strasse Dealer Copy",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Status test 400\", function () {\r",
+											"    pm.response.to.have.status(400);\r",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": [
+										{
+											"key": "haendlerUUID",
+											"value": "d3cbe97e-9c39-4df3-8097-4f4fb45a5e9d",
+											"type": "text"
+										},
+										{
+											"key": "vorname",
+											"value": "franz3000",
+											"type": "text"
+										},
+										{
+											"key": "nachname",
+											"value": "fritzli300",
+											"type": "text"
+										},
+										{
+											"key": "strasse",
+											"value": "1111111",
+											"type": "text",
+											"disabled": true
+										}
+									]
+								},
+								"url": {
+									"raw": "{{url}}/dealer/update/",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"dealer",
+										"update",
+										""
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "fail delete Dealer",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Status test 400\", function () {\r",
+											"    pm.response.to.have.status(400);\r",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": [
+										{
+											"key": "uuid",
+											"value": "",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{url}}/dealer/delete/",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"dealer",
+										"delete",
+										""
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "fail insert vorname  Dealer",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Status test 400\", function () {\r",
+											"    pm.response.to.have.status(400);\r",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": [
+										{
+											"key": "vorname",
+											"value": "test",
+											"type": "text",
+											"disabled": true
+										},
+										{
+											"key": "nachname",
+											"value": "ettststts",
+											"type": "text"
+										},
+										{
+											"key": "strasse",
+											"value": "baumstrasse baumingen",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{url}}/dealer/insert/",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"dealer",
+										"insert",
+										""
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "fail insert nachname Dealer",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Status test 400\", function () {\r",
+											"    pm.response.to.have.status(400);\r",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": [
+										{
+											"key": "vorname",
+											"value": "test",
+											"type": "text"
+										},
+										{
+											"key": "nachname",
+											"value": "ettststts",
+											"type": "text",
+											"disabled": true
+										},
+										{
+											"key": "strasse",
+											"value": "baumstrasse baumingen",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{url}}/dealer/insert/",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"dealer",
+										"insert",
+										""
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "fail insert strasse Dealer",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Status test 400\", function () {\r",
+											"    pm.response.to.have.status(400);\r",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": [
+										{
+											"key": "vorname",
+											"value": "test",
+											"type": "text"
+										},
+										{
+											"key": "nachname",
+											"value": "ettststts",
+											"type": "text"
+										},
+										{
+											"key": "strasse",
+											"value": "baumstrasse baumingen",
+											"type": "text",
+											"disabled": true
+										}
+									]
+								},
+								"url": {
+									"raw": "{{url}}/dealer/insert/",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"dealer",
+										"insert",
+										""
+									]
+								}
+							},
+							"response": []
+						}
 					]
+				},
+				{
+					"name": "read list Dealer",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status test 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/Autoscout-1.0-SNAPSHOT/resource/dealer/list/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"Autoscout-1.0-SNAPSHOT",
+								"resource",
+								"dealer",
+								"list",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "successful read one Dealer",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status test 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/Autoscout-1.0-SNAPSHOT/resource/dealer/read/d3cbe97e-9c39-4df3-8097-4f4fb45a5e9d",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"Autoscout-1.0-SNAPSHOT",
+								"resource",
+								"dealer",
+								"read",
+								"d3cbe97e-9c39-4df3-8097-4f4fb45a5e9d"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "failing read one Dealer",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status test 404\", function () {\r",
+									"    pm.response.to.have.status(404);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/Autoscout-1.0-SNAPSHOT/resource/dealer/read/{{$randomUUID}}",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"Autoscout-1.0-SNAPSHOT",
+								"resource",
+								"dealer",
+								"read",
+								"{{$randomUUID}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "successful insert Dealer",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status test 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "vorname",
+									"value": "test",
+									"type": "text"
+								},
+								{
+									"key": "nachname",
+									"value": "ettststts",
+									"type": "text"
+								},
+								{
+									"key": "strasse",
+									"value": "baumstrasse baumingen",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{url}}/dealer/insert/",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"dealer",
+								"insert",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "successful delete Dealer",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status test 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/dealer/delete/08b6dfc2-004e-4e0b-9c41-a1ba8665aa48",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"dealer",
+								"delete",
+								"08b6dfc2-004e-4e0b-9c41-a1ba8665aa48"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "successful Update Dealer",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status test 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "dealerUUID",
+									"value": "d3cbe97e-9c39-4df3-8097-4f4fb45a5e9d",
+									"type": "text"
+								},
+								{
+									"key": "vorname",
+									"value": "franz",
+									"type": "text"
+								},
+								{
+									"key": "nachname",
+									"value": "fritzli",
+									"type": "text"
+								},
+								{
+									"key": "strasse",
+									"value": "testtttt",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{url}}/dealer/update/",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"dealer",
+								"update",
+								""
+							]
+						}
+					},
+					"response": []
 				}
-			},
-			"response": []
+			]
 		},
 		{
-			"name": "successful read one Fahrzeug",
-			"event": [
+			"name": "Vehicle",
+			"item": [
 				{
-					"listen": "test",
-					"script": {
-						"exec": [
-							"pm.test(\"Status test 200\", function () {\r",
-							"    pm.response.to.have.status(200);\r",
-							"});\r",
-							""
-						],
-						"type": "text/javascript"
-					}
-				}
-			],
-			"request": {
-				"method": "GET",
-				"header": [],
-				"url": {
-					"raw": "http://localhost:8080/Autoscout-1.0-SNAPSHOT/resource/fahrzeug/read/495505b7-f069-4a61-aff0-7ce833634bf8",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"port": "8080",
-					"path": [
-						"Autoscout-1.0-SNAPSHOT",
-						"resource",
-						"fahrzeug",
-						"read",
-						"495505b7-f069-4a61-aff0-7ce833634bf8"
+					"name": "False Attribute values",
+					"item": [
+						{
+							"name": "fail insert marke Vehicle",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Status test 400\", function () {\r",
+											"    pm.response.to.have.status(400);\r",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": [
+										{
+											"key": "marke",
+											"value": "Ford",
+											"type": "text",
+											"disabled": true
+										},
+										{
+											"key": "modell",
+											"value": "Mustang GT",
+											"type": "text"
+										},
+										{
+											"key": "preis",
+											"value": "65000",
+											"type": "text"
+										},
+										{
+											"key": "dealerUUID",
+											"value": "d3cbe97e-9c39-4df3-8097-4f4fb45a5e9d",
+											"type": "text"
+										},
+										{
+											"key": "baujahr",
+											"value": "2019",
+											"type": "text"
+										},
+										{
+											"key": "hubraum",
+											"value": "5000",
+											"type": "text"
+										},
+										{
+											"key": "leistung",
+											"value": "421",
+											"type": "text"
+										},
+										{
+											"key": "tuning",
+											"value": "false",
+											"type": "text"
+										},
+										{
+											"key": "mfk",
+											"value": "true",
+											"type": "text"
+										},
+										{
+											"key": "leergewicht",
+											"value": "1600",
+											"type": "text"
+										},
+										{
+											"key": "kennzeichen",
+											"value": "555",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{url}}/vehicle/insert/",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"vehicle",
+										"insert",
+										""
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "fail insert modell Vehicle",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Status test 400\", function () {\r",
+											"    pm.response.to.have.status(400);\r",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": [
+										{
+											"key": "marke",
+											"value": "Ford",
+											"type": "text"
+										},
+										{
+											"key": "modell",
+											"value": "Mustang GT",
+											"type": "text",
+											"disabled": true
+										},
+										{
+											"key": "preis",
+											"value": "65000",
+											"type": "text"
+										},
+										{
+											"key": "dealerUUID",
+											"value": "d3cbe97e-9c39-4df3-8097-4f4fb45a5e9d",
+											"type": "text"
+										},
+										{
+											"key": "baujahr",
+											"value": "2019",
+											"type": "text"
+										},
+										{
+											"key": "hubraum",
+											"value": "5000",
+											"type": "text"
+										},
+										{
+											"key": "leistung",
+											"value": "421",
+											"type": "text"
+										},
+										{
+											"key": "tuning",
+											"value": "false",
+											"type": "text"
+										},
+										{
+											"key": "mfk",
+											"value": "true",
+											"type": "text"
+										},
+										{
+											"key": "leergewicht",
+											"value": "1600",
+											"type": "text"
+										},
+										{
+											"key": "kennzeichen",
+											"value": "555",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{url}}/vehicle/insert/",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"vehicle",
+										"insert",
+										""
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "fail insert no preis Vehicle",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Status test 400\", function () {\r",
+											"    pm.response.to.have.status(400);\r",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": [
+										{
+											"key": "marke",
+											"value": "Ford",
+											"type": "text"
+										},
+										{
+											"key": "modell",
+											"value": "Mustang GT",
+											"type": "text"
+										},
+										{
+											"key": "preis",
+											"value": "65000",
+											"type": "text",
+											"disabled": true
+										},
+										{
+											"key": "dealerUUID",
+											"value": "d3cbe97e-9c39-4df3-8097-4f4fb45a5e9d",
+											"type": "text"
+										},
+										{
+											"key": "baujahr",
+											"value": "2019",
+											"type": "text"
+										},
+										{
+											"key": "hubraum",
+											"value": "5000",
+											"type": "text"
+										},
+										{
+											"key": "leistung",
+											"value": "421",
+											"type": "text"
+										},
+										{
+											"key": "tuning",
+											"value": "false",
+											"type": "text"
+										},
+										{
+											"key": "mfk",
+											"value": "true",
+											"type": "text"
+										},
+										{
+											"key": "leergewicht",
+											"value": "1600",
+											"type": "text"
+										},
+										{
+											"key": "kennzeichen",
+											"value": "555",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{url}}/vehicle/insert/",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"vehicle",
+										"insert",
+										""
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "fail insert to low preis Vehicle",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Status test 400\", function () {\r",
+											"    pm.response.to.have.status(400);\r",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": [
+										{
+											"key": "marke",
+											"value": "Ford",
+											"type": "text"
+										},
+										{
+											"key": "modell",
+											"value": "Mustang GT",
+											"type": "text"
+										},
+										{
+											"key": "preis",
+											"value": "-100",
+											"type": "text"
+										},
+										{
+											"key": "dealerUUID",
+											"value": "d3cbe97e-9c39-4df3-8097-4f4fb45a5e9d",
+											"type": "text"
+										},
+										{
+											"key": "baujahr",
+											"value": "2019",
+											"type": "text"
+										},
+										{
+											"key": "hubraum",
+											"value": "5000",
+											"type": "text"
+										},
+										{
+											"key": "leistung",
+											"value": "421",
+											"type": "text"
+										},
+										{
+											"key": "tuning",
+											"value": "false",
+											"type": "text"
+										},
+										{
+											"key": "mfk",
+											"value": "true",
+											"type": "text"
+										},
+										{
+											"key": "leergewicht",
+											"value": "1600",
+											"type": "text"
+										},
+										{
+											"key": "kennzeichen",
+											"value": "555",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{url}}/vehicle/insert/",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"vehicle",
+										"insert",
+										""
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "fail insert dealerUUID Vehicle",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Status test 400\", function () {\r",
+											"    pm.response.to.have.status(400);\r",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": [
+										{
+											"key": "marke",
+											"value": "Ford",
+											"type": "text"
+										},
+										{
+											"key": "modell",
+											"value": "Mustang GT",
+											"type": "text"
+										},
+										{
+											"key": "preis",
+											"value": "65000",
+											"type": "text"
+										},
+										{
+											"key": "dealerUUID",
+											"value": "d3cbe97e-9c39-4df3-8097-4f4fb45a5e9d",
+											"type": "text",
+											"disabled": true
+										},
+										{
+											"key": "baujahr",
+											"value": "2019",
+											"type": "text"
+										},
+										{
+											"key": "hubraum",
+											"value": "5000",
+											"type": "text"
+										},
+										{
+											"key": "leistung",
+											"value": "421",
+											"type": "text"
+										},
+										{
+											"key": "tuning",
+											"value": "false",
+											"type": "text"
+										},
+										{
+											"key": "mfk",
+											"value": "true",
+											"type": "text"
+										},
+										{
+											"key": "leergewicht",
+											"value": "1600",
+											"type": "text"
+										},
+										{
+											"key": "kennzeichen",
+											"value": "555",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{url}}/vehicle/insert/",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"vehicle",
+										"insert",
+										""
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "fail insert no baujahr Vehicle",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Status test 400\", function () {\r",
+											"    pm.response.to.have.status(400);\r",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": [
+										{
+											"key": "marke",
+											"value": "Ford",
+											"type": "text"
+										},
+										{
+											"key": "modell",
+											"value": "Mustang GT",
+											"type": "text"
+										},
+										{
+											"key": "preis",
+											"value": "65000",
+											"type": "text"
+										},
+										{
+											"key": "dealerUUID",
+											"value": "d3cbe97e-9c39-4df3-8097-4f4fb45a5e9d",
+											"type": "text"
+										},
+										{
+											"key": "baujahr",
+											"value": "2019",
+											"type": "text",
+											"disabled": true
+										},
+										{
+											"key": "hubraum",
+											"value": "5000",
+											"type": "text"
+										},
+										{
+											"key": "leistung",
+											"value": "421",
+											"type": "text"
+										},
+										{
+											"key": "tuning",
+											"value": "false",
+											"type": "text"
+										},
+										{
+											"key": "mfk",
+											"value": "true",
+											"type": "text"
+										},
+										{
+											"key": "leergewicht",
+											"value": "1600",
+											"type": "text"
+										},
+										{
+											"key": "kennzeichen",
+											"value": "555",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{url}}/vehicle/insert/",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"vehicle",
+										"insert",
+										""
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "fail insert to low baujahr Vehicle",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Status test 400\", function () {\r",
+											"    pm.response.to.have.status(400);\r",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": [
+										{
+											"key": "marke",
+											"value": "Ford",
+											"type": "text",
+											"disabled": true
+										},
+										{
+											"key": "modell",
+											"value": "Mustang GT",
+											"type": "text"
+										},
+										{
+											"key": "preis",
+											"value": "65000",
+											"type": "text"
+										},
+										{
+											"key": "dealerUUID",
+											"value": "d3cbe97e-9c39-4df3-8097-4f4fb45a5e9d",
+											"type": "text"
+										},
+										{
+											"key": "baujahr",
+											"value": "-100",
+											"type": "text"
+										},
+										{
+											"key": "hubraum",
+											"value": "5000",
+											"type": "text"
+										},
+										{
+											"key": "leistung",
+											"value": "421",
+											"type": "text"
+										},
+										{
+											"key": "tuning",
+											"value": "false",
+											"type": "text"
+										},
+										{
+											"key": "mfk",
+											"value": "true",
+											"type": "text"
+										},
+										{
+											"key": "leergewicht",
+											"value": "1600",
+											"type": "text"
+										},
+										{
+											"key": "kennzeichen",
+											"value": "555",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{url}}/vehicle/insert/",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"vehicle",
+										"insert",
+										""
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "fail insert no hubraum Vehicle",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Status test 400\", function () {\r",
+											"    pm.response.to.have.status(400);\r",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": [
+										{
+											"key": "marke",
+											"value": "Ford",
+											"type": "text"
+										},
+										{
+											"key": "modell",
+											"value": "Mustang GT",
+											"type": "text"
+										},
+										{
+											"key": "preis",
+											"value": "65000",
+											"type": "text"
+										},
+										{
+											"key": "dealerUUID",
+											"value": "d3cbe97e-9c39-4df3-8097-4f4fb45a5e9d",
+											"type": "text"
+										},
+										{
+											"key": "baujahr",
+											"value": "2019",
+											"type": "text"
+										},
+										{
+											"key": "hubraum",
+											"value": "5000",
+											"type": "text",
+											"disabled": true
+										},
+										{
+											"key": "leistung",
+											"value": "421",
+											"type": "text"
+										},
+										{
+											"key": "tuning",
+											"value": "false",
+											"type": "text"
+										},
+										{
+											"key": "mfk",
+											"value": "true",
+											"type": "text"
+										},
+										{
+											"key": "leergewicht",
+											"value": "1600",
+											"type": "text"
+										},
+										{
+											"key": "kennzeichen",
+											"value": "555",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{url}}/vehicle/insert/",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"vehicle",
+										"insert",
+										""
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "fail insert to low hubraum Vehicle",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Status test 400\", function () {\r",
+											"    pm.response.to.have.status(400);\r",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": [
+										{
+											"key": "marke",
+											"value": "Ford",
+											"type": "text"
+										},
+										{
+											"key": "modell",
+											"value": "Mustang GT",
+											"type": "text"
+										},
+										{
+											"key": "preis",
+											"value": "65000",
+											"type": "text"
+										},
+										{
+											"key": "dealerUUID",
+											"value": "d3cbe97e-9c39-4df3-8097-4f4fb45a5e9d",
+											"type": "text"
+										},
+										{
+											"key": "baujahr",
+											"value": "2019",
+											"type": "text"
+										},
+										{
+											"key": "hubraum",
+											"value": "-100",
+											"type": "text"
+										},
+										{
+											"key": "leistung",
+											"value": "421",
+											"type": "text"
+										},
+										{
+											"key": "tuning",
+											"value": "false",
+											"type": "text"
+										},
+										{
+											"key": "mfk",
+											"value": "true",
+											"type": "text"
+										},
+										{
+											"key": "leergewicht",
+											"value": "1600",
+											"type": "text"
+										},
+										{
+											"key": "kennzeichen",
+											"value": "555",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{url}}/vehicle/insert/",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"vehicle",
+										"insert",
+										""
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "fail insert no leistung Vehicle",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Status test 400\", function () {\r",
+											"    pm.response.to.have.status(400);\r",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": [
+										{
+											"key": "marke",
+											"value": "Ford",
+											"type": "text"
+										},
+										{
+											"key": "modell",
+											"value": "Mustang GT",
+											"type": "text"
+										},
+										{
+											"key": "preis",
+											"value": "65000",
+											"type": "text"
+										},
+										{
+											"key": "dealerUUID",
+											"value": "d3cbe97e-9c39-4df3-8097-4f4fb45a5e9d",
+											"type": "text"
+										},
+										{
+											"key": "baujahr",
+											"value": "2019",
+											"type": "text"
+										},
+										{
+											"key": "hubraum",
+											"value": "5000",
+											"type": "text"
+										},
+										{
+											"key": "leistung",
+											"value": "421",
+											"type": "text",
+											"disabled": true
+										},
+										{
+											"key": "tuning",
+											"value": "false",
+											"type": "text"
+										},
+										{
+											"key": "mfk",
+											"value": "true",
+											"type": "text"
+										},
+										{
+											"key": "leergewicht",
+											"value": "1600",
+											"type": "text"
+										},
+										{
+											"key": "kennzeichen",
+											"value": "555",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{url}}/vehicle/insert/",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"vehicle",
+										"insert",
+										""
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "fail insert to low leistung Vehicle",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Status test 400\", function () {\r",
+											"    pm.response.to.have.status(400);\r",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": [
+										{
+											"key": "marke",
+											"value": "Ford",
+											"type": "text"
+										},
+										{
+											"key": "modell",
+											"value": "Mustang GT",
+											"type": "text"
+										},
+										{
+											"key": "preis",
+											"value": "65000",
+											"type": "text"
+										},
+										{
+											"key": "dealerUUID",
+											"value": "d3cbe97e-9c39-4df3-8097-4f4fb45a5e9d",
+											"type": "text"
+										},
+										{
+											"key": "baujahr",
+											"value": "2019",
+											"type": "text"
+										},
+										{
+											"key": "hubraum",
+											"value": "5000",
+											"type": "text"
+										},
+										{
+											"key": "leistung",
+											"value": "-100",
+											"type": "text"
+										},
+										{
+											"key": "tuning",
+											"value": "false",
+											"type": "text"
+										},
+										{
+											"key": "mfk",
+											"value": "true",
+											"type": "text"
+										},
+										{
+											"key": "leergewicht",
+											"value": "1600",
+											"type": "text"
+										},
+										{
+											"key": "kennzeichen",
+											"value": "555",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{url}}/vehicle/insert/",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"vehicle",
+										"insert",
+										""
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "fail insert mfk Vehicle",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Status test 400\", function () {\r",
+											"    pm.response.to.have.status(400);\r",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": [
+										{
+											"key": "marke",
+											"value": "Ford",
+											"type": "text"
+										},
+										{
+											"key": "modell",
+											"value": "Mustang GT",
+											"type": "text"
+										},
+										{
+											"key": "preis",
+											"value": "65000",
+											"type": "text"
+										},
+										{
+											"key": "dealerUUID",
+											"value": "d3cbe97e-9c39-4df3-8097-4f4fb45a5e9d",
+											"type": "text"
+										},
+										{
+											"key": "baujahr",
+											"value": "2019",
+											"type": "text"
+										},
+										{
+											"key": "hubraum",
+											"value": "5000",
+											"type": "text"
+										},
+										{
+											"key": "leistung",
+											"value": "421",
+											"type": "text"
+										},
+										{
+											"key": "tuning",
+											"value": "false",
+											"type": "text"
+										},
+										{
+											"key": "mfk",
+											"value": "true",
+											"type": "text",
+											"disabled": true
+										},
+										{
+											"key": "leergewicht",
+											"value": "1600",
+											"type": "text"
+										},
+										{
+											"key": "kennzeichen",
+											"value": "555",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{url}}/vehicle/insert/",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"vehicle",
+										"insert",
+										""
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "fail insert tuning Vehicle",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Status test 400\", function () {\r",
+											"    pm.response.to.have.status(400);\r",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": [
+										{
+											"key": "marke",
+											"value": "Ford",
+											"type": "text"
+										},
+										{
+											"key": "modell",
+											"value": "Mustang GT",
+											"type": "text"
+										},
+										{
+											"key": "preis",
+											"value": "65000",
+											"type": "text"
+										},
+										{
+											"key": "dealerUUID",
+											"value": "d3cbe97e-9c39-4df3-8097-4f4fb45a5e9d",
+											"type": "text"
+										},
+										{
+											"key": "baujahr",
+											"value": "2019",
+											"type": "text"
+										},
+										{
+											"key": "hubraum",
+											"value": "5000",
+											"type": "text"
+										},
+										{
+											"key": "leistung",
+											"value": "421",
+											"type": "text"
+										},
+										{
+											"key": "tuning",
+											"value": "false",
+											"type": "text",
+											"disabled": true
+										},
+										{
+											"key": "mfk",
+											"value": "true",
+											"type": "text"
+										},
+										{
+											"key": "leergewicht",
+											"value": "1600",
+											"type": "text"
+										},
+										{
+											"key": "kennzeichen",
+											"value": "555",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{url}}/vehicle/insert/",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"vehicle",
+										"insert",
+										""
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "fail insert no leergewicht Vehicle",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Status test 400\", function () {\r",
+											"    pm.response.to.have.status(400);\r",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": [
+										{
+											"key": "marke",
+											"value": "Ford",
+											"type": "text"
+										},
+										{
+											"key": "modell",
+											"value": "Mustang GT",
+											"type": "text"
+										},
+										{
+											"key": "preis",
+											"value": "65000",
+											"type": "text"
+										},
+										{
+											"key": "dealerUUID",
+											"value": "d3cbe97e-9c39-4df3-8097-4f4fb45a5e9d",
+											"type": "text"
+										},
+										{
+											"key": "baujahr",
+											"value": "2019",
+											"type": "text"
+										},
+										{
+											"key": "hubraum",
+											"value": "5000",
+											"type": "text"
+										},
+										{
+											"key": "leistung",
+											"value": "421",
+											"type": "text"
+										},
+										{
+											"key": "tuning",
+											"value": "false",
+											"type": "text"
+										},
+										{
+											"key": "mfk",
+											"value": "true",
+											"type": "text"
+										},
+										{
+											"key": "leergewicht",
+											"value": "1600",
+											"type": "text",
+											"disabled": true
+										},
+										{
+											"key": "kennzeichen",
+											"value": "555",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{url}}/vehicle/insert/",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"vehicle",
+										"insert",
+										""
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "fail insert to low leergewicht Vehicle",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Status test 400\", function () {\r",
+											"    pm.response.to.have.status(400);\r",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": [
+										{
+											"key": "marke",
+											"value": "Ford",
+											"type": "text"
+										},
+										{
+											"key": "modell",
+											"value": "Mustang GT",
+											"type": "text"
+										},
+										{
+											"key": "preis",
+											"value": "65000",
+											"type": "text"
+										},
+										{
+											"key": "dealerUUID",
+											"value": "d3cbe97e-9c39-4df3-8097-4f4fb45a5e9d",
+											"type": "text"
+										},
+										{
+											"key": "baujahr",
+											"value": "2019",
+											"type": "text"
+										},
+										{
+											"key": "hubraum",
+											"value": "5000",
+											"type": "text"
+										},
+										{
+											"key": "leistung",
+											"value": "421",
+											"type": "text"
+										},
+										{
+											"key": "tuning",
+											"value": "false",
+											"type": "text"
+										},
+										{
+											"key": "mfk",
+											"value": "true",
+											"type": "text"
+										},
+										{
+											"key": "leergewicht",
+											"value": "-100",
+											"type": "text"
+										},
+										{
+											"key": "kennzeichen",
+											"value": "555",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{url}}/vehicle/insert/",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"vehicle",
+										"insert",
+										""
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "fail insert no kennzeichen Vehicle",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Status test 400\", function () {\r",
+											"    pm.response.to.have.status(400);\r",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": [
+										{
+											"key": "marke",
+											"value": "Ford",
+											"type": "text"
+										},
+										{
+											"key": "modell",
+											"value": "Mustang GT",
+											"type": "text"
+										},
+										{
+											"key": "preis",
+											"value": "65000",
+											"type": "text"
+										},
+										{
+											"key": "dealerUUID",
+											"value": "d3cbe97e-9c39-4df3-8097-4f4fb45a5e9d",
+											"type": "text"
+										},
+										{
+											"key": "baujahr",
+											"value": "2019",
+											"type": "text"
+										},
+										{
+											"key": "hubraum",
+											"value": "5000",
+											"type": "text"
+										},
+										{
+											"key": "leistung",
+											"value": "421",
+											"type": "text"
+										},
+										{
+											"key": "tuning",
+											"value": "false",
+											"type": "text"
+										},
+										{
+											"key": "mfk",
+											"value": "true",
+											"type": "text"
+										},
+										{
+											"key": "leergewicht",
+											"value": "1600",
+											"type": "text"
+										},
+										{
+											"key": "kennzeichen",
+											"value": "555",
+											"type": "text",
+											"disabled": true
+										}
+									]
+								},
+								"url": {
+									"raw": "{{url}}/vehicle/insert/",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"vehicle",
+										"insert",
+										""
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "fail insert wrong pattern kennzeichen Vehicle",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Status test 400\", function () {\r",
+											"    pm.response.to.have.status(400);\r",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": [
+										{
+											"key": "marke",
+											"value": "Ford",
+											"type": "text"
+										},
+										{
+											"key": "modell",
+											"value": "Mustang GT",
+											"type": "text"
+										},
+										{
+											"key": "preis",
+											"value": "65000",
+											"type": "text"
+										},
+										{
+											"key": "dealerUUID",
+											"value": "d3cbe97e-9c39-4df3-8097-4f4fb45a5e9d",
+											"type": "text"
+										},
+										{
+											"key": "baujahr",
+											"value": "2019",
+											"type": "text"
+										},
+										{
+											"key": "hubraum",
+											"value": "5000",
+											"type": "text"
+										},
+										{
+											"key": "leistung",
+											"value": "421",
+											"type": "text"
+										},
+										{
+											"key": "tuning",
+											"value": "false",
+											"type": "text"
+										},
+										{
+											"key": "mfk",
+											"value": "true",
+											"type": "text"
+										},
+										{
+											"key": "leergewicht",
+											"value": "1600",
+											"type": "text"
+										},
+										{
+											"key": "kennzeichen",
+											"value": "55SS",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{url}}/vehicle/insert/",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"vehicle",
+										"insert",
+										""
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "fail Update marke Vehicle",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Status test 400\", function () {\r",
+											"    pm.response.to.have.status(400);\r",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": [
+										{
+											"key": "vehicleUUID",
+											"value": "e2cfaa52-83e5-4c5c-b32a-abbf03c3c151",
+											"type": "text"
+										},
+										{
+											"key": "marke",
+											"value": "UPDATED",
+											"type": "text",
+											"disabled": true
+										},
+										{
+											"key": "modell",
+											"value": "Mustang GT",
+											"type": "text"
+										},
+										{
+											"key": "preis",
+											"value": "65000",
+											"type": "text"
+										},
+										{
+											"key": "dealerUUID",
+											"value": "08b6dfc2-004e-4e0b-9c41-a1ba8665aa48",
+											"type": "text"
+										},
+										{
+											"key": "baujahr",
+											"value": "2019",
+											"type": "text"
+										},
+										{
+											"key": "hubraum",
+											"value": "5000",
+											"type": "text"
+										},
+										{
+											"key": "leistung",
+											"value": "421",
+											"type": "text"
+										},
+										{
+											"key": "tuning",
+											"value": "false",
+											"type": "text"
+										},
+										{
+											"key": "mfk",
+											"value": "true",
+											"type": "text"
+										},
+										{
+											"key": "leergewicht",
+											"value": "1600",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{url}}/vehicle/update/",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"vehicle",
+										"update",
+										""
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "fail Update vehicleUUID Vehicle",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Status test 400\", function () {\r",
+											"    pm.response.to.have.status(400);\r",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": [
+										{
+											"key": "vehicleUUID",
+											"value": "e2cfaa52-83e5-4c5c-b32a-abbf03c3c151",
+											"type": "text",
+											"disabled": true
+										},
+										{
+											"key": "marke",
+											"value": "UPDATED",
+											"type": "text"
+										},
+										{
+											"key": "modell",
+											"value": "Mustang GT",
+											"type": "text"
+										},
+										{
+											"key": "preis",
+											"value": "65000",
+											"type": "text"
+										},
+										{
+											"key": "dealerUUID",
+											"value": "08b6dfc2-004e-4e0b-9c41-a1ba8665aa48",
+											"type": "text"
+										},
+										{
+											"key": "baujahr",
+											"value": "2019",
+											"type": "text"
+										},
+										{
+											"key": "hubraum",
+											"value": "5000",
+											"type": "text"
+										},
+										{
+											"key": "leistung",
+											"value": "421",
+											"type": "text"
+										},
+										{
+											"key": "tuning",
+											"value": "false",
+											"type": "text"
+										},
+										{
+											"key": "mfk",
+											"value": "true",
+											"type": "text"
+										},
+										{
+											"key": "leergewicht",
+											"value": "1600",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{url}}/vehicle/update/",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"vehicle",
+										"update",
+										""
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "fail Update modell Vehicle",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Status test 400\", function () {\r",
+											"    pm.response.to.have.status(400);\r",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": [
+										{
+											"key": "vehicleUUID",
+											"value": "e2cfaa52-83e5-4c5c-b32a-abbf03c3c151",
+											"type": "text"
+										},
+										{
+											"key": "marke",
+											"value": "UPDATED",
+											"type": "text"
+										},
+										{
+											"key": "modell",
+											"value": "Mustang GT",
+											"type": "text",
+											"disabled": true
+										},
+										{
+											"key": "preis",
+											"value": "65000",
+											"type": "text"
+										},
+										{
+											"key": "dealerUUID",
+											"value": "08b6dfc2-004e-4e0b-9c41-a1ba8665aa48",
+											"type": "text"
+										},
+										{
+											"key": "baujahr",
+											"value": "2019",
+											"type": "text"
+										},
+										{
+											"key": "hubraum",
+											"value": "5000",
+											"type": "text"
+										},
+										{
+											"key": "leistung",
+											"value": "421",
+											"type": "text"
+										},
+										{
+											"key": "tuning",
+											"value": "false",
+											"type": "text"
+										},
+										{
+											"key": "mfk",
+											"value": "true",
+											"type": "text"
+										},
+										{
+											"key": "leergewicht",
+											"value": "1600",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{url}}/vehicle/update/",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"vehicle",
+										"update",
+										""
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "fail Update no preis Vehicle",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Status test 400\", function () {\r",
+											"    pm.response.to.have.status(400);\r",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": [
+										{
+											"key": "vehicleUUID",
+											"value": "e2cfaa52-83e5-4c5c-b32a-abbf03c3c151",
+											"type": "text"
+										},
+										{
+											"key": "marke",
+											"value": "UPDATED",
+											"type": "text"
+										},
+										{
+											"key": "modell",
+											"value": "Mustang GT",
+											"type": "text"
+										},
+										{
+											"key": "preis",
+											"value": "65000",
+											"type": "text",
+											"disabled": true
+										},
+										{
+											"key": "dealerUUID",
+											"value": "08b6dfc2-004e-4e0b-9c41-a1ba8665aa48",
+											"type": "text"
+										},
+										{
+											"key": "baujahr",
+											"value": "2019",
+											"type": "text"
+										},
+										{
+											"key": "hubraum",
+											"value": "5000",
+											"type": "text"
+										},
+										{
+											"key": "leistung",
+											"value": "421",
+											"type": "text"
+										},
+										{
+											"key": "tuning",
+											"value": "false",
+											"type": "text"
+										},
+										{
+											"key": "mfk",
+											"value": "true",
+											"type": "text"
+										},
+										{
+											"key": "leergewicht",
+											"value": "1600",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{url}}/vehicle/update/",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"vehicle",
+										"update",
+										""
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "fail Update to low preis Vehicle",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Status test 400\", function () {\r",
+											"    pm.response.to.have.status(400);\r",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": [
+										{
+											"key": "vehicleUUID",
+											"value": "e2cfaa52-83e5-4c5c-b32a-abbf03c3c151",
+											"type": "text"
+										},
+										{
+											"key": "marke",
+											"value": "UPDATED",
+											"type": "text"
+										},
+										{
+											"key": "modell",
+											"value": "Mustang GT",
+											"type": "text"
+										},
+										{
+											"key": "preis",
+											"value": "-100",
+											"type": "text"
+										},
+										{
+											"key": "dealerUUID",
+											"value": "08b6dfc2-004e-4e0b-9c41-a1ba8665aa48",
+											"type": "text"
+										},
+										{
+											"key": "baujahr",
+											"value": "2019",
+											"type": "text"
+										},
+										{
+											"key": "hubraum",
+											"value": "5000",
+											"type": "text"
+										},
+										{
+											"key": "leistung",
+											"value": "421",
+											"type": "text"
+										},
+										{
+											"key": "tuning",
+											"value": "false",
+											"type": "text"
+										},
+										{
+											"key": "mfk",
+											"value": "true",
+											"type": "text"
+										},
+										{
+											"key": "leergewicht",
+											"value": "1600",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{url}}/vehicle/update/",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"vehicle",
+										"update",
+										""
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "fail Update dealerUUID Vehicle",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Status test 400\", function () {\r",
+											"    pm.response.to.have.status(400);\r",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": [
+										{
+											"key": "vehicleUUID",
+											"value": "e2cfaa52-83e5-4c5c-b32a-abbf03c3c151",
+											"type": "text"
+										},
+										{
+											"key": "marke",
+											"value": "UPDATED",
+											"type": "text"
+										},
+										{
+											"key": "modell",
+											"value": "Mustang GT",
+											"type": "text"
+										},
+										{
+											"key": "preis",
+											"value": "-100",
+											"type": "text"
+										},
+										{
+											"key": "dealerUUID",
+											"value": "08b6dfc2-004e-4e0b-9c41-a1ba8665aa48",
+											"type": "text",
+											"disabled": true
+										},
+										{
+											"key": "baujahr",
+											"value": "2019",
+											"type": "text"
+										},
+										{
+											"key": "hubraum",
+											"value": "5000",
+											"type": "text"
+										},
+										{
+											"key": "leistung",
+											"value": "421",
+											"type": "text"
+										},
+										{
+											"key": "tuning",
+											"value": "false",
+											"type": "text"
+										},
+										{
+											"key": "mfk",
+											"value": "true",
+											"type": "text"
+										},
+										{
+											"key": "leergewicht",
+											"value": "1600",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{url}}/vehicle/update/",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"vehicle",
+										"update",
+										""
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "fail Update no baujahr Vehicle",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Status test 400\", function () {\r",
+											"    pm.response.to.have.status(400);\r",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": [
+										{
+											"key": "vehicleUUID",
+											"value": "e2cfaa52-83e5-4c5c-b32a-abbf03c3c151",
+											"type": "text"
+										},
+										{
+											"key": "marke",
+											"value": "UPDATED",
+											"type": "text"
+										},
+										{
+											"key": "modell",
+											"value": "Mustang GT",
+											"type": "text"
+										},
+										{
+											"key": "preis",
+											"value": "-100",
+											"type": "text"
+										},
+										{
+											"key": "dealerUUID",
+											"value": "08b6dfc2-004e-4e0b-9c41-a1ba8665aa48",
+											"type": "text"
+										},
+										{
+											"key": "baujahr",
+											"value": "2019",
+											"type": "text",
+											"disabled": true
+										},
+										{
+											"key": "hubraum",
+											"value": "5000",
+											"type": "text"
+										},
+										{
+											"key": "leistung",
+											"value": "421",
+											"type": "text"
+										},
+										{
+											"key": "tuning",
+											"value": "false",
+											"type": "text"
+										},
+										{
+											"key": "mfk",
+											"value": "true",
+											"type": "text"
+										},
+										{
+											"key": "leergewicht",
+											"value": "1600",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{url}}/vehicle/update/",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"vehicle",
+										"update",
+										""
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "fail Update to low baujahr Vehicle",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Status test 400\", function () {\r",
+											"    pm.response.to.have.status(400);\r",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": [
+										{
+											"key": "vehicleUUID",
+											"value": "e2cfaa52-83e5-4c5c-b32a-abbf03c3c151",
+											"type": "text"
+										},
+										{
+											"key": "marke",
+											"value": "UPDATED",
+											"type": "text"
+										},
+										{
+											"key": "modell",
+											"value": "Mustang GT",
+											"type": "text"
+										},
+										{
+											"key": "preis",
+											"value": "-100",
+											"type": "text"
+										},
+										{
+											"key": "dealerUUID",
+											"value": "08b6dfc2-004e-4e0b-9c41-a1ba8665aa48",
+											"type": "text"
+										},
+										{
+											"key": "baujahr",
+											"value": "-100",
+											"type": "text"
+										},
+										{
+											"key": "hubraum",
+											"value": "5000",
+											"type": "text"
+										},
+										{
+											"key": "leistung",
+											"value": "421",
+											"type": "text"
+										},
+										{
+											"key": "tuning",
+											"value": "false",
+											"type": "text"
+										},
+										{
+											"key": "mfk",
+											"value": "true",
+											"type": "text"
+										},
+										{
+											"key": "leergewicht",
+											"value": "1600",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{url}}/vehicle/update/",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"vehicle",
+										"update",
+										""
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "fail Update no hubraum Vehicle",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Status test 400\", function () {\r",
+											"    pm.response.to.have.status(400);\r",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": [
+										{
+											"key": "vehicleUUID",
+											"value": "e2cfaa52-83e5-4c5c-b32a-abbf03c3c151",
+											"type": "text"
+										},
+										{
+											"key": "marke",
+											"value": "UPDATED",
+											"type": "text"
+										},
+										{
+											"key": "modell",
+											"value": "Mustang GT",
+											"type": "text"
+										},
+										{
+											"key": "preis",
+											"value": "-100",
+											"type": "text"
+										},
+										{
+											"key": "dealerUUID",
+											"value": "08b6dfc2-004e-4e0b-9c41-a1ba8665aa48",
+											"type": "text"
+										},
+										{
+											"key": "baujahr",
+											"value": "100",
+											"type": "text"
+										},
+										{
+											"key": "hubraum",
+											"value": "5000",
+											"type": "text",
+											"disabled": true
+										},
+										{
+											"key": "leistung",
+											"value": "421",
+											"type": "text"
+										},
+										{
+											"key": "tuning",
+											"value": "false",
+											"type": "text"
+										},
+										{
+											"key": "mfk",
+											"value": "true",
+											"type": "text"
+										},
+										{
+											"key": "leergewicht",
+											"value": "1600",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{url}}/vehicle/update/",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"vehicle",
+										"update",
+										""
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "fail Update to low hubraum Vehicle",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Status test 400\", function () {\r",
+											"    pm.response.to.have.status(400);\r",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": [
+										{
+											"key": "vehicleUUID",
+											"value": "e2cfaa52-83e5-4c5c-b32a-abbf03c3c151",
+											"type": "text"
+										},
+										{
+											"key": "marke",
+											"value": "UPDATED",
+											"type": "text"
+										},
+										{
+											"key": "modell",
+											"value": "Mustang GT",
+											"type": "text"
+										},
+										{
+											"key": "preis",
+											"value": "100",
+											"type": "text"
+										},
+										{
+											"key": "dealerUUID",
+											"value": "08b6dfc2-004e-4e0b-9c41-a1ba8665aa48",
+											"type": "text"
+										},
+										{
+											"key": "baujahr",
+											"value": "100",
+											"type": "text"
+										},
+										{
+											"key": "hubraum",
+											"value": "-100",
+											"type": "text"
+										},
+										{
+											"key": "leistung",
+											"value": "421",
+											"type": "text"
+										},
+										{
+											"key": "tuning",
+											"value": "false",
+											"type": "text"
+										},
+										{
+											"key": "mfk",
+											"value": "true",
+											"type": "text"
+										},
+										{
+											"key": "leergewicht",
+											"value": "1600",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{url}}/vehicle/update/",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"vehicle",
+										"update",
+										""
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "fail Update no leistung Vehicle",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Status test 400\", function () {\r",
+											"    pm.response.to.have.status(400);\r",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": [
+										{
+											"key": "vehicleUUID",
+											"value": "e2cfaa52-83e5-4c5c-b32a-abbf03c3c151",
+											"type": "text"
+										},
+										{
+											"key": "marke",
+											"value": "UPDATED",
+											"type": "text"
+										},
+										{
+											"key": "modell",
+											"value": "Mustang GT",
+											"type": "text"
+										},
+										{
+											"key": "preis",
+											"value": "100",
+											"type": "text"
+										},
+										{
+											"key": "dealerUUID",
+											"value": "08b6dfc2-004e-4e0b-9c41-a1ba8665aa48",
+											"type": "text"
+										},
+										{
+											"key": "baujahr",
+											"value": "100",
+											"type": "text"
+										},
+										{
+											"key": "hubraum",
+											"value": "100",
+											"type": "text"
+										},
+										{
+											"key": "leistung",
+											"value": "421",
+											"type": "text",
+											"disabled": true
+										},
+										{
+											"key": "tuning",
+											"value": "false",
+											"type": "text"
+										},
+										{
+											"key": "mfk",
+											"value": "true",
+											"type": "text"
+										},
+										{
+											"key": "leergewicht",
+											"value": "1600",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{url}}/vehicle/update/",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"vehicle",
+										"update",
+										""
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "fail Update to low leistung Vehicle",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Status test 400\", function () {\r",
+											"    pm.response.to.have.status(400);\r",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": [
+										{
+											"key": "vehicleUUID",
+											"value": "e2cfaa52-83e5-4c5c-b32a-abbf03c3c151",
+											"type": "text"
+										},
+										{
+											"key": "marke",
+											"value": "UPDATED",
+											"type": "text"
+										},
+										{
+											"key": "modell",
+											"value": "Mustang GT",
+											"type": "text"
+										},
+										{
+											"key": "preis",
+											"value": "100",
+											"type": "text"
+										},
+										{
+											"key": "dealerUUID",
+											"value": "08b6dfc2-004e-4e0b-9c41-a1ba8665aa48",
+											"type": "text"
+										},
+										{
+											"key": "baujahr",
+											"value": "100",
+											"type": "text"
+										},
+										{
+											"key": "hubraum",
+											"value": "100",
+											"type": "text"
+										},
+										{
+											"key": "leistung",
+											"value": "-100",
+											"type": "text"
+										},
+										{
+											"key": "tuning",
+											"value": "false",
+											"type": "text"
+										},
+										{
+											"key": "mfk",
+											"value": "true",
+											"type": "text"
+										},
+										{
+											"key": "leergewicht",
+											"value": "1600",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{url}}/vehicle/update/",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"vehicle",
+										"update",
+										""
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "fail Update mfk Vehicle",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Status test 400\", function () {\r",
+											"    pm.response.to.have.status(400);\r",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": [
+										{
+											"key": "vehicleUUID",
+											"value": "e2cfaa52-83e5-4c5c-b32a-abbf03c3c151",
+											"type": "text"
+										},
+										{
+											"key": "marke",
+											"value": "UPDATED",
+											"type": "text"
+										},
+										{
+											"key": "modell",
+											"value": "Mustang GT",
+											"type": "text"
+										},
+										{
+											"key": "preis",
+											"value": "100",
+											"type": "text"
+										},
+										{
+											"key": "dealerUUID",
+											"value": "08b6dfc2-004e-4e0b-9c41-a1ba8665aa48",
+											"type": "text"
+										},
+										{
+											"key": "baujahr",
+											"value": "100",
+											"type": "text"
+										},
+										{
+											"key": "hubraum",
+											"value": "100",
+											"type": "text"
+										},
+										{
+											"key": "leistung",
+											"value": "100",
+											"type": "text"
+										},
+										{
+											"key": "tuning",
+											"value": "false",
+											"type": "text"
+										},
+										{
+											"key": "mfk",
+											"value": "true",
+											"type": "text",
+											"disabled": true
+										},
+										{
+											"key": "leergewicht",
+											"value": "1600",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{url}}/vehicle/update/",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"vehicle",
+										"update",
+										""
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "fail Update tuning Vehicle",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Status test 400\", function () {\r",
+											"    pm.response.to.have.status(400);\r",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": [
+										{
+											"key": "vehicleUUID",
+											"value": "e2cfaa52-83e5-4c5c-b32a-abbf03c3c151",
+											"type": "text"
+										},
+										{
+											"key": "marke",
+											"value": "UPDATED",
+											"type": "text"
+										},
+										{
+											"key": "modell",
+											"value": "Mustang GT",
+											"type": "text"
+										},
+										{
+											"key": "preis",
+											"value": "100",
+											"type": "text"
+										},
+										{
+											"key": "dealerUUID",
+											"value": "08b6dfc2-004e-4e0b-9c41-a1ba8665aa48",
+											"type": "text"
+										},
+										{
+											"key": "baujahr",
+											"value": "100",
+											"type": "text"
+										},
+										{
+											"key": "hubraum",
+											"value": "100",
+											"type": "text"
+										},
+										{
+											"key": "leistung",
+											"value": "100",
+											"type": "text"
+										},
+										{
+											"key": "tuning",
+											"value": "false",
+											"type": "text",
+											"disabled": true
+										},
+										{
+											"key": "mfk",
+											"value": "true",
+											"type": "text"
+										},
+										{
+											"key": "leergewicht",
+											"value": "1600",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{url}}/vehicle/update/",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"vehicle",
+										"update",
+										""
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "fail Update no leergewicht Vehicle",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Status test 400\", function () {\r",
+											"    pm.response.to.have.status(400);\r",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": [
+										{
+											"key": "vehicleUUID",
+											"value": "e2cfaa52-83e5-4c5c-b32a-abbf03c3c151",
+											"type": "text"
+										},
+										{
+											"key": "marke",
+											"value": "UPDATED",
+											"type": "text"
+										},
+										{
+											"key": "modell",
+											"value": "Mustang GT",
+											"type": "text"
+										},
+										{
+											"key": "preis",
+											"value": "100",
+											"type": "text"
+										},
+										{
+											"key": "dealerUUID",
+											"value": "08b6dfc2-004e-4e0b-9c41-a1ba8665aa48",
+											"type": "text"
+										},
+										{
+											"key": "baujahr",
+											"value": "100",
+											"type": "text"
+										},
+										{
+											"key": "hubraum",
+											"value": "100",
+											"type": "text"
+										},
+										{
+											"key": "leistung",
+											"value": "100",
+											"type": "text"
+										},
+										{
+											"key": "tuning",
+											"value": "false",
+											"type": "text"
+										},
+										{
+											"key": "mfk",
+											"value": "true",
+											"type": "text"
+										},
+										{
+											"key": "leergewicht",
+											"value": "1600",
+											"type": "text",
+											"disabled": true
+										}
+									]
+								},
+								"url": {
+									"raw": "{{url}}/vehicle/update/",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"vehicle",
+										"update",
+										""
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "fail Update to low leergewicht Vehicle",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Status test 400\", function () {\r",
+											"    pm.response.to.have.status(400);\r",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": [
+										{
+											"key": "vehicleUUID",
+											"value": "e2cfaa52-83e5-4c5c-b32a-abbf03c3c151",
+											"type": "text"
+										},
+										{
+											"key": "marke",
+											"value": "UPDATED",
+											"type": "text"
+										},
+										{
+											"key": "modell",
+											"value": "Mustang GT",
+											"type": "text"
+										},
+										{
+											"key": "preis",
+											"value": "100",
+											"type": "text"
+										},
+										{
+											"key": "dealerUUID",
+											"value": "08b6dfc2-004e-4e0b-9c41-a1ba8665aa48",
+											"type": "text"
+										},
+										{
+											"key": "baujahr",
+											"value": "100",
+											"type": "text"
+										},
+										{
+											"key": "hubraum",
+											"value": "100",
+											"type": "text"
+										},
+										{
+											"key": "leistung",
+											"value": "100",
+											"type": "text"
+										},
+										{
+											"key": "tuning",
+											"value": "false",
+											"type": "text"
+										},
+										{
+											"key": "mfk",
+											"value": "true",
+											"type": "text"
+										},
+										{
+											"key": "leergewicht",
+											"value": "-100",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{url}}/vehicle/update/",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"vehicle",
+										"update",
+										""
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "fail Update no kennzeichen Vehicle",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Status test 400\", function () {\r",
+											"    pm.response.to.have.status(400);\r",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": [
+										{
+											"key": "vehicleUUID",
+											"value": "e2cfaa52-83e5-4c5c-b32a-abbf03c3c151",
+											"type": "text"
+										},
+										{
+											"key": "marke",
+											"value": "UPDATED",
+											"type": "text"
+										},
+										{
+											"key": "modell",
+											"value": "Mustang GT",
+											"type": "text"
+										},
+										{
+											"key": "preis",
+											"value": "100",
+											"type": "text"
+										},
+										{
+											"key": "dealerUUID",
+											"value": "08b6dfc2-004e-4e0b-9c41-a1ba8665aa48",
+											"type": "text"
+										},
+										{
+											"key": "baujahr",
+											"value": "100",
+											"type": "text"
+										},
+										{
+											"key": "hubraum",
+											"value": "100",
+											"type": "text"
+										},
+										{
+											"key": "leistung",
+											"value": "100",
+											"type": "text"
+										},
+										{
+											"key": "tuning",
+											"value": "false",
+											"type": "text"
+										},
+										{
+											"key": "mfk",
+											"value": "true",
+											"type": "text"
+										},
+										{
+											"key": "leergewicht",
+											"value": "100",
+											"type": "text"
+										},
+										{
+											"key": "kennzeichen",
+											"value": "",
+											"type": "text",
+											"disabled": true
+										}
+									]
+								},
+								"url": {
+									"raw": "{{url}}/vehicle/update/",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"vehicle",
+										"update",
+										""
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "fail Update wrong pattern kennzeichen Vehicle",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Status test 400\", function () {\r",
+											"    pm.response.to.have.status(400);\r",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": [
+										{
+											"key": "vehicleUUID",
+											"value": "e2cfaa52-83e5-4c5c-b32a-abbf03c3c151",
+											"type": "text"
+										},
+										{
+											"key": "marke",
+											"value": "UPDATED",
+											"type": "text"
+										},
+										{
+											"key": "modell",
+											"value": "Mustang GT",
+											"type": "text"
+										},
+										{
+											"key": "preis",
+											"value": "100",
+											"type": "text"
+										},
+										{
+											"key": "dealerUUID",
+											"value": "08b6dfc2-004e-4e0b-9c41-a1ba8665aa48",
+											"type": "text"
+										},
+										{
+											"key": "baujahr",
+											"value": "100",
+											"type": "text"
+										},
+										{
+											"key": "hubraum",
+											"value": "100",
+											"type": "text"
+										},
+										{
+											"key": "leistung",
+											"value": "100",
+											"type": "text"
+										},
+										{
+											"key": "tuning",
+											"value": "false",
+											"type": "text"
+										},
+										{
+											"key": "mfk",
+											"value": "true",
+											"type": "text"
+										},
+										{
+											"key": "leergewicht",
+											"value": "100",
+											"type": "text"
+										},
+										{
+											"key": "kennzeichen",
+											"value": "sdfsdf",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{url}}/vehicle/update/",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"vehicle",
+										"update",
+										""
+									]
+								}
+							},
+							"response": []
+						}
 					]
+				},
+				{
+					"name": "read list Vehicle",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status test 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/Autoscout-1.0-SNAPSHOT/resource/vehicle/list/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"Autoscout-1.0-SNAPSHOT",
+								"resource",
+								"vehicle",
+								"list",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "successful read one Vehicle",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status test 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/Autoscout-1.0-SNAPSHOT/resource/vehicle/read/e2cfaa52-83e5-4c5c-b32a-abbf03c3c151",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"Autoscout-1.0-SNAPSHOT",
+								"resource",
+								"vehicle",
+								"read",
+								"e2cfaa52-83e5-4c5c-b32a-abbf03c3c151"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "failing read one Vehicle",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status test 404\", function () {\r",
+									"    pm.response.to.have.status(404);\r",
+									"});\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/Autoscout-1.0-SNAPSHOT/resource/vehicle/read/495505b7-f069-4a61-aff0-7ce833634bf",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"Autoscout-1.0-SNAPSHOT",
+								"resource",
+								"vehicle",
+								"read",
+								"495505b7-f069-4a61-aff0-7ce833634bf"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "successful insert Vehicle",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status test 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "marke",
+									"value": "Ford",
+									"type": "text"
+								},
+								{
+									"key": "modell",
+									"value": "Mustang GT",
+									"type": "text"
+								},
+								{
+									"key": "preis",
+									"value": "65000",
+									"type": "text"
+								},
+								{
+									"key": "dealerUUID",
+									"value": "d3cbe97e-9c39-4df3-8097-4f4fb45a5e9d",
+									"type": "text"
+								},
+								{
+									"key": "baujahr",
+									"value": "2019",
+									"type": "text"
+								},
+								{
+									"key": "hubraum",
+									"value": "5000",
+									"type": "text"
+								},
+								{
+									"key": "leistung",
+									"value": "421",
+									"type": "text"
+								},
+								{
+									"key": "tuning",
+									"value": "false",
+									"type": "text"
+								},
+								{
+									"key": "mfk",
+									"value": "true",
+									"type": "text"
+								},
+								{
+									"key": "leergewicht",
+									"value": "1600",
+									"type": "text"
+								},
+								{
+									"key": "kennzeichen",
+									"value": "555",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{url}}/vehicle/insert/",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"vehicle",
+								"insert",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "successful delete Vehicle",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status test 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/vehicle/delete/bc8907ed-298d-4065-befb-84af4886e718",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"vehicle",
+								"delete",
+								"bc8907ed-298d-4065-befb-84af4886e718"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "successful Update Vehicle",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status test 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "vehicleUUID",
+									"value": "e2cfaa52-83e5-4c5c-b32a-abbf03c3c151",
+									"type": "text"
+								},
+								{
+									"key": "marke",
+									"value": "UPDATED",
+									"type": "text"
+								},
+								{
+									"key": "modell",
+									"value": "Mustang GT",
+									"type": "text"
+								},
+								{
+									"key": "preis",
+									"value": "65000",
+									"type": "text"
+								},
+								{
+									"key": "dealerUUID",
+									"value": "08b6dfc2-004e-4e0b-9c41-a1ba8665aa48",
+									"type": "text"
+								},
+								{
+									"key": "baujahr",
+									"value": "2019",
+									"type": "text"
+								},
+								{
+									"key": "hubraum",
+									"value": "5000",
+									"type": "text"
+								},
+								{
+									"key": "leistung",
+									"value": "421",
+									"type": "text"
+								},
+								{
+									"key": "tuning",
+									"value": "false",
+									"type": "text"
+								},
+								{
+									"key": "mfk",
+									"value": "true",
+									"type": "text"
+								},
+								{
+									"key": "leergewicht",
+									"value": "1600",
+									"type": "text"
+								},
+								{
+									"key": "kennzeichen",
+									"value": "300",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{url}}/vehicle/update/",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"vehicle",
+								"update",
+								""
+							]
+						}
+					},
+					"response": []
 				}
-			},
-			"response": []
+			]
 		},
 		{
-			"name": "read list Haendler",
-			"event": [
+			"name": "Buyer",
+			"item": [
 				{
-					"listen": "test",
-					"script": {
-						"exec": [
-							"pm.test(\"Status test 200\", function () {\r",
-							"    pm.response.to.have.status(200);\r",
-							"});"
-						],
-						"type": "text/javascript"
-					}
-				}
-			],
-			"request": {
-				"method": "GET",
-				"header": [],
-				"url": {
-					"raw": "http://localhost:8080/Autoscout-1.0-SNAPSHOT/resource/haendler/list/",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"port": "8080",
-					"path": [
-						"Autoscout-1.0-SNAPSHOT",
-						"resource",
-						"haendler",
-						"list",
-						""
+					"name": "False Attribute values",
+					"item": [
+						{
+							"name": "fail insert watchlistUUID Buyer",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Status test 400\", function () {\r",
+											"    pm.response.to.have.status(400);\r",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": [
+										{
+											"key": "watchlistUUID",
+											"value": "4a0139a1-1773-41a9-9de4-3a8fa3d28e54",
+											"type": "text",
+											"disabled": true
+										},
+										{
+											"key": "jahrgang",
+											"value": "2020",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{url}}/buyer/insert/",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"buyer",
+										"insert",
+										""
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "fail insert no jahrgang Buyer",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Status test 400\", function () {\r",
+											"    pm.response.to.have.status(400);\r",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": [
+										{
+											"key": "watchlistUUID",
+											"value": "4a0139a1-1773-41a9-9de4-3a8fa3d28e54",
+											"type": "text"
+										},
+										{
+											"key": "jahrgang",
+											"value": "2020",
+											"type": "text",
+											"disabled": true
+										}
+									]
+								},
+								"url": {
+									"raw": "{{url}}/buyer/insert/",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"buyer",
+										"insert",
+										""
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "fail insert to low jahrgang Buyer",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Status test 400\", function () {\r",
+											"    pm.response.to.have.status(400);\r",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": [
+										{
+											"key": "watchlistUUID",
+											"value": "4a0139a1-1773-41a9-9de4-3a8fa3d28e54",
+											"type": "text"
+										},
+										{
+											"key": "jahrgang",
+											"value": "700",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{url}}/buyer/insert/",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"buyer",
+										"insert",
+										""
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "fail Update watchlistUUID Buyer",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Status test 400\", function () {\r",
+											"    pm.response.to.have.status(400);\r",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": [
+										{
+											"key": "watchlistUUID",
+											"value": "4a0139a1-1773-41a9-9de4-3a8fa3d28e54",
+											"type": "text",
+											"disabled": true
+										},
+										{
+											"key": "jahrgang",
+											"value": "1990",
+											"type": "text"
+										},
+										{
+											"key": "buyerUUID",
+											"value": "7b1af934-fc46-4da4-b500-bc73b411a51a",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{url}}/buyer/update/",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"buyer",
+										"update",
+										""
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "fail Update no jahrgang Buyer",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Status test 400\", function () {\r",
+											"    pm.response.to.have.status(400);\r",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": [
+										{
+											"key": "watchlistUUID",
+											"value": "4a0139a1-1773-41a9-9de4-3a8fa3d28e54",
+											"type": "text"
+										},
+										{
+											"key": "jahrgang",
+											"value": "1990",
+											"type": "text",
+											"disabled": true
+										},
+										{
+											"key": "buyerUUID",
+											"value": "7b1af934-fc46-4da4-b500-bc73b411a51a",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{url}}/buyer/update/",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"buyer",
+										"update",
+										""
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "fail Update to low jahrgang Buyer",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Status test 400\", function () {\r",
+											"    pm.response.to.have.status(400);\r",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": [
+										{
+											"key": "watchlistUUID",
+											"value": "4a0139a1-1773-41a9-9de4-3a8fa3d28e54",
+											"type": "text"
+										},
+										{
+											"key": "jahrgang",
+											"value": "40",
+											"type": "text"
+										},
+										{
+											"key": "buyerUUID",
+											"value": "7b1af934-fc46-4da4-b500-bc73b411a51a",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{url}}/buyer/update/",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"buyer",
+										"update",
+										""
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "fail Update buyerUUID Buyer",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Status test 400\", function () {\r",
+											"    pm.response.to.have.status(400);\r",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": [
+										{
+											"key": "watchlistUUID",
+											"value": "4a0139a1-1773-41a9-9de4-3a8fa3d28e54",
+											"type": "text"
+										},
+										{
+											"key": "jahrgang",
+											"value": "1990",
+											"type": "text"
+										},
+										{
+											"key": "buyerUUID",
+											"value": "7b1af934-fc46-4da4-b500-bc73b411a51a",
+											"type": "text",
+											"disabled": true
+										}
+									]
+								},
+								"url": {
+									"raw": "{{url}}/buyer/update/",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"buyer",
+										"update",
+										""
+									]
+								}
+							},
+							"response": []
+						}
 					]
+				},
+				{
+					"name": "read list Buyer",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status test 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/Autoscout-1.0-SNAPSHOT/resource/buyer/list/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"Autoscout-1.0-SNAPSHOT",
+								"resource",
+								"buyer",
+								"list",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "successful read one Buyer",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status test 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/Autoscout-1.0-SNAPSHOT/resource/buyer/read/7b1af934-fc46-4da4-b500-bc73b411a51a",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"Autoscout-1.0-SNAPSHOT",
+								"resource",
+								"buyer",
+								"read",
+								"7b1af934-fc46-4da4-b500-bc73b411a51a"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "failing read one Buyer",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status test 404\", function () {\r",
+									"    pm.response.to.have.status(404);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/Autoscout-1.0-SNAPSHOT/resource/buyer/read/9f3ef303-dc2f-476a-b3ea-911a1eba9",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"Autoscout-1.0-SNAPSHOT",
+								"resource",
+								"buyer",
+								"read",
+								"9f3ef303-dc2f-476a-b3ea-911a1eba9"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "successful insert Buyer",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status test 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "watchlistUUID",
+									"value": "4a0139a1-1773-41a9-9de4-3a8fa3d28e54",
+									"type": "text"
+								},
+								{
+									"key": "jahrgang",
+									"value": "2020",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{url}}/buyer/insert/",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"buyer",
+								"insert",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "successful delete Buyer",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status test 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/buyer/delete/62c74fbd-d324-4d03-8f1e-577836250da2",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"buyer",
+								"delete",
+								"62c74fbd-d324-4d03-8f1e-577836250da2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "successful Update Buyer",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status test 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "watchlistUUID",
+									"value": "4a0139a1-1773-41a9-9de4-3a8fa3d28e54",
+									"type": "text"
+								},
+								{
+									"key": "jahrgang",
+									"value": "1990",
+									"type": "text"
+								},
+								{
+									"key": "buyerUUID",
+									"value": "7b1af934-fc46-4da4-b500-bc73b411a51a",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{url}}/buyer/update/",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"buyer",
+								"update",
+								""
+							]
+						}
+					},
+					"response": []
 				}
-			},
-			"response": []
+			]
 		},
 		{
-			"name": "successful read one Haendler",
-			"event": [
+			"name": "Watchlist",
+			"item": [
 				{
-					"listen": "test",
-					"script": {
-						"exec": [
-							"pm.test(\"Status test 200\", function () {\r",
-							"    pm.response.to.have.status(200);\r",
-							"});"
-						],
-						"type": "text/javascript"
-					}
-				}
-			],
-			"request": {
-				"method": "GET",
-				"header": [],
-				"url": {
-					"raw": "http://localhost:8080/Autoscout-1.0-SNAPSHOT/resource/haendler/read/4cf30aef-4321-47ca-ab14-2c55b515b16b",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"port": "8080",
-					"path": [
-						"Autoscout-1.0-SNAPSHOT",
-						"resource",
-						"haendler",
-						"read",
-						"4cf30aef-4321-47ca-ab14-2c55b515b16b"
+					"name": "False Attribute values",
+					"item": [
+						{
+							"name": "fail insert vehicleUUID Watchlist",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Status test 400\", function () {\r",
+											"    pm.response.to.have.status(400);\r",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": [
+										{
+											"key": "vehicleUUIDs",
+											"value": "bc8907ed-298d-4065-befb-84af4886e718;e2cfaa52-83e5-4c5c-b32a-abbf03c3c151",
+											"type": "text",
+											"disabled": true
+										},
+										{
+											"key": "beschreibung",
+											"value": "INSERTBESCHREIBUNG",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{url}}/watchlist/insert/",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"watchlist",
+										"insert",
+										""
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "fail insert beschreibung Watchlist",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Status test 400\", function () {\r",
+											"    pm.response.to.have.status(400);\r",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": [
+										{
+											"key": "vehicleUUIDs",
+											"value": "bc8907ed-298d-4065-befb-84af4886e718;e2cfaa52-83e5-4c5c-b32a-abbf03c3c151",
+											"type": "text"
+										},
+										{
+											"key": "beschreibung",
+											"value": "INSERTBESCHREIBUNG",
+											"type": "text",
+											"disabled": true
+										}
+									]
+								},
+								"url": {
+									"raw": "{{url}}/watchlist/insert/",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"watchlist",
+										"insert",
+										""
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "fail Update vehicleUUID Watchlist",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Status test 400\", function () {\r",
+											"    pm.response.to.have.status(400);\r",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": [
+										{
+											"key": "vehicleUUIDs",
+											"value": "e2cfaa52-83e5-4c5c-b32a-abbf03c3c151;bc8907ed-298d-4065-befb-84af4886e718",
+											"type": "text",
+											"disabled": true
+										},
+										{
+											"key": "beschreibung",
+											"value": "UPDATEDLIST",
+											"type": "text"
+										},
+										{
+											"key": "watchlistUUID",
+											"value": "4a0139a1-1773-41a9-9de4-3a8fa3d28e54",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{url}}/watchlist/update/",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"watchlist",
+										"update",
+										""
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "fail Update beschreibung Watchlist",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Status test 400\", function () {\r",
+											"    pm.response.to.have.status(400);\r",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": [
+										{
+											"key": "vehicleUUIDs",
+											"value": "e2cfaa52-83e5-4c5c-b32a-abbf03c3c151;bc8907ed-298d-4065-befb-84af4886e718",
+											"type": "text"
+										},
+										{
+											"key": "beschreibung",
+											"value": "UPDATEDLIST",
+											"type": "text",
+											"disabled": true
+										},
+										{
+											"key": "watchlistUUID",
+											"value": "4a0139a1-1773-41a9-9de4-3a8fa3d28e54",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{url}}/watchlist/update/",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"watchlist",
+										"update",
+										""
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "fail Update watchlistUUID Watchlist",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Status test 400\", function () {\r",
+											"    pm.response.to.have.status(400);\r",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": [
+										{
+											"key": "vehicleUUIDs",
+											"value": "e2cfaa52-83e5-4c5c-b32a-abbf03c3c151;bc8907ed-298d-4065-befb-84af4886e718",
+											"type": "text"
+										},
+										{
+											"key": "beschreibung",
+											"value": "UPDATEDLIST",
+											"type": "text"
+										},
+										{
+											"key": "watchlistUUID",
+											"value": "4a0139a1-1773-41a9-9de4-3a8fa3d28e54",
+											"type": "text",
+											"disabled": true
+										}
+									]
+								},
+								"url": {
+									"raw": "{{url}}/watchlist/update/",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"watchlist",
+										"update",
+										""
+									]
+								}
+							},
+							"response": []
+						}
 					]
+				},
+				{
+					"name": "read list Watchlist",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status test 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/Autoscout-1.0-SNAPSHOT/resource/watchlist/list/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"Autoscout-1.0-SNAPSHOT",
+								"resource",
+								"watchlist",
+								"list",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "successful read one Watchlist",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status test 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/Autoscout-1.0-SNAPSHOT/resource/watchlist/read/4a0139a1-1773-41a9-9de4-3a8fa3d28e54",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"Autoscout-1.0-SNAPSHOT",
+								"resource",
+								"watchlist",
+								"read",
+								"4a0139a1-1773-41a9-9de4-3a8fa3d28e54"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "failing read one Watchlist",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status test 404\", function () {\r",
+									"    pm.response.to.have.status(404);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/Autoscout-1.0-SNAPSHOT/resource/watchlist/read/4f8cda75-c359-4ade-bf23-9cdb1e86f65",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"Autoscout-1.0-SNAPSHOT",
+								"resource",
+								"watchlist",
+								"read",
+								"4f8cda75-c359-4ade-bf23-9cdb1e86f65"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "successful insert Watchlist",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status test 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "vehicleUUIDs",
+									"value": "bc8907ed-298d-4065-befb-84af4886e718;e2cfaa52-83e5-4c5c-b32a-abbf03c3c151",
+									"type": "text"
+								},
+								{
+									"key": "beschreibung",
+									"value": "INSERTBESCHREIBUNG",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{url}}/watchlist/insert/",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"watchlist",
+								"insert",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "successful delete Watchlist",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status test 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/watchlist/delete/ac1db514-4f8a-45a7-902a-d09be120ed3f",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"watchlist",
+								"delete",
+								"ac1db514-4f8a-45a7-902a-d09be120ed3f"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "successful Update Watchlist",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status test 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "vehicleUUIDs",
+									"value": "e2cfaa52-83e5-4c5c-b32a-abbf03c3c151;bc8907ed-298d-4065-befb-84af4886e718",
+									"type": "text"
+								},
+								{
+									"key": "beschreibung",
+									"value": "UPDATEDLIST",
+									"type": "text"
+								},
+								{
+									"key": "watchlistUUID",
+									"value": "4a0139a1-1773-41a9-9de4-3a8fa3d28e54",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{url}}/watchlist/update/",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"watchlist",
+								"update",
+								""
+							]
+						}
+					},
+					"response": []
 				}
-			},
-			"response": []
-		},
+			]
+		}
+	],
+	"variable": [
 		{
-			"name": "read list Kaeufer",
-			"event": [
-				{
-					"listen": "test",
-					"script": {
-						"exec": [
-							"pm.test(\"Status test 200\", function () {\r",
-							"    pm.response.to.have.status(200);\r",
-							"});\r",
-							""
-						],
-						"type": "text/javascript"
-					}
-				}
-			],
-			"request": {
-				"method": "GET",
-				"header": [],
-				"url": {
-					"raw": "http://localhost:8080/Autoscout-1.0-SNAPSHOT/resource/kaeufer/list/",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"port": "8080",
-					"path": [
-						"Autoscout-1.0-SNAPSHOT",
-						"resource",
-						"kaeufer",
-						"list",
-						""
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "successful read one Kaeufer",
-			"event": [
-				{
-					"listen": "test",
-					"script": {
-						"exec": [
-							"pm.test(\"Status test 200\", function () {\r",
-							"    pm.response.to.have.status(200);\r",
-							"});"
-						],
-						"type": "text/javascript"
-					}
-				}
-			],
-			"request": {
-				"method": "GET",
-				"header": [],
-				"url": {
-					"raw": "http://localhost:8080/Autoscout-1.0-SNAPSHOT/resource/kaeufer/read/9f3ef303-dc2f-476a-b3ea-911a1eba9f13",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"port": "8080",
-					"path": [
-						"Autoscout-1.0-SNAPSHOT",
-						"resource",
-						"kaeufer",
-						"read",
-						"9f3ef303-dc2f-476a-b3ea-911a1eba9f13"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "read list Merkliste",
-			"event": [
-				{
-					"listen": "test",
-					"script": {
-						"exec": [
-							"pm.test(\"Status test 200\", function () {\r",
-							"    pm.response.to.have.status(200);\r",
-							"});"
-						],
-						"type": "text/javascript"
-					}
-				}
-			],
-			"request": {
-				"method": "GET",
-				"header": [],
-				"url": {
-					"raw": "http://localhost:8080/Autoscout-1.0-SNAPSHOT/resource/merkliste/list/",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"port": "8080",
-					"path": [
-						"Autoscout-1.0-SNAPSHOT",
-						"resource",
-						"merkliste",
-						"list",
-						""
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "successful read one Merkliste",
-			"event": [
-				{
-					"listen": "test",
-					"script": {
-						"exec": [
-							"pm.test(\"Status test 200\", function () {\r",
-							"    pm.response.to.have.status(200);\r",
-							"});"
-						],
-						"type": "text/javascript"
-					}
-				}
-			],
-			"request": {
-				"method": "GET",
-				"header": [],
-				"url": {
-					"raw": "http://localhost:8080/Autoscout-1.0-SNAPSHOT/resource/merkliste/read/4f8cda75-c359-4ade-bf23-9cdb1e86f65c",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"port": "8080",
-					"path": [
-						"Autoscout-1.0-SNAPSHOT",
-						"resource",
-						"merkliste",
-						"read",
-						"4f8cda75-c359-4ade-bf23-9cdb1e86f65c"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "failing read one Fahrzeug",
-			"event": [
-				{
-					"listen": "test",
-					"script": {
-						"exec": [
-							"pm.test(\"Status test 404\", function () {\r",
-							"    pm.response.to.have.status(404);\r",
-							"});\r",
-							""
-						],
-						"type": "text/javascript"
-					}
-				}
-			],
-			"request": {
-				"method": "GET",
-				"header": [],
-				"url": {
-					"raw": "http://localhost:8080/Autoscout-1.0-SNAPSHOT/resource/fahrzeug/read/495505b7-f069-4a61-aff0-7ce833634bf",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"port": "8080",
-					"path": [
-						"Autoscout-1.0-SNAPSHOT",
-						"resource",
-						"fahrzeug",
-						"read",
-						"495505b7-f069-4a61-aff0-7ce833634bf"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "failing read one Haendler",
-			"event": [
-				{
-					"listen": "test",
-					"script": {
-						"exec": [
-							"pm.test(\"Status test 404\", function () {\r",
-							"    pm.response.to.have.status(404);\r",
-							"});"
-						],
-						"type": "text/javascript"
-					}
-				}
-			],
-			"request": {
-				"method": "GET",
-				"header": [],
-				"url": {
-					"raw": "http://localhost:8080/Autoscout-1.0-SNAPSHOT/resource/haendler/read/4cf30aef-4321-47ca-ab14-2c55b515b16",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"port": "8080",
-					"path": [
-						"Autoscout-1.0-SNAPSHOT",
-						"resource",
-						"haendler",
-						"read",
-						"4cf30aef-4321-47ca-ab14-2c55b515b16"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "failing read one Kaeufer",
-			"event": [
-				{
-					"listen": "test",
-					"script": {
-						"exec": [
-							"pm.test(\"Status test 404\", function () {\r",
-							"    pm.response.to.have.status(404);\r",
-							"});"
-						],
-						"type": "text/javascript"
-					}
-				}
-			],
-			"request": {
-				"method": "GET",
-				"header": [],
-				"url": {
-					"raw": "http://localhost:8080/Autoscout-1.0-SNAPSHOT/resource/kaeufer/read/9f3ef303-dc2f-476a-b3ea-911a1eba9f1",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"port": "8080",
-					"path": [
-						"Autoscout-1.0-SNAPSHOT",
-						"resource",
-						"kaeufer",
-						"read",
-						"9f3ef303-dc2f-476a-b3ea-911a1eba9f1"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "failing read one Merkliste",
-			"event": [
-				{
-					"listen": "test",
-					"script": {
-						"exec": [
-							"pm.test(\"Status test 404\", function () {\r",
-							"    pm.response.to.have.status(404);\r",
-							"});"
-						],
-						"type": "text/javascript"
-					}
-				}
-			],
-			"request": {
-				"method": "GET",
-				"header": [],
-				"url": {
-					"raw": "http://localhost:8080/Autoscout-1.0-SNAPSHOT/resource/merkliste/read/4f8cda75-c359-4ade-bf23-9cdb1e86f65",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"port": "8080",
-					"path": [
-						"Autoscout-1.0-SNAPSHOT",
-						"resource",
-						"merkliste",
-						"read",
-						"4f8cda75-c359-4ade-bf23-9cdb1e86f65"
-					]
-				}
-			},
-			"response": []
+			"key": "url",
+			"value": "http://localhost:8080/Autoscout-1.0-SNAPSHOT/resource"
 		}
 	]
 }

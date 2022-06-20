@@ -17,15 +17,9 @@ import java.time.LocalDate;
 @NoArgsConstructor
 public class Buyer {
 
-    @FormParam("BuyerUUID")
-    @NotEmpty
-    @NotNull
+
     private String BuyerUUID;
 
-    @FormParam("jahrgang")
-    @NotEmpty
-    @Size(min = 1900)
-    @NotNull
     private Integer jahrgang;
 
     @JsonIgnore

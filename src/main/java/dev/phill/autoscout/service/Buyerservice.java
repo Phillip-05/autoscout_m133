@@ -7,6 +7,9 @@ import dev.phill.autoscout.data.DataHandler;
 import dev.phill.autoscout.model.Buyer;
 import dev.phill.autoscout.model.Vehicle;
 import dev.phill.autoscout.model.Watchlist;
+import jakarta.validation.constraints.Min;
+import jakarta.validation.constraints.NotEmpty;
+import jakarta.validation.constraints.NotNull;
 import jakarta.ws.rs.*;
 import jakarta.ws.rs.core.MediaType;
 import jakarta.ws.rs.core.Response;
@@ -43,6 +46,8 @@ public class Buyerservice {
     @Path("read/{uuid}")
     @Produces(MediaType.APPLICATION_JSON)
     public Response readBuyer(
+            @NotNull
+            @NotEmpty
             @PathParam("uuid") String buyerUUID
 
     ){
@@ -67,6 +72,8 @@ public class Buyerservice {
     @Path("delete/{uuid}")
     @Produces(MediaType.TEXT_PLAIN)
     public Response deleteBuyer(
+            @NotNull
+            @NotEmpty
             @PathParam("uuid") String buyerUUID
     ) {
         int httpStatus = 200;
@@ -85,7 +92,13 @@ public class Buyerservice {
     @Path("insert")
     @Produces(MediaType.TEXT_PLAIN)
     public Response insertBuyer(
+
+            @NotNull
+            @NotEmpty
             @FormParam("watchlistUUID") String watchlistUUID,
+
+            @NotNull
+            @Min(1900)
             @FormParam("jahrgang") Integer jahrgang
 
     ) {
@@ -112,8 +125,16 @@ public class Buyerservice {
     @Produces(MediaType.TEXT_PLAIN)
     public Response updateBuyer(
 
+            @NotNull
+            @NotEmpty
             @FormParam("buyerUUID") String buyerUUID,
+
+            @NotNull
+            @NotEmpty
             @FormParam("watchlistUUID") String watchlistUUID,
+
+            @NotNull
+            @Min(1900)
             @FormParam("jahrgang") Integer jahrgang
 
     ) {

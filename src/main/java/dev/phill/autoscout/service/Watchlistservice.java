@@ -7,6 +7,8 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import dev.phill.autoscout.data.DataHandler;
 import dev.phill.autoscout.model.Vehicle;
 import dev.phill.autoscout.model.Watchlist;
+import jakarta.validation.constraints.NotEmpty;
+import jakarta.validation.constraints.NotNull;
 import jakarta.ws.rs.*;
 import jakarta.ws.rs.core.MediaType;
 import jakarta.ws.rs.core.Response;
@@ -43,6 +45,8 @@ public class Watchlistservice {
     @Path("read/{uuid}")
     @Produces(MediaType.APPLICATION_JSON)
     public Response readWatchlist(
+            @NotEmpty
+            @NotNull
             @PathParam("uuid") String watchlistUUID
 
     ){
@@ -67,6 +71,8 @@ public class Watchlistservice {
     @Path("delete/{uuid}")
     @Produces(MediaType.TEXT_PLAIN)
     public Response deleteWatchlist(
+            @NotEmpty
+            @NotNull
             @PathParam("uuid") String watchlistUUID
     ) {
         int httpStatus = 200;
@@ -85,7 +91,13 @@ public class Watchlistservice {
     @Path("insert")
     @Produces(MediaType.TEXT_PLAIN)
     public Response insertWatchlist(
+
+            @NotEmpty
+            @NotNull
             @FormParam("vehicleUUIDs") String vehicleUUIDs,
+
+            @NotEmpty
+            @NotNull
             @FormParam("beschreibung") String beschreibung
 
     ) {
@@ -118,8 +130,16 @@ public class Watchlistservice {
     @Produces(MediaType.TEXT_PLAIN)
     public Response updateWatchlist(
 
+            @NotEmpty
+            @NotNull
             @FormParam("vehicleUUIDs") String vehicleUUIDs,
+
+            @NotEmpty
+            @NotNull
             @FormParam("beschreibung") String beschreibung,
+
+            @NotEmpty
+            @NotNull
             @FormParam("watchlistUUID") String watchlistUUID
 
     ) {

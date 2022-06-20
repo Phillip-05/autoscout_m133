@@ -19,17 +19,11 @@ import java.util.Vector;
 @NoArgsConstructor
 public class Watchlist {
 
-    @FormParam("WatchlistUUID")
-    @NotEmpty
-    @NotNull
     private String WatchlistUUID;
 
     @JsonIgnore
     private Vector<Vehicle> vehiclelist;
 
-    @FormParam("beschreibung")
-    @NotEmpty
-    @NotNull
     private String beschreibung;
 
     /**

@@ -7,11 +7,11 @@ import dev.phill.autoscout.data.DataHandler;
 import dev.phill.autoscout.model.Dealer;
 import jakarta.validation.Valid;
 import jakarta.validation.constraints.NotEmpty;
+import jakarta.validation.constraints.NotNull;
 import jakarta.ws.rs.*;
 import jakarta.ws.rs.core.MediaType;
 import jakarta.ws.rs.core.Response;
 
-import javax.validation.constraints.NotNull;
 import java.util.List;
 import java.util.UUID;
 

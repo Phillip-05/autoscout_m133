@@ -7,14 +7,11 @@ import dev.phill.autoscout.data.DataHandler;
 import dev.phill.autoscout.model.Dealer;
 import dev.phill.autoscout.model.Vehicle;
 import jakarta.validation.Valid;
+import jakarta.validation.constraints.*;
 import jakarta.ws.rs.*;
 import jakarta.ws.rs.core.MediaType;
 import jakarta.ws.rs.core.Response;
 
-import javax.validation.constraints.NotEmpty;
-import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Pattern;
-import javax.validation.constraints.Size;
 import java.util.List;
 import java.util.UUID;
 
@@ -96,48 +93,40 @@ public class Vehicleservice {
 
             @NotEmpty
             @NotNull
-            @Valid
             @FormParam("marke") String marke,
 
             @NotEmpty
             @NotNull
             @FormParam("modell") String modell,
 
-            @NotEmpty
             @NotNull
-            @Size(min = 0)
+            @Min(0)
             @FormParam("preis") Float preis,
 
             @NotEmpty
             @NotNull
             @FormParam("dealerUUID") String dealerUUID,
 
-            @NotEmpty
             @NotNull
-            @Size(min = 1900)
+            @Min(1900)
             @FormParam("baujahr") Integer baujahr,
 
-            @NotEmpty
             @NotNull
-            @Size(min = 0)
+            @Min(0)
             @FormParam("hubraum") Float hubraum,
 
-            @NotEmpty
             @NotNull
-            @Size(min = 0)
+            @Min(0)
             @FormParam("leistung") Float leistung,
 
-            @NotEmpty
             @NotNull
             @FormParam("tuning") Boolean tuning,
 
-            @NotEmpty
             @NotNull
             @FormParam("mfk") Boolean mfk,
 
-            @NotEmpty
             @NotNull
-            @Size(min = 0)
+            @Min(0)
             @FormParam("leergewicht") Float leergewicht,
 
             @NotEmpty
@@ -166,7 +155,7 @@ public class Vehicleservice {
     @Produces(MediaType.TEXT_PLAIN)
     public Response updateVehicle(
 
-            @NotEmpty
+            @NotNull
             @NotEmpty
             @FormParam("vehicleUUID") String vehicleUUID,
 
@@ -178,41 +167,34 @@ public class Vehicleservice {
             @NotNull
             @FormParam("modell") String modell,
 
-            @NotEmpty
             @NotNull
-            @Size(min = 0)
+            @Min(0)
             @FormParam("preis") Float preis,
 
             @NotEmpty
             @NotNull
             @FormParam("dealerUUID") String dealerUUID,
 
-            @NotEmpty
             @NotNull
-            @Size(min = 1900)
+            @Min(1900)
             @FormParam("baujahr") Integer baujahr,
 
-            @NotEmpty
             @NotNull
-            @Size(min = 0)
+            @Min(0)
             @FormParam("hubraum") Float hubraum,
 
-            @NotEmpty
             @NotNull
-            @Size(min = 0)
+            @Min(0)
             @FormParam("leistung") Float leistung,
 
-            @NotEmpty
             @NotNull
             @FormParam("tuning") Boolean tuning,
 
-            @NotEmpty
             @NotNull
             @FormParam("mfk") Boolean mfk,
 
-            @NotEmpty
             @NotNull
-            @Size(min = 0)
+            @Min(0)
             @FormParam("leergewicht") Float leergewicht,
 
             @NotEmpty
