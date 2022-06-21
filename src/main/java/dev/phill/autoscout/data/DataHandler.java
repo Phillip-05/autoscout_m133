@@ -4,10 +4,7 @@ package dev.phill.autoscout.data;
 import com.fasterxml.jackson.core.util.DefaultPrettyPrinter;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.ObjectWriter;
-import dev.phill.autoscout.model.Buyer;
-import dev.phill.autoscout.model.Dealer;
-import dev.phill.autoscout.model.Vehicle;
-import dev.phill.autoscout.model.Watchlist;
+import dev.phill.autoscout.model.*;
 import dev.phill.autoscout.service.Config;
 
 import java.io.*;
@@ -26,6 +23,7 @@ public class DataHandler {
     private List<Dealer> dealerList;
     private List<Buyer> buyerList;
     private List<Watchlist> watchlistList;
+    private List<User> userList;
 
     /**
      * private constructor defeats instantiation
@@ -39,6 +37,8 @@ public class DataHandler {
         readBuyerJSON();
         setWatchlistList(new ArrayList<>());
         readWatchlistJSON();
+        setUserList(new ArrayList<>());
+        readUserJSON();
     }
 
     /**
@@ -485,6 +485,60 @@ public class DataHandler {
      */
     private void setDealerList(List<Dealer> dealerList) {
         this.dealerList = dealerList;
+    }
+
+    public String readUserRole(String username, String password) {
+        for (User user : getUserList()) {
+            if (user.getUsername().equals(username) &&
+                    user.getPassword().equals(password)) {
+                return user.getUsername();
+            }
+        }
+        return "guest";
+    }
+
+    /**
+     * reads the users from the JSON-file
+     */
+    private void readUserJSON() {
+        try {
+            byte[] jsonData = Files.readAllBytes(
+                    Paths.get(
+                            Config.getProperty("userJSON")
+                    )
+            );
+            ObjectMapper objectMapper = new ObjectMapper();
+            User[] users = objectMapper.readValue(jsonData, User[].class);
+            for (User user : users) {
+                getUserList().add(user);
+            }
+        } catch (IOException ex) {
+            ex.printStackTrace();
+        }
+    }
+
+    /**
+     * gets userList
+     *
+     * @return value of userList
+     */
+
+    public List<User> getUserList() {
+        if (DataHandler.getInstance().userList == null) {
+            DataHandler.getInstance().setUserList(new ArrayList<>());
+            readUserJSON();
+        }
+        return userList;
+    }
+
+    /**
+     * sets userList
+     *
+     * @param userList the value to set
+     */
+
+    public void setUserList(List<User> userList) {
+        DataHandler.getInstance().userList = userList;
     }
 
 
