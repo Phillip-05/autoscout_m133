@@ -7,6 +7,8 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import dev.phill.autoscout.data.DataHandler;
 import dev.phill.autoscout.model.Vehicle;
 import dev.phill.autoscout.model.Watchlist;
+import jakarta.annotation.security.PermitAll;
+import jakarta.annotation.security.RolesAllowed;
 import jakarta.validation.constraints.NotEmpty;
 import jakarta.validation.constraints.NotNull;
 import jakarta.ws.rs.*;
@@ -30,6 +32,7 @@ public class Watchlistservice {
     @GET
     @Path("list")
     @Produces(MediaType.APPLICATION_JSON)
+    @RolesAllowed({"user","admin"})
     public Response listWatchlist() {
         List<Watchlist> watchlistList = DataHandler.readallWatchlist();
         try {
@@ -48,6 +51,7 @@ public class Watchlistservice {
     @GET
     @Path("read/{uuid}")
     @Produces(MediaType.APPLICATION_JSON)
+    @RolesAllowed({"user","admin"})
     public Response readWatchlist(
             @NotEmpty
             @NotNull
@@ -73,6 +77,7 @@ public class Watchlistservice {
      */
     @DELETE
     @Path("delete/{uuid}")
+    @RolesAllowed({"admin"})
     @Produces(MediaType.TEXT_PLAIN)
     public Response deleteWatchlist(
             @NotEmpty
@@ -94,6 +99,7 @@ public class Watchlistservice {
     @POST
     @Path("insert")
     @Produces(MediaType.TEXT_PLAIN)
+    @RolesAllowed({"admin"})
     public Response insertWatchlist(
 
             @NotEmpty
@@ -132,6 +138,7 @@ public class Watchlistservice {
     @PUT
     @Path("update")
     @Produces(MediaType.TEXT_PLAIN)
+    @RolesAllowed({"admin"})
     public Response updateWatchlist(
 
             @NotEmpty

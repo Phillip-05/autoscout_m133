@@ -50,6 +50,20 @@ public class DataHandler {
 
     }
 
+    public static void resetAllLists() {
+        setUserList(new ArrayList<>());
+        setBuyerList(new ArrayList<>());
+        setVehicleList(new ArrayList<>());
+        setDealerList(new ArrayList<>());
+        setWatchlistList(new ArrayList<>());
+        readUserJSON();
+        readDealerJSON();
+        readVehicleJSON();
+        readWatchlistJSON();
+        readBuyerJSON();
+
+    }
+
     /**
      * reads all Vehicle
      * @return whole vehicle list

@@ -4,9 +4,10 @@ package dev.phill.autoscout.service;
 import jakarta.ws.rs.ApplicationPath;
 import jakarta.ws.rs.core.Application;
 
-import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 import java.util.HashSet;
 import java.util.Properties;
 import java.util.Set;
@@ -21,24 +22,7 @@ public class Config extends Application {
     private static final String PROPERTIES_PATH = "C:\\Github\\autoscout_m133\\testing\\autoscout.properties";
     private static Properties properties = null;
 
-    /**
-     * define all provider classes
-     *
-     * @return set of classes
-     */
-    @Override
-    @SuppressWarnings("unchecked")
-    public Set<Class<?>> getClasses() {
-        HashSet providers = new HashSet<Class<?>>();
-        providers.add(Dealerservice.class);
-        providers.add(Vehicleservice.class);
-        providers.add(Watchlistservice.class);
-        providers.add(Buyerservice.class);
-        providers.add(UserService.class);
-        providers.add(TestService.class);
 
-        return providers;
-    }
 
     /**
      * Gets the value of a property
@@ -63,9 +47,9 @@ public class Config extends Application {
 
         InputStream inputStream;
         try {
-            inputStream = new FileInputStream(PROPERTIES_PATH);
+            inputStream = Files.newInputStream(Paths.get(PROPERTIES_PATH));
             properties.load(inputStream);
-            if (inputStream != null) inputStream.close();
+            inputStream.close();
         } catch (IOException ex) {
             ex.printStackTrace();
             throw new RuntimeException();

@@ -2,22 +2,26 @@ package dev.phill.autoscout.service;
 
 import dev.phill.autoscout.data.DataHandler;
 import dev.phill.autoscout.model.User;
+import dev.phill.autoscout.util.AES256;
 import dev.phill.autoscout.util.JWToken;
 import jakarta.annotation.security.PermitAll;
+import jakarta.annotation.security.RolesAllowed;
+import jakarta.ws.rs.FormParam;
+import jakarta.ws.rs.POST;
+import jakarta.ws.rs.Path;
+import jakarta.ws.rs.Produces;
+import jakarta.ws.rs.core.HttpHeaders;
+import jakarta.ws.rs.core.MediaType;
+import jakarta.ws.rs.core.NewCookie;
+import jakarta.ws.rs.core.Response;
 
 
-import javax.ws.rs.*;
-import javax.ws.rs.core.HttpHeaders;
-import javax.ws.rs.core.MediaType;
-import javax.ws.rs.core.NewCookie;
-import javax.ws.rs.core.Response;
-import java.util.HashMap;
-import java.util.Map;
+
 
 /**
  * services for authentication and authorization of users
  */
-@Path("/user")
+@Path("user")
 public class UserService {
 
     /**
@@ -28,84 +32,48 @@ public class UserService {
      * @return Response
      */
     @PermitAll
-    @Path("/login")
+    @Path("login")
     @POST
     @Produces(MediaType.TEXT_PLAIN)
     public Response loginUser(
             @FormParam("username") String username,
             @FormParam("password") String password
     ) {
-        int httpStatus = 200;
-        User user = DataHandler.readUser(
-                username,
-                password
-        );
+        User loggedInUser = DataHandler.readUser(username, password);
+        String userRole = loggedInUser.getRole();
+        String token = username + ";" + userRole;
 
-        String token;
-        Map<String, Object> claimMap = new HashMap<>();
-        int randomWord = 0;
-        if (user.getRole().equals("guest")) {
-
-            httpStatus = 401;
-
-        } else {
-
-            randomWord = (int) (Math.random() * 5);
-            claimMap.put("role", user.getRole());
-            claimMap.put("word", user.getWords().get(randomWord));
-        }
-        token = JWToken.buildToken(user.getRole(), 5, claimMap);
-
-
-        NewCookie roleCookie = new NewCookie(
-                "userRole",
-                user.getRole(),
+        NewCookie cookie = new NewCookie(
+                "logincookie",
+                AES256.encrypt(token),
                 "/",
                 "",
-                "Login-Cookie",
+                "Auth-Token",
                 600,
                 false
         );
 
-        NewCookie wordCookie = new NewCookie(
-                "secret",
-                randomWord + 1 + "",
-                "/",
-                "",
-                "Login-Cookie",
-                600,
-                false
-        );
-
-        return Response
-                .status(httpStatus)
-                .entity(randomWord + 1)
-                .header(HttpHeaders.AUTHORIZATION, "Bearer " + token)
-                .cookie(roleCookie)
-                .cookie(wordCookie)
-                .build();
+        return Response.ok().cookie(cookie)
+                .entity(loggedInUser.getUsername() + " successfully logged in!").build();
     }
 
     @PermitAll
-    @Path("2fa")
+    @Path("logout")
     @POST
     @Produces(MediaType.TEXT_PLAIN)
-    public Response checkWord(
-            @HeaderParam("Authorization") String authorization,
-            @FormParam("secret") String secret
-    ) {
-        int httpStatus = 200;
-        String token = authorization.substring(7);
-        Map<String, String> claims = JWToken.readClaims(token);
-        String word = claims.get("word");
-        if (word == null || !word.equals(secret)) {
-            httpStatus = 401;
-        }
+    public Response logoutUser() {
 
-        return Response
-                .status(httpStatus)
-                .entity(null)
-                .header(HttpHeaders.AUTHORIZATION, "Bearer " + token)
-                .build();
+        NewCookie cookie = new NewCookie(
+                "logincookie",
+                "",
+                "/",
+                "",
+                "Auth-Token",
+                1,
+                false
+        );
+
+        return Response.ok().cookie(cookie).build();
+
     }
 }

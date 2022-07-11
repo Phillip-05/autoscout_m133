@@ -4,11 +4,7 @@ package dev.phill.autoscout.model;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-import lombok.ToString;
 
-import javax.ws.rs.FormParam;
-import java.math.BigDecimal;
-import java.time.LocalDate;
 
 @Getter
 @Setter

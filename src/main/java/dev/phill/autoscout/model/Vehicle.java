@@ -6,9 +6,7 @@ import dev.phill.autoscout.data.DataHandler;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-import javax.ws.rs.FormParam;
-import java.math.BigDecimal;
-import java.time.LocalDate;
+
 
 
 @Getter

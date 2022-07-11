@@ -7,6 +7,7 @@ import dev.phill.autoscout.data.DataHandler;
 import dev.phill.autoscout.model.Buyer;
 import dev.phill.autoscout.model.Vehicle;
 import dev.phill.autoscout.model.Watchlist;
+import jakarta.annotation.security.RolesAllowed;
 import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.NotEmpty;
 import jakarta.validation.constraints.NotNull;
@@ -30,6 +31,7 @@ public class Buyerservice {
     @GET
     @Path("list")
     @Produces(MediaType.APPLICATION_JSON)
+    @RolesAllowed({"user","admin"})
     public Response listBuyer() {
         List<Buyer> buyerList = DataHandler.readallBuyer();
         try {
@@ -48,6 +50,7 @@ public class Buyerservice {
     @GET
     @Path("read/{uuid}")
     @Produces(MediaType.APPLICATION_JSON)
+    @RolesAllowed({"user","admin"})
     public Response readBuyer(
             @NotNull
             @NotEmpty
@@ -74,6 +77,7 @@ public class Buyerservice {
     @DELETE
     @Path("delete/{uuid}")
     @Produces(MediaType.TEXT_PLAIN)
+    @RolesAllowed({"admin"})
     public Response deleteBuyer(
             @NotNull
             @NotEmpty
@@ -94,6 +98,7 @@ public class Buyerservice {
     @POST
     @Path("insert")
     @Produces(MediaType.TEXT_PLAIN)
+    @RolesAllowed({"admin"})
     public Response insertBuyer(
 
             @NotNull
@@ -126,6 +131,7 @@ public class Buyerservice {
     @PUT
     @Path("update")
     @Produces(MediaType.TEXT_PLAIN)
+    @RolesAllowed({"admin"})
     public Response updateBuyer(
 
             @NotNull

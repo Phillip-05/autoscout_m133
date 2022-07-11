@@ -6,6 +6,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import dev.phill.autoscout.data.DataHandler;
 import dev.phill.autoscout.model.Dealer;
 import dev.phill.autoscout.model.Vehicle;
+import jakarta.annotation.security.RolesAllowed;
 import jakarta.validation.Valid;
 import jakarta.validation.constraints.*;
 import jakarta.ws.rs.*;
@@ -28,6 +29,7 @@ public class Vehicleservice {
     @GET
     @Path("list")
     @Produces(MediaType.APPLICATION_JSON)
+    @RolesAllowed({"user","admin"})
     public Response listVehicle() {
         List<Vehicle> vehicleList = DataHandler.readallVehicle();
         try {
@@ -46,6 +48,7 @@ public class Vehicleservice {
     @GET
     @Path("read/{uuid}")
     @Produces(MediaType.APPLICATION_JSON)
+    @RolesAllowed({"user","admin"})
     public Response readVehicle(
             @NotEmpty
             @NotNull
@@ -73,6 +76,7 @@ public class Vehicleservice {
     @DELETE
     @Path("delete/{uuid}")
     @Produces(MediaType.TEXT_PLAIN)
+    @RolesAllowed({"admin"})
     public Response deleteVehicle(
             @NotEmpty
             @NotNull
@@ -93,6 +97,7 @@ public class Vehicleservice {
     @POST
     @Path("insert")
     @Produces(MediaType.TEXT_PLAIN)
+    @RolesAllowed({"admin"})
     public Response insertVehicle(
 
             @NotEmpty
@@ -158,6 +163,7 @@ public class Vehicleservice {
     @PUT
     @Path("update")
     @Produces(MediaType.TEXT_PLAIN)
+    @RolesAllowed({"admin"})
     public Response updateVehicle(
 
             @NotNull

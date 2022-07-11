@@ -5,7 +5,8 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import dev.phill.autoscout.data.DataHandler;
 import dev.phill.autoscout.model.Dealer;
-import jakarta.validation.Valid;
+
+import jakarta.annotation.security.RolesAllowed;
 import jakarta.validation.constraints.NotEmpty;
 import jakarta.validation.constraints.NotNull;
 import jakarta.ws.rs.*;
@@ -13,6 +14,7 @@ import jakarta.ws.rs.core.MediaType;
 import jakarta.ws.rs.core.Response;
 
 import java.util.List;
+import java.util.Set;
 import java.util.UUID;
 
 /**
@@ -28,6 +30,7 @@ public class Dealerservice {
     @GET
     @Path("list")
     @Produces(MediaType.APPLICATION_JSON)
+    @RolesAllowed({"user","admin"})
     public Response listDealer() {
         List<Dealer> dealerList = DataHandler.readAllDealers();
         try {
@@ -46,6 +49,7 @@ public class Dealerservice {
     @GET
     @Path("read/{uuid}")
     @Produces(MediaType.APPLICATION_JSON)
+    @RolesAllowed({"user","admin"})
     public Response readhHaendler(
             @NotNull
             @NotEmpty
@@ -72,6 +76,7 @@ public class Dealerservice {
     @DELETE
     @Path("delete/{uuid}")
     @Produces(MediaType.TEXT_PLAIN)
+    @RolesAllowed({"admin"})
     public Response deleteHaendler(
             @NotNull
             @NotEmpty
@@ -92,6 +97,7 @@ public class Dealerservice {
     @POST
     @Path("insert")
     @Produces(MediaType.TEXT_PLAIN)
+    @RolesAllowed({"admin"})
     public Response insertHaendler(
 
             @NotNull
@@ -129,6 +135,7 @@ public class Dealerservice {
     @PUT
     @Path("update")
     @Produces(MediaType.TEXT_PLAIN)
+    @RolesAllowed({"admin"})
     public Response updateHaendler(
             @NotNull
             @NotEmpty
