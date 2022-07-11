@@ -21,6 +21,24 @@ public class Config extends Application {
     private static final String PROPERTIES_PATH = "C:\\Github\\autoscout_m133\\testing\\autoscout.properties";
     private static Properties properties = null;
 
+    /**
+     * define all provider classes
+     *
+     * @return set of classes
+     */
+    @Override
+    @SuppressWarnings("unchecked")
+    public Set<Class<?>> getClasses() {
+        HashSet providers = new HashSet<Class<?>>();
+        providers.add(Dealerservice.class);
+        providers.add(Vehicleservice.class);
+        providers.add(Watchlistservice.class);
+        providers.add(Buyerservice.class);
+        providers.add(UserService.class);
+        providers.add(TestService.class);
+
+        return providers;
+    }
 
     /**
      * Gets the value of a property

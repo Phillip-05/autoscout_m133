@@ -31,7 +31,7 @@ public class Buyerservice {
     @Path("list")
     @Produces(MediaType.APPLICATION_JSON)
     public Response listBuyer() {
-        List<Buyer> buyerList = DataHandler.getInstance().readallBuyer();
+        List<Buyer> buyerList = DataHandler.readallBuyer();
         try {
             return Response
                     .status(200)
@@ -54,7 +54,7 @@ public class Buyerservice {
             @PathParam("uuid") String buyerUUID
 
     ){
-        Buyer buyer = DataHandler.getInstance().readBuyerByUUID(buyerUUID);
+        Buyer buyer = DataHandler.readBuyerByUUID(buyerUUID);
         if (buyer == null) {
             return Response
                     .status(404)
@@ -81,7 +81,7 @@ public class Buyerservice {
     ) {
         int httpStatus = 200;
 
-        if(!DataHandler.getInstance().deleteBuyer(buyerUUID)){
+        if(!DataHandler.deleteBuyer(buyerUUID)){
             httpStatus = 404;
         }
 
@@ -110,8 +110,8 @@ public class Buyerservice {
         try {
 
 
-            Buyer buyer = new Buyer(UUID.randomUUID().toString(),jahrgang,DataHandler.getInstance().readWatchlistByUUID(watchlistUUID));
-            DataHandler.getInstance().insertBuyer(buyer);
+            Buyer buyer = new Buyer(UUID.randomUUID().toString(),jahrgang,DataHandler.readWatchlistByUUID(watchlistUUID));
+            DataHandler.insertBuyer(buyer);
         } catch (Exception e) {
             httpStatus = 500;
 
@@ -144,13 +144,13 @@ public class Buyerservice {
         int httpStatus = 200;
 
         try {
-            Buyer buyer = DataHandler.getInstance().readBuyerByUUID(buyerUUID);
+            Buyer buyer = DataHandler.readBuyerByUUID(buyerUUID);
 
             buyer.setJahrgang(jahrgang);
-            buyer.setWatchlist(DataHandler.getInstance().readWatchlistByUUID(watchlistUUID));
+            buyer.setWatchlist(DataHandler.readWatchlistByUUID(watchlistUUID));
 
 
-            DataHandler.getInstance().updateBuyer();
+            DataHandler.updateBuyer();
         } catch (Exception e) {
             httpStatus = 500;
 

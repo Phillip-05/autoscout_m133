@@ -31,7 +31,7 @@ public class Watchlistservice {
     @Path("list")
     @Produces(MediaType.APPLICATION_JSON)
     public Response listWatchlist() {
-        List<Watchlist> watchlistList = DataHandler.getInstance().readallWatchlist();
+        List<Watchlist> watchlistList = DataHandler.readallWatchlist();
         try {
             return Response
                     .status(200)
@@ -54,7 +54,7 @@ public class Watchlistservice {
             @PathParam("uuid") String watchlistUUID
 
     ){
-        Watchlist watchlist = DataHandler.getInstance().readWatchlistByUUID(watchlistUUID);
+        Watchlist watchlist = DataHandler.readWatchlistByUUID(watchlistUUID);
         if (watchlist == null) {
             return Response
                     .status(404)
@@ -81,7 +81,7 @@ public class Watchlistservice {
     ) {
         int httpStatus = 200;
 
-        if(!DataHandler.getInstance().deleteWatchlist(watchlistUUID)){
+        if(!DataHandler.deleteWatchlist(watchlistUUID)){
             httpStatus = 404;
         }
 
@@ -113,11 +113,11 @@ public class Watchlistservice {
             Vector<Vehicle> vehicleVector = new Vector<>();
 
             for (int i = 0; i < allvehicleUUIDs.length; i++) {
-                vehicleVector.add(DataHandler.getInstance().readVehicleByUUID(allvehicleUUIDs[i]));
+                vehicleVector.add(DataHandler.readVehicleByUUID(allvehicleUUIDs[i]));
             }
 
             Watchlist watchlist = new Watchlist(UUID.randomUUID().toString(),vehicleVector,beschreibung);
-            DataHandler.getInstance().insertWatchlist(watchlist);
+            DataHandler.insertWatchlist(watchlist);
         } catch (Exception e) {
             httpStatus = 500;
 
@@ -155,15 +155,15 @@ public class Watchlistservice {
             Vector<Vehicle> vehicleVector = new Vector<>();
 
             for (int i = 0; i < allvehicleUUIDs.length; i++) {
-                vehicleVector.add(DataHandler.getInstance().readVehicleByUUID(allvehicleUUIDs[i]));
+                vehicleVector.add(DataHandler.readVehicleByUUID(allvehicleUUIDs[i]));
             }
 
-            Watchlist watchlist = DataHandler.getInstance().readWatchlistByUUID(watchlistUUID);
+            Watchlist watchlist = DataHandler.readWatchlistByUUID(watchlistUUID);
 
             watchlist.setVehiclelist(vehicleVector);
             watchlist.setBeschreibung(beschreibung);
 
-            DataHandler.getInstance().updateWatchlist();
+            DataHandler.updateWatchlist();
         } catch (Exception e) {
             httpStatus = 500;
 

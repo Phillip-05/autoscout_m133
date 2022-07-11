@@ -39,7 +39,7 @@ public class Buyer {
      */
     public void setWatchlistUUID(String watchlistUUID) {
         setWatchlist(new Watchlist());
-        Watchlist watchlist = DataHandler.getInstance().readWatchlistByUUID(watchlistUUID);
+        Watchlist watchlist = DataHandler.readWatchlistByUUID(watchlistUUID);
         getWatchlist().setWatchlistUUID(watchlistUUID);
         getWatchlist().setWatchlistUUID(watchlist.getWatchlistUUID());
 

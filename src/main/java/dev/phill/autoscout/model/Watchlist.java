@@ -48,7 +48,7 @@ public class Watchlist {
         vehiclelist = new Vector<>();
         if(vehicleUUIDs != null) {
             for (String vehicleUUID : vehicleUUIDs) {
-                Vehicle vehicle = DataHandler.getInstance().readVehicleByUUID(vehicleUUID);
+                Vehicle vehicle = DataHandler.readVehicleByUUID(vehicleUUID);
                 vehiclelist.add(vehicle);
             }
         }

@@ -29,7 +29,7 @@ public class Dealerservice {
     @Path("list")
     @Produces(MediaType.APPLICATION_JSON)
     public Response listDealer() {
-        List<Dealer> dealerList = DataHandler.getInstance().readAllDealers();
+        List<Dealer> dealerList = DataHandler.readAllDealers();
         try {
             return Response
                     .status(200)
@@ -52,7 +52,7 @@ public class Dealerservice {
             @PathParam("uuid") String dealerUUID
 
     ){
-        Dealer dealer = DataHandler.getInstance().readDealerByUUID(dealerUUID);
+        Dealer dealer = DataHandler.readDealerByUUID(dealerUUID);
         if (dealer == null) {
             return Response
                     .status(404)
@@ -79,7 +79,7 @@ public class Dealerservice {
     ) {
         int httpStatus = 200;
 
-        if(!DataHandler.getInstance().deleteDealer(dealerUUID)){
+        if(!DataHandler.deleteDealer(dealerUUID)){
             httpStatus = 404;
         }
 
@@ -114,7 +114,7 @@ public class Dealerservice {
             dealer.setVorname(vorname);
             dealer.setNachname(nachname);
             dealer.setStrasse(strasse);
-            DataHandler.getInstance().insertDealer(dealer);
+            DataHandler.insertDealer(dealer);
         } catch (Exception e) {
             httpStatus = 500;
 
@@ -149,13 +149,13 @@ public class Dealerservice {
         int httpStatus = 200;
 
         try {
-            Dealer dealer = DataHandler.getInstance().readDealerByUUID(dealerUUID);
+            Dealer dealer = DataHandler.readDealerByUUID(dealerUUID);
 
             dealer.setNachname(nachname);
             dealer.setVorname(vorname);
             dealer.setStrasse(strasse);
 
-            DataHandler.getInstance().updateDealer();
+            DataHandler.updateDealer();
         } catch (Exception e) {
             httpStatus = 500;
 

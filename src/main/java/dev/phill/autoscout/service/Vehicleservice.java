@@ -29,7 +29,7 @@ public class Vehicleservice {
     @Path("list")
     @Produces(MediaType.APPLICATION_JSON)
     public Response listVehicle() {
-        List<Vehicle> vehicleList = DataHandler.getInstance().readallVehicle();
+        List<Vehicle> vehicleList = DataHandler.readallVehicle();
         try {
             return Response
                     .status(200)
@@ -52,7 +52,7 @@ public class Vehicleservice {
             @PathParam("uuid") String vehicleUUID
 
     ) {
-        Vehicle vehicle = DataHandler.getInstance().readVehicleByUUID(vehicleUUID);
+        Vehicle vehicle = DataHandler.readVehicleByUUID(vehicleUUID);
         if (vehicle == null) {
             return Response
                     .status(404)
@@ -80,7 +80,7 @@ public class Vehicleservice {
     ) {
         int httpStatus = 200;
 
-        if(!DataHandler.getInstance().deleteVehicle(vehicleUUID)){
+        if(!DataHandler.deleteVehicle(vehicleUUID)){
             httpStatus = 404;
         }
 
@@ -141,8 +141,9 @@ public class Vehicleservice {
         int httpStatus = 200;
 
         try {
-            Vehicle vehicle = new Vehicle(UUID.randomUUID().toString(), marke, modell, preis, baujahr, hubraum, DataHandler.getInstance().readDealerByUUID(dealerUUID), leistung, tuning, mfk, leergewicht,kennzeichen);
-            DataHandler.getInstance().insertVehicle(vehicle);
+            Vehicle vehicle = new Vehicle(UUID.randomUUID().toString(), marke, modell, preis, baujahr, hubraum,
+                    DataHandler.readDealerByUUID(dealerUUID), leistung, tuning, mfk, leergewicht,kennzeichen);
+            DataHandler.insertVehicle(vehicle);
         } catch (Exception e) {
             httpStatus = 500;
 
@@ -209,9 +210,9 @@ public class Vehicleservice {
         int httpStatus = 200;
 
         try {
-            Vehicle vehicle = DataHandler.getInstance().readVehicleByUUID(vehicleUUID);
+            Vehicle vehicle = DataHandler.readVehicleByUUID(vehicleUUID);
 
-            vehicle.setDealer(DataHandler.getInstance().readDealerByUUID(dealerUUID));
+            vehicle.setDealer(DataHandler.readDealerByUUID(dealerUUID));
             vehicle.setMarke(marke);
             vehicle.setModell(modell);
             vehicle.setPreis(preis);
@@ -222,7 +223,7 @@ public class Vehicleservice {
             vehicle.setMfk(mfk);
             vehicle.setLeergewicht(leergewicht);
 
-            DataHandler.getInstance().updateVehicle();
+            DataHandler.updateVehicle();
         } catch (Exception e) {
             httpStatus = 500;
 

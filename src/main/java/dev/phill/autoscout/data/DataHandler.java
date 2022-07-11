@@ -6,6 +6,8 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.ObjectWriter;
 import dev.phill.autoscout.model.*;
 import dev.phill.autoscout.service.Config;
+import lombok.Getter;
+import lombok.Setter;
 
 import java.io.*;
 import java.nio.charset.StandardCharsets;
@@ -17,44 +19,42 @@ import java.util.List;
 /**
  * This DataHandler contains all functions that are needed for writing and reading jsons
  */
+
+@Getter
+@Setter
 public class DataHandler {
-    private static DataHandler instance = null;
-    private List<Vehicle> vehicleList;
-    private List<Dealer> dealerList;
-    private List<Buyer> buyerList;
-    private List<Watchlist> watchlistList;
-    private List<User> userList;
+    private static List<Vehicle> vehicleList;
+    private static List<Dealer> dealerList;
+    private static List<Buyer> buyerList;
+    private static List<Watchlist> watchlistList;
+    private static List<User> userList;
 
     /**
      * private constructor defeats instantiation
      */
     private DataHandler() {
-        setDealerList(new ArrayList<>());
-        readDealerJSON();
-        setVehicleList(new ArrayList<>());
-        readVehicleJSON();
-        setBuyerList(new ArrayList<>());
-        readBuyerJSON();
-        setWatchlistList(new ArrayList<>());
-        readWatchlistJSON();
-        setUserList(new ArrayList<>());
-        readUserJSON();
+
     }
 
-    /**
-     * gets the Instance of this class
-     */
-    public static DataHandler getInstance() {
-        if (instance == null)
-            instance = new DataHandler();
-        return instance;
+    static {
+        setUserList(new ArrayList<>());
+        setBuyerList(new ArrayList<>());
+        setVehicleList(new ArrayList<>());
+        setDealerList(new ArrayList<>());
+        setWatchlistList(new ArrayList<>());
+        readUserJSON();
+        readDealerJSON();
+        readVehicleJSON();
+        readWatchlistJSON();
+        readBuyerJSON();
+
     }
 
     /**
      * reads all Vehicle
      * @return whole vehicle list
      */
-    public List<Vehicle> readallVehicle() {
+    public static List<Vehicle> readallVehicle() {
         return getVehicleList();
     }
 
@@ -63,7 +63,7 @@ public class DataHandler {
      * @param vehicleUUID uuid of the vehicle
      * @return the found vehicle
      */
-    public Vehicle readVehicleByUUID(String vehicleUUID) {
+    public static Vehicle readVehicleByUUID(String vehicleUUID) {
         Vehicle vehicle = null;
         for (Vehicle entry : getVehicleList()) {
             if (entry.getVehicleUUID().equals(vehicleUUID)) {
@@ -78,7 +78,7 @@ public class DataHandler {
      *
      * @param vehicle the vehicle to be saved
      */
-    public void insertVehicle(Vehicle vehicle) {
+    public static void insertVehicle(Vehicle vehicle) {
         getVehicleList().add(vehicle);
         writeVehicleJSON();
     }
@@ -86,11 +86,11 @@ public class DataHandler {
     /**
      * updates the bookList
      */
-    public void updateVehicle() {
+    public static void updateVehicle() {
         writeVehicleJSON();
     }
 
-    private void writeVehicleJSON() {
+    private static void writeVehicleJSON() {
         ObjectMapper objectMapper = new ObjectMapper();
         ObjectWriter objectWriter = objectMapper.writer(new DefaultPrettyPrinter());
         FileOutputStream fileOutputStream = null;
@@ -100,7 +100,7 @@ public class DataHandler {
         try {
             fileOutputStream = new FileOutputStream(vehiclePath);
             fileWriter = new BufferedWriter(new OutputStreamWriter(fileOutputStream, StandardCharsets.UTF_8));
-            objectWriter.writeValue(fileWriter, getInstance().getVehicleList());
+            objectWriter.writeValue(fileWriter, getVehicleList());
         } catch (IOException ex) {
             ex.printStackTrace();
         }
@@ -113,10 +113,10 @@ public class DataHandler {
      * @param vehicleUUID the key
      * @return success=true/false
      */
-    public boolean deleteVehicle(String vehicleUUID) {
-        Vehicle vehicle = getInstance().readVehicleByUUID(vehicleUUID);
+    public static boolean deleteVehicle(String vehicleUUID) {
+        Vehicle vehicle = readVehicleByUUID(vehicleUUID);
         if (vehicle != null) {
-            getInstance().getVehicleList().remove(vehicle);
+            getVehicleList().remove(vehicle);
             writeVehicleJSON();
             return true;
         } else {
@@ -128,7 +128,7 @@ public class DataHandler {
      * reads all Dealer
      * @return whole buyer list
      */
-    public List<Buyer> readallBuyer() {
+    public static List<Buyer> readallBuyer() {
         return getBuyerList();
     }
 
@@ -138,7 +138,7 @@ public class DataHandler {
      * @param buyerUUID buyer key
      * @return the found buyer
      */
-    public Buyer readBuyerByUUID(String buyerUUID) {
+    public static Buyer readBuyerByUUID(String buyerUUID) {
         Buyer buyer = null;
         for (Buyer entry : getBuyerList()) {
             if (entry.getBuyerUUID().equals(buyerUUID)) {
@@ -153,7 +153,7 @@ public class DataHandler {
      *
      * @param buyer the buyer to be saved
      */
-    public void insertBuyer(Buyer buyer) {
+    public static void insertBuyer(Buyer buyer) {
         getBuyerList().add(buyer);
         writeBuyerJSON();
     }
@@ -161,11 +161,11 @@ public class DataHandler {
     /**
      * updates the bookList
      */
-    public void updateBuyer() {
+    public static void updateBuyer() {
         writeBuyerJSON();
     }
 
-    private void writeBuyerJSON() {
+    private static void writeBuyerJSON() {
         ObjectMapper objectMapper = new ObjectMapper();
         ObjectWriter objectWriter = objectMapper.writer(new DefaultPrettyPrinter());
         FileOutputStream fileOutputStream = null;
@@ -175,7 +175,7 @@ public class DataHandler {
         try {
             fileOutputStream = new FileOutputStream(buyerPath);
             fileWriter = new BufferedWriter(new OutputStreamWriter(fileOutputStream, StandardCharsets.UTF_8));
-            objectWriter.writeValue(fileWriter, getInstance().getBuyerList());
+            objectWriter.writeValue(fileWriter, getBuyerList());
         } catch (IOException ex) {
             ex.printStackTrace();
         }
@@ -188,10 +188,10 @@ public class DataHandler {
      * @param buyerUUID the key
      * @return success=true/false
      */
-    public boolean deleteBuyer(String buyerUUID) {
-        Buyer buyer = getInstance().readBuyerByUUID(buyerUUID);
+    public static boolean deleteBuyer(String buyerUUID) {
+        Buyer buyer = readBuyerByUUID(buyerUUID);
         if (buyer != null) {
-            getInstance().getBuyerList().remove(buyer);
+            getBuyerList().remove(buyer);
             writeBuyerJSON();
             return true;
         } else {
@@ -203,7 +203,7 @@ public class DataHandler {
      * reads all dealer
      * @return gets whole watchlistlist
      */
-    public List<Watchlist> readallWatchlist() {
+    public static List<Watchlist> readallWatchlist() {
         return getWatchlistList();
     }
 
@@ -212,7 +212,7 @@ public class DataHandler {
      * @param watchlistUUID watchlist key
      * @return the found watchlist
      */
-    public Watchlist readWatchlistByUUID(String watchlistUUID) {
+    public static Watchlist readWatchlistByUUID(String watchlistUUID) {
         Watchlist watchlist = null;
         for (Watchlist entry : getWatchlistList()) {
             if (entry.getWatchlistUUID().equals(watchlistUUID)) {
@@ -227,7 +227,7 @@ public class DataHandler {
      *
      * @param watchlist the watchlist to be saved
      */
-    public void insertWatchlist(Watchlist watchlist) {
+    public static void insertWatchlist(Watchlist watchlist) {
         getWatchlistList().add(watchlist);
         writeWatchlistJSON();
     }
@@ -235,14 +235,14 @@ public class DataHandler {
     /**
      * updates the watchlistlist
      */
-    public void updateWatchlist() {
+    public static void updateWatchlist() {
         writeWatchlistJSON();
     }
 
     /**
      * writes into watchlist json
      */
-    private void writeWatchlistJSON() {
+    private static void writeWatchlistJSON() {
         ObjectMapper objectMapper = new ObjectMapper();
         ObjectWriter objectWriter = objectMapper.writer(new DefaultPrettyPrinter());
         FileOutputStream fileOutputStream = null;
@@ -252,7 +252,7 @@ public class DataHandler {
         try {
             fileOutputStream = new FileOutputStream(watchlistPath);
             fileWriter = new BufferedWriter(new OutputStreamWriter(fileOutputStream, StandardCharsets.UTF_8));
-            objectWriter.writeValue(fileWriter, getInstance().getWatchlistList());
+            objectWriter.writeValue(fileWriter, getWatchlistList());
         } catch (IOException ex) {
             ex.printStackTrace();
         }
@@ -265,10 +265,10 @@ public class DataHandler {
      * @param watchlistUUID the key
      * @return success=true/false
      */
-    public boolean deleteWatchlist(String watchlistUUID) {
-        Watchlist watchlist = getInstance().readWatchlistByUUID(watchlistUUID);
+    public static boolean deleteWatchlist(String watchlistUUID) {
+        Watchlist watchlist = readWatchlistByUUID(watchlistUUID);
         if (watchlist != null) {
-            getInstance().getWatchlistList().remove(watchlist);
+            getWatchlistList().remove(watchlist);
             writeWatchlistJSON();
             return true;
         } else {
@@ -280,7 +280,7 @@ public class DataHandler {
      * reads all dealer
      * @return whole dealerlist
      */
-    public List<Dealer> readAllDealers() {
+    public static List<Dealer> readAllDealers() {
 
         return getDealerList();
     }
@@ -290,7 +290,7 @@ public class DataHandler {
      * @param dealerUUID dealer key
      * @return the found dealer
      */
-    public Dealer readDealerByUUID(String dealerUUID) {
+    public static Dealer readDealerByUUID(String dealerUUID) {
         Dealer dealer = null;
         for (Dealer entry : getDealerList()) {
             if (entry.getDealerUUID().equals(dealerUUID)) {
@@ -305,7 +305,7 @@ public class DataHandler {
      *
      * @param dealer the heandler to be saved
      */
-    public void insertDealer(Dealer dealer) {
+    public static void insertDealer(Dealer dealer) {
         getDealerList().add(dealer);
         writeDealerJSON();
     }
@@ -313,14 +313,14 @@ public class DataHandler {
     /**
      * updates the bookList
      */
-    public void updateDealer() {
+    public static void updateDealer() {
         writeDealerJSON();
     }
 
     /**
      * writes into dealer json
      */
-    private void writeDealerJSON() {
+    private static void writeDealerJSON() {
         ObjectMapper objectMapper = new ObjectMapper();
         ObjectWriter objectWriter = objectMapper.writer(new DefaultPrettyPrinter());
         FileOutputStream fileOutputStream = null;
@@ -330,9 +330,10 @@ public class DataHandler {
         try {
             fileOutputStream = new FileOutputStream(dealerPath);
             fileWriter = new BufferedWriter(new OutputStreamWriter(fileOutputStream, StandardCharsets.UTF_8));
-            objectWriter.writeValue(fileWriter, getInstance().getDealerList());
+            objectWriter.writeValue(fileWriter, getDealerList());
         } catch (IOException ex) {
             ex.printStackTrace();
+
         }
     }
 
@@ -343,10 +344,10 @@ public class DataHandler {
      * @param dealerUUID the key
      * @return success=true/false
      */
-    public boolean deleteDealer(String dealerUUID) {
-        Dealer dealer = getInstance().readDealerByUUID(dealerUUID);
+    public static boolean deleteDealer(String dealerUUID) {
+        Dealer dealer = readDealerByUUID(dealerUUID);
         if (dealer != null) {
-            getInstance().getDealerList().remove(dealer);
+            getDealerList().remove(dealer);
             writeDealerJSON();
             return true;
         } else {
@@ -357,7 +358,7 @@ public class DataHandler {
     /**
      * gets the Vehicle von JSON
      */
-    private void readVehicleJSON() {
+    private static void readVehicleJSON() {
         try {
             String path = Config.getProperty("vehicleJSON");
             byte[] jsonData = Files.readAllBytes(
@@ -376,7 +377,7 @@ public class DataHandler {
     /**
      * gets the healer von JSON
      */
-    private void readBuyerJSON() {
+    private static void readBuyerJSON() {
         try {
             String path = Config.getProperty("buyerJSON");
             byte[] jsonData = Files.readAllBytes(
@@ -395,7 +396,7 @@ public class DataHandler {
     /**
      * gets the dealer von JSON
      */
-    private void readWatchlistJSON() {
+    private static void readWatchlistJSON() {
         try {
             String path = Config.getProperty("watchlistJSON");
             byte[] jsonData = Files.readAllBytes(
@@ -414,7 +415,7 @@ public class DataHandler {
     /**
      * gets the dealer von JSON
      */
-    private void readDealerJSON() {
+    private static void readDealerJSON() {
         try {
             byte[] jsonData = Files.readAllBytes(
                     Paths.get(
@@ -434,60 +435,60 @@ public class DataHandler {
     /**
      * gets all Vehicle
      */
-    private List<Vehicle> getVehicleList() {
+    private static List<Vehicle> getVehicleList() {
         return vehicleList;
     }
 
     /**
      * sets all Vehicle
      */
-    private void setVehicleList(List<Vehicle> vehicleList) {
-        this.vehicleList = vehicleList;
+    private static void setVehicleList(List<Vehicle> vehicleList) {
+        DataHandler.vehicleList = vehicleList;
     }
 
     /**
      * gets Buyer list
      */
-    private List<Buyer> getBuyerList() {
+    private static List<Buyer> getBuyerList() {
         return buyerList;
     }
 
     /**
      * sets buyer list
      */
-    private void setBuyerList(List<Buyer> buyerList) {
-        this.buyerList = buyerList;
+    private static void setBuyerList(List<Buyer> buyerList) {
+        DataHandler.buyerList = buyerList;
     }
 
     /**
      * gets Watchlist list
      */
-    private List<Watchlist> getWatchlistList() {
+    private static List<Watchlist> getWatchlistList() {
         return watchlistList;
     }
 
     /**
      * sets Watchlist list
      */
-    private void setWatchlistList(List<Watchlist> watchlistList) {
-        this.watchlistList = watchlistList;
+    private static void setWatchlistList(List<Watchlist> watchlistList) {
+        DataHandler.watchlistList = watchlistList;
     }
 
     /**
      * gets Dealer list
      */
-    private List<Dealer> getDealerList() {
+    private static List<Dealer> getDealerList() {
         return dealerList;
     }
 
     /**
      * sets Dealer list
      */
-    private void setDealerList(List<Dealer> dealerList) {
-        this.dealerList = dealerList;
+    private static void setDealerList(List<Dealer> dealerList) {
+        DataHandler.dealerList = dealerList;
     }
 
-    public String readUserRole(String username, String password) {
+    public static String readUserRole(String username, String password) {
         for (User user : getUserList()) {
             if (user.getUsername().equals(username) &&
                     user.getPassword().equals(password)) {
@@ -500,7 +501,7 @@ public class DataHandler {
     /**
      * reads the users from the JSON-file
      */
-    private void readUserJSON() {
+    private static void readUserJSON() {
         try {
             byte[] jsonData = Files.readAllBytes(
                     Paths.get(
@@ -523,12 +524,30 @@ public class DataHandler {
      * @return value of userList
      */
 
-    public List<User> getUserList() {
-        if (DataHandler.getInstance().userList == null) {
-            DataHandler.getInstance().setUserList(new ArrayList<>());
+    public static List<User> getUserList() {
+        if (DataHandler.userList == null) {
+            DataHandler.setUserList(new ArrayList<>());
             readUserJSON();
         }
         return userList;
+    }
+
+    /**
+     * reads a user by the username/password provided
+     *
+     * @param username
+     * @param password
+     * @return user-object
+     */
+    public static User readUser(String username, String password) {
+        User user = new User();
+        for (User entry : getUserList()) {
+            if (entry.getUsername().equals(username) &&
+                    entry.getPassword().equals(password)) {
+                user = entry;
+            }
+        }
+        return user;
     }
 
     /**
@@ -537,8 +556,8 @@ public class DataHandler {
      * @param userList the value to set
      */
 
-    public void setUserList(List<User> userList) {
-        DataHandler.getInstance().userList = userList;
+    public static void setUserList(List<User> userList) {
+        DataHandler.userList = userList;
     }
 
 

@@ -83,11 +83,11 @@ public class Vehicle {
 
     /**
      * sets Haendler by its uuid
-     * @param: haendlerUUID
+     * @param: dealerUUID
      */
     public void setDealerUUID(String dealerUUID) {
         setDealer( new Dealer());
-        Dealer dealer = DataHandler.getInstance().readDealerByUUID(dealerUUID);
+        Dealer dealer = DataHandler.readDealerByUUID(dealerUUID);
         getDealer().setDealerUUID(dealerUUID);
         getDealer().setDealerUUID(dealer.getDealerUUID());
 
