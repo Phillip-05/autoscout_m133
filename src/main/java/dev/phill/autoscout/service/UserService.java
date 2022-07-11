@@ -3,19 +3,12 @@ package dev.phill.autoscout.service;
 import dev.phill.autoscout.data.DataHandler;
 import dev.phill.autoscout.model.User;
 import dev.phill.autoscout.util.AES256;
-import dev.phill.autoscout.util.JWToken;
 import jakarta.annotation.security.PermitAll;
-import jakarta.annotation.security.RolesAllowed;
-import jakarta.ws.rs.FormParam;
-import jakarta.ws.rs.POST;
-import jakarta.ws.rs.Path;
-import jakarta.ws.rs.Produces;
-import jakarta.ws.rs.core.HttpHeaders;
+import jakarta.ws.rs.*;
+import jakarta.ws.rs.core.Cookie;
 import jakarta.ws.rs.core.MediaType;
 import jakarta.ws.rs.core.NewCookie;
 import jakarta.ws.rs.core.Response;
-
-
 
 
 /**
@@ -53,7 +46,17 @@ public class UserService {
                 false
         );
 
-        return Response.ok().cookie(cookie)
+        NewCookie facookie = new NewCookie(
+                "facookie",
+                "test",
+                "/",
+                "",
+                "Auth-Token",
+                600,
+                false
+        );
+
+        return Response.ok().cookie(cookie,facookie)
                 .entity(loggedInUser.getUsername() + " successfully logged in!").build();
     }
 
@@ -73,7 +76,31 @@ public class UserService {
                 false
         );
 
+
+
         return Response.ok().cookie(cookie).build();
 
+    }
+
+    @PermitAll
+    @Path("2fa")
+    @POST
+    @Produces(MediaType.TEXT_PLAIN)
+    public Response checkWord(
+            @CookieParam("facookie") Cookie facookie,
+            @FormParam("secret") String secret
+    ) {
+        int httpStatus = 200;
+
+        String value = facookie.getValue();
+
+        if (value == null || !value.equals(secret)){
+            httpStatus = 401;
+        }
+
+        return Response
+                .status(httpStatus)
+                .entity(null)
+                .build();
     }
 }

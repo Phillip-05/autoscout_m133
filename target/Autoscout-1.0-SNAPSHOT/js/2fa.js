@@ -16,8 +16,7 @@ function twoFAUser(event) {
         {
             method: "POST",
             headers: {
-                "Content-Type": "application/x-www-form-urlencoded",
-                "Authorization": "Bearer " + readStorage("token")
+                "Content-Type": "application/x-www-form-urlencoded"
             },
             body: "secret=" + document.getElementById("secret").value
         })
