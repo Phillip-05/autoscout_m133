@@ -25,7 +25,6 @@ public class Vehicleservice {
     /**
      * Gets whole json and returns it
      */
-
     @GET
     @Path("list")
     @Produces(MediaType.APPLICATION_JSON)
@@ -39,12 +38,15 @@ public class Vehicleservice {
                     .build();
         } catch (JsonProcessingException e) {
             return Response
-                    .status(500)
+                    .status(400)
                     .entity("Error by Vehicle list")
                     .build();
         }
     }
 
+    /**
+     * Reads a Vehicle buy its UUID
+     */
     @GET
     @Path("read/{uuid}")
     @Produces(MediaType.APPLICATION_JSON)
@@ -58,7 +60,7 @@ public class Vehicleservice {
         Vehicle vehicle = DataHandler.readVehicleByUUID(vehicleUUID);
         if (vehicle == null) {
             return Response
-                    .status(404)
+                    .status(400)
                     .entity("No Vehicle found")
                     .build();
         }
@@ -69,9 +71,8 @@ public class Vehicleservice {
                 .build();
     }
 
-    /*
-     *
-     *
+    /**
+     * Deletes a Vehicle buy its UUID
      */
     @DELETE
     @Path("delete/{uuid}")
@@ -85,7 +86,7 @@ public class Vehicleservice {
         int httpStatus = 200;
 
         if(!DataHandler.deleteVehicle(vehicleUUID)){
-            httpStatus = 404;
+            httpStatus = 400;
         }
 
         return Response
@@ -94,6 +95,9 @@ public class Vehicleservice {
                 .build();
     }
 
+    /**
+     * Inserts a Vehicle
+     */
     @POST
     @Path("insert")
     @Produces(MediaType.TEXT_PLAIN)
@@ -150,7 +154,7 @@ public class Vehicleservice {
                     DataHandler.readDealerByUUID(dealerUUID), leistung, tuning, mfk, leergewicht,kennzeichen);
             DataHandler.insertVehicle(vehicle);
         } catch (Exception e) {
-            httpStatus = 500;
+            httpStatus = 400;
 
         }
 
@@ -160,6 +164,9 @@ public class Vehicleservice {
                 .build();
     }
 
+    /**
+     * Updates a Vehicle buy its UUID
+     */
     @PUT
     @Path("update")
     @Produces(MediaType.TEXT_PLAIN)
@@ -231,7 +238,7 @@ public class Vehicleservice {
 
             DataHandler.updateVehicle();
         } catch (Exception e) {
-            httpStatus = 500;
+            httpStatus = 400;
 
         }
 

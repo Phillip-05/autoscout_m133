@@ -11,8 +11,17 @@ import jakarta.ws.rs.core.MediaType;
 import jakarta.ws.rs.core.NewCookie;
 import jakarta.ws.rs.core.Response;
 
+import java.util.concurrent.TimeUnit;
+
+/**
+ * Resets all JSONs
+ */
 @Path("reset")
 public class Resetservice {
+
+    /**
+     * Resets all JSONs and all Lists
+     */
     @Path("resetall")
     @PermitAll
     @POST
@@ -23,6 +32,11 @@ public class Resetservice {
         CreateJSON.main(null);
         DataHandler.resetAllLists();
 
+        try {
+            TimeUnit.SECONDS.sleep(2);
+        } catch (InterruptedException e) {
+            System.out.println("Time Sleep failed");
+        }
         return Response
                 .status(200)
                 .entity("reset everything")

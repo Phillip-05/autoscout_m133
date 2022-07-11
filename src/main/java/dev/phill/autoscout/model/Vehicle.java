@@ -8,7 +8,9 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 
-
+/**
+ * A Vehicle of a dealer
+ */
 @Getter
 @Setter
 @NoArgsConstructor

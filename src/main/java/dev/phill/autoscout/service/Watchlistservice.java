@@ -42,12 +42,15 @@ public class Watchlistservice {
                     .build();
         } catch (JsonProcessingException e) {
             return Response
-                    .status(500)
+                    .status(400)
                     .entity("Error by Watchlist")
                     .build();
         }
     }
 
+    /**
+     * Reads a Watchlist buy its UUID
+     */
     @GET
     @Path("read/{uuid}")
     @Produces(MediaType.APPLICATION_JSON)
@@ -61,7 +64,7 @@ public class Watchlistservice {
         Watchlist watchlist = DataHandler.readWatchlistByUUID(watchlistUUID);
         if (watchlist == null) {
             return Response
-                    .status(404)
+                    .status(400)
                     .entity("No Watchlist found")
                     .build();
         }
@@ -71,9 +74,8 @@ public class Watchlistservice {
                 .build();
     }
 
-    /*
-     *
-     *
+    /**
+     * Deletes a Watchlist buy its UUID
      */
     @DELETE
     @Path("delete/{uuid}")
@@ -87,7 +89,7 @@ public class Watchlistservice {
         int httpStatus = 200;
 
         if(!DataHandler.deleteWatchlist(watchlistUUID)){
-            httpStatus = 404;
+            httpStatus = 400;
         }
 
         return Response
@@ -96,6 +98,9 @@ public class Watchlistservice {
                 .build();
     }
 
+    /**
+     * Inserts a Watchlist
+     */
     @POST
     @Path("insert")
     @Produces(MediaType.TEXT_PLAIN)
@@ -125,7 +130,7 @@ public class Watchlistservice {
             Watchlist watchlist = new Watchlist(UUID.randomUUID().toString(),vehicleVector,beschreibung);
             DataHandler.insertWatchlist(watchlist);
         } catch (Exception e) {
-            httpStatus = 500;
+            httpStatus = 400;
 
         }
 
@@ -135,6 +140,9 @@ public class Watchlistservice {
                 .build();
     }
 
+    /**
+     * Updates a Watchlist buy its UUID
+     */
     @PUT
     @Path("update")
     @Produces(MediaType.TEXT_PLAIN)
@@ -172,7 +180,7 @@ public class Watchlistservice {
 
             DataHandler.updateWatchlist();
         } catch (Exception e) {
-            httpStatus = 500;
+            httpStatus = 400;
 
         }
 

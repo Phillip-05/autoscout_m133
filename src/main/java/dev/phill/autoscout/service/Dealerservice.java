@@ -27,10 +27,10 @@ public class Dealerservice {
      * Gets whole json and returns it
      */
 
+    @RolesAllowed({"user","admin"})
     @GET
     @Path("list")
     @Produces(MediaType.APPLICATION_JSON)
-    @RolesAllowed({"user","admin"})
     public Response listDealer() {
         List<Dealer> dealerList = DataHandler.readAllDealers();
         try {
@@ -40,17 +40,20 @@ public class Dealerservice {
                     .build();
         } catch (JsonProcessingException e) {
             return Response
-                    .status(500)
+                    .status(400)
                     .entity("Fehler beim Serialisieren des Haendlers")
                     .build();
         }
     }
 
+    /**
+     * Reads a Haendler buy its UUID
+     */
+    @RolesAllowed({"user","admin"})
     @GET
     @Path("read/{uuid}")
     @Produces(MediaType.APPLICATION_JSON)
-    @RolesAllowed({"user","admin"})
-    public Response readhHaendler(
+    public Response readHaendler(
             @NotNull
             @NotEmpty
             @PathParam("uuid") String dealerUUID
@@ -59,7 +62,7 @@ public class Dealerservice {
         Dealer dealer = DataHandler.readDealerByUUID(dealerUUID);
         if (dealer == null) {
             return Response
-                    .status(404)
+                    .status(400)
                     .entity("Haendler nicht gefunden")
                     .build();
         }
@@ -69,14 +72,13 @@ public class Dealerservice {
                 .build();
     }
 
-    /*
-    *
-    *
+    /**
+     * Deletes a Haendler buy its UUID
      */
+    @RolesAllowed("admin")
     @DELETE
     @Path("delete/{uuid}")
     @Produces(MediaType.TEXT_PLAIN)
-    @RolesAllowed({"admin"})
     public Response deleteHaendler(
             @NotNull
             @NotEmpty
@@ -85,7 +87,7 @@ public class Dealerservice {
         int httpStatus = 200;
 
         if(!DataHandler.deleteDealer(dealerUUID)){
-            httpStatus = 404;
+            httpStatus = 400;
         }
 
         return Response
@@ -94,10 +96,13 @@ public class Dealerservice {
                 .build();
     }
 
+    /**
+     * Insert a Haendler
+     */
+    @RolesAllowed("admin")
     @POST
     @Path("insert")
     @Produces(MediaType.TEXT_PLAIN)
-    @RolesAllowed({"admin"})
     public Response insertHaendler(
 
             @NotNull
@@ -122,7 +127,7 @@ public class Dealerservice {
             dealer.setStrasse(strasse);
             DataHandler.insertDealer(dealer);
         } catch (Exception e) {
-            httpStatus = 500;
+            httpStatus = 400;
 
         }
 
@@ -132,10 +137,13 @@ public class Dealerservice {
                 .build();
     }
 
+    /**
+     * Updates a Haendler buy its UUID
+     */
+    @RolesAllowed({"admin"})
     @PUT
     @Path("update")
     @Produces(MediaType.TEXT_PLAIN)
-    @RolesAllowed({"admin"})
     public Response updateHaendler(
             @NotNull
             @NotEmpty
@@ -164,7 +172,7 @@ public class Dealerservice {
 
             DataHandler.updateDealer();
         } catch (Exception e) {
-            httpStatus = 500;
+            httpStatus = 400;
 
         }
 

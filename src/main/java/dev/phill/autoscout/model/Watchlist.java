@@ -10,6 +10,9 @@ import lombok.Setter;
 
 import java.util.Vector;
 
+/**
+ * A watchlist
+ */
 @Getter
 @Setter
 @NoArgsConstructor

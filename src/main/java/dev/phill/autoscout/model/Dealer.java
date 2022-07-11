@@ -6,6 +6,9 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 
+/**
+ * A Car dealer
+ */
 @Getter
 @Setter
 @NoArgsConstructor

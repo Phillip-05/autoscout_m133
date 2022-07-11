@@ -41,12 +41,15 @@ public class Buyerservice {
                     .build();
         } catch (JsonProcessingException e) {
             return Response
-                    .status(500)
+                    .status(400)
                     .entity("Error by Buyer")
                     .build();
         }
     }
 
+    /**
+     * Gets one Buyer by his UUID
+     */
     @GET
     @Path("read/{uuid}")
     @Produces(MediaType.APPLICATION_JSON)
@@ -60,7 +63,7 @@ public class Buyerservice {
         Buyer buyer = DataHandler.readBuyerByUUID(buyerUUID);
         if (buyer == null) {
             return Response
-                    .status(404)
+                    .status(400)
                     .entity("No Buyer found")
                     .build();
         }
@@ -70,9 +73,8 @@ public class Buyerservice {
                 .build();
     }
 
-    /*
-     *
-     *
+    /**
+     * Delete a Buyer buy its UUID
      */
     @DELETE
     @Path("delete/{uuid}")
@@ -86,7 +88,7 @@ public class Buyerservice {
         int httpStatus = 200;
 
         if(!DataHandler.deleteBuyer(buyerUUID)){
-            httpStatus = 404;
+            httpStatus = 400;
         }
 
         return Response
@@ -95,6 +97,9 @@ public class Buyerservice {
                 .build();
     }
 
+    /**
+     * Inserts a Buyer
+     */
     @POST
     @Path("insert")
     @Produces(MediaType.TEXT_PLAIN)
@@ -118,7 +123,7 @@ public class Buyerservice {
             Buyer buyer = new Buyer(UUID.randomUUID().toString(),jahrgang,DataHandler.readWatchlistByUUID(watchlistUUID));
             DataHandler.insertBuyer(buyer);
         } catch (Exception e) {
-            httpStatus = 500;
+            httpStatus = 400;
 
         }
 
@@ -128,6 +133,9 @@ public class Buyerservice {
                 .build();
     }
 
+    /**
+     * Updates a Buyer buy its UUID
+     */
     @PUT
     @Path("update")
     @Produces(MediaType.TEXT_PLAIN)
@@ -158,7 +166,7 @@ public class Buyerservice {
 
             DataHandler.updateBuyer();
         } catch (Exception e) {
-            httpStatus = 500;
+            httpStatus = 400;
 
         }
 

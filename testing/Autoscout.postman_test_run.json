@@ -1,2124 +1,3390 @@
 {
-	"id": "e3db09a7-053c-4f34-bfbb-5acf395e92bf",
+	"id": "ef491082-df09-4319-9e89-6d22242896fa",
 	"name": "Autoscout",
-	"timestamp": "2022-06-20T20:17:17.283Z",
+	"timestamp": "2022-07-11T18:46:54.235Z",
 	"collection_id": "20905825-55458a44-9c87-4ed6-a562-95c847061d09",
 	"folder_id": 0,
 	"environment_id": "0",
-	"totalPass": 78,
+	"totalPass": 234,
 	"totalFail": 0,
 	"results": [
 		{
+			"id": "4922f0ed-1041-4ded-a2ad-bbe5cb30ba9a",
+			"name": "Login",
+			"time": 76,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				106,
+				82,
+				76
+			],
+			"allTests": [
+				{},
+				{},
+				{}
+			]
+		},
+		{
+			"id": "5ca824d2-e593-449f-84e5-2fb749d20640",
+			"name": "2FA",
+			"time": 4,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				3,
+				4,
+				4
+			],
+			"allTests": [
+				{},
+				{},
+				{}
+			]
+		},
+		{
+			"id": "859d6ac1-63ee-4891-b2a0-69354b43b15e",
+			"name": "Reset All",
+			"time": 2019,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				2034,
+				2030,
+				2019
+			],
+			"allTests": [
+				{},
+				{},
+				{}
+			]
+		},
+		{
 			"id": "d8844501-8e1c-45cd-8804-4a89d074b570",
 			"name": "fail Update vorname  Dealer",
-			"url": "http://localhost:8080/Autoscout-1.0-SNAPSHOT/resource/dealer/update/",
-			"time": 79,
+			"time": 74,
 			"responseCode": {
 				"code": 400,
 				"name": "Bad Request"
 			},
 			"tests": {
-				"Status test 400": true
+				"Status for admin": true
 			},
 			"testPassFailCounts": {
-				"Status test 400": {
+				"Status for user": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Status for guest": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Status for admin": {
 					"pass": 1,
 					"fail": 0
 				}
 			},
 			"times": [
-				79
+				100,
+				74,
+				74
 			],
 			"allTests": [
 				{
-					"Status test 400": true
+					"Status for user": true
+				},
+				{
+					"Status for guest": true
+				},
+				{
+					"Status for admin": true
 				}
 			]
 		},
 		{
 			"id": "ab42233e-2071-449b-b272-b91bac618fbf",
 			"name": "fail Update nachname Dealer Copy",
-			"url": "http://localhost:8080/Autoscout-1.0-SNAPSHOT/resource/dealer/update/",
-			"time": 13,
+			"time": 70,
 			"responseCode": {
 				"code": 400,
 				"name": "Bad Request"
 			},
 			"tests": {
-				"Status test 400": true
+				"Status for admin": true
 			},
 			"testPassFailCounts": {
-				"Status test 400": {
+				"Status for user": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Status for guest": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Status for admin": {
 					"pass": 1,
 					"fail": 0
 				}
 			},
 			"times": [
-				13
+				79,
+				79,
+				70
 			],
 			"allTests": [
 				{
-					"Status test 400": true
+					"Status for user": true
+				},
+				{
+					"Status for guest": true
+				},
+				{
+					"Status for admin": true
 				}
 			]
 		},
 		{
 			"id": "af8abe38-5ff1-425a-b047-535ac6662ff8",
 			"name": "fail Update strasse Dealer Copy",
-			"url": "http://localhost:8080/Autoscout-1.0-SNAPSHOT/resource/dealer/update/",
-			"time": 11,
+			"time": 105,
 			"responseCode": {
 				"code": 400,
 				"name": "Bad Request"
 			},
 			"tests": {
-				"Status test 400": true
+				"Status for admin": true
 			},
 			"testPassFailCounts": {
-				"Status test 400": {
+				"Status for user": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Status for guest": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Status for admin": {
 					"pass": 1,
 					"fail": 0
 				}
 			},
 			"times": [
-				11
+				87,
+				77,
+				105
 			],
 			"allTests": [
 				{
-					"Status test 400": true
+					"Status for user": true
+				},
+				{
+					"Status for guest": true
+				},
+				{
+					"Status for admin": true
 				}
 			]
 		},
 		{
 			"id": "fcaafdd6-c653-4cec-a6ef-98b21fd6a78b",
 			"name": "fail delete Dealer",
-			"url": "http://localhost:8080/Autoscout-1.0-SNAPSHOT/resource/dealer/delete/",
-			"time": 9,
+			"time": 4,
 			"responseCode": {
 				"code": 400,
 				"name": "Bad Request"
 			},
 			"tests": {
-				"Status test 400": true
+				"Status for admin": true
 			},
 			"testPassFailCounts": {
-				"Status test 400": {
+				"Status for user": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Status for guest": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Status for admin": {
 					"pass": 1,
 					"fail": 0
 				}
 			},
 			"times": [
-				9
+				2,
+				2,
+				4
 			],
 			"allTests": [
 				{
-					"Status test 400": true
+					"Status for user": true
+				},
+				{
+					"Status for guest": true
+				},
+				{
+					"Status for admin": true
 				}
 			]
 		},
 		{
 			"id": "3550f63d-4598-4933-a37a-613d0f957dfc",
 			"name": "fail insert vorname  Dealer",
-			"url": "http://localhost:8080/Autoscout-1.0-SNAPSHOT/resource/dealer/insert/",
-			"time": 10,
+			"time": 78,
 			"responseCode": {
 				"code": 400,
 				"name": "Bad Request"
 			},
 			"tests": {
-				"Status test 400": true
+				"Status for admin": true
 			},
 			"testPassFailCounts": {
-				"Status test 400": {
+				"Status for user": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Status for guest": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Status for admin": {
 					"pass": 1,
 					"fail": 0
 				}
 			},
 			"times": [
-				10
+				91,
+				147,
+				78
 			],
 			"allTests": [
 				{
-					"Status test 400": true
+					"Status for user": true
+				},
+				{
+					"Status for guest": true
+				},
+				{
+					"Status for admin": true
 				}
 			]
 		},
 		{
 			"id": "65a5a26d-e60d-49b6-84a9-4bb00c965758",
 			"name": "fail insert nachname Dealer",
-			"url": "http://localhost:8080/Autoscout-1.0-SNAPSHOT/resource/dealer/insert/",
-			"time": 11,
+			"time": 79,
 			"responseCode": {
 				"code": 400,
 				"name": "Bad Request"
 			},
 			"tests": {
-				"Status test 400": true
+				"Status for admin": true
 			},
 			"testPassFailCounts": {
-				"Status test 400": {
+				"Status for user": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Status for guest": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Status for admin": {
 					"pass": 1,
 					"fail": 0
 				}
 			},
 			"times": [
-				11
+				82,
+				96,
+				79
 			],
 			"allTests": [
 				{
-					"Status test 400": true
+					"Status for user": true
+				},
+				{
+					"Status for guest": true
+				},
+				{
+					"Status for admin": true
 				}
 			]
 		},
 		{
 			"id": "33145930-3e3a-4723-82fc-ea06f0990002",
 			"name": "fail insert strasse Dealer",
-			"url": "http://localhost:8080/Autoscout-1.0-SNAPSHOT/resource/dealer/insert/",
-			"time": 9,
+			"time": 199,
 			"responseCode": {
 				"code": 400,
 				"name": "Bad Request"
 			},
 			"tests": {
-				"Status test 400": true
+				"Status for admin": true
 			},
 			"testPassFailCounts": {
-				"Status test 400": {
+				"Status for user": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Status for guest": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Status for admin": {
 					"pass": 1,
 					"fail": 0
 				}
 			},
 			"times": [
-				9
+				80,
+				97,
+				199
 			],
 			"allTests": [
 				{
-					"Status test 400": true
+					"Status for user": true
+				},
+				{
+					"Status for guest": true
+				},
+				{
+					"Status for admin": true
 				}
 			]
 		},
 		{
 			"id": "64e333fc-f327-49d5-8376-731e0fd76475",
 			"name": "read list Dealer",
-			"url": "http://localhost:8080/Autoscout-1.0-SNAPSHOT/resource/dealer/list/",
-			"time": 773,
+			"time": 103,
 			"responseCode": {
 				"code": 200,
 				"name": "OK"
 			},
 			"tests": {
-				"Status test 200": true
+				"Status for admin": true
 			},
 			"testPassFailCounts": {
-				"Status test 200": {
+				"Status for user": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Status for guest": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Status for admin": {
 					"pass": 1,
 					"fail": 0
 				}
 			},
 			"times": [
-				773
+				85,
+				81,
+				103
 			],
 			"allTests": [
 				{
-					"Status test 200": true
+					"Status for user": true
+				},
+				{
+					"Status for guest": true
+				},
+				{
+					"Status for admin": true
 				}
 			]
 		},
 		{
 			"id": "f3540a95-79fc-4008-a961-518e437a24d1",
 			"name": "successful read one Dealer",
-			"url": "http://localhost:8080/Autoscout-1.0-SNAPSHOT/resource/dealer/read/d3cbe97e-9c39-4df3-8097-4f4fb45a5e9d",
-			"time": 39,
+			"time": 89,
 			"responseCode": {
 				"code": 200,
 				"name": "OK"
 			},
 			"tests": {
-				"Status test 200": true
+				"Status for admin": true
 			},
 			"testPassFailCounts": {
-				"Status test 200": {
+				"Status for user": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Status for guest": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Status for admin": {
 					"pass": 1,
 					"fail": 0
 				}
 			},
 			"times": [
-				39
+				82,
+				83,
+				89
 			],
 			"allTests": [
 				{
-					"Status test 200": true
+					"Status for user": true
+				},
+				{
+					"Status for guest": true
+				},
+				{
+					"Status for admin": true
 				}
 			]
 		},
 		{
 			"id": "f97eb6a8-e1f4-43ef-8848-2e980949fe7c",
 			"name": "failing read one Dealer",
-			"url": "http://localhost:8080/Autoscout-1.0-SNAPSHOT/resource/dealer/read/7b98bb3d-339c-4e0c-a4be-2b57564952d1",
-			"time": 8,
+			"time": 81,
 			"responseCode": {
-				"code": 404,
-				"name": "Not Found"
+				"code": 400,
+				"name": "Bad Request"
 			},
 			"tests": {
-				"Status test 404": true
+				"Status for admin": true
 			},
 			"testPassFailCounts": {
-				"Status test 404": {
+				"Status for user": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Status for guest": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Status for admin": {
 					"pass": 1,
 					"fail": 0
 				}
 			},
 			"times": [
-				8
+				77,
+				89,
+				81
 			],
 			"allTests": [
 				{
-					"Status test 404": true
+					"Status for user": true
+				},
+				{
+					"Status for guest": true
+				},
+				{
+					"Status for admin": true
 				}
 			]
 		},
 		{
 			"id": "93424033-b2b3-47f9-83bd-91aeed88bfd6",
 			"name": "successful insert Dealer",
-			"url": "http://localhost:8080/Autoscout-1.0-SNAPSHOT/resource/dealer/insert/",
-			"time": 11,
+			"time": 86,
 			"responseCode": {
 				"code": 200,
 				"name": "OK"
 			},
 			"tests": {
-				"Status test 200": true
+				"Status for admin": true
 			},
 			"testPassFailCounts": {
-				"Status test 200": {
+				"Status for user": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Status for guest": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Status for admin": {
 					"pass": 1,
 					"fail": 0
 				}
 			},
 			"times": [
-				11
+				129,
+				90,
+				86
 			],
 			"allTests": [
 				{
-					"Status test 200": true
+					"Status for user": true
+				},
+				{
+					"Status for guest": true
+				},
+				{
+					"Status for admin": true
 				}
 			]
 		},
 		{
 			"id": "cae775e2-fc2c-4b42-9db0-b76ab4f16ca2",
 			"name": "successful delete Dealer",
-			"url": "http://localhost:8080/Autoscout-1.0-SNAPSHOT/resource/dealer/delete/08b6dfc2-004e-4e0b-9c41-a1ba8665aa48",
-			"time": 7,
+			"time": 94,
 			"responseCode": {
 				"code": 200,
 				"name": "OK"
 			},
 			"tests": {
-				"Status test 200": true
+				"Status for admin": true
 			},
 			"testPassFailCounts": {
-				"Status test 200": {
+				"Status for user": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Status for guest": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Status for admin": {
 					"pass": 1,
 					"fail": 0
 				}
 			},
 			"times": [
-				7
+				97,
+				100,
+				94
 			],
 			"allTests": [
 				{
-					"Status test 200": true
+					"Status for user": true
+				},
+				{
+					"Status for guest": true
+				},
+				{
+					"Status for admin": true
 				}
 			]
 		},
 		{
 			"id": "39b8aaf0-3869-4e99-959b-674b14ac8240",
 			"name": "successful Update Dealer",
-			"url": "http://localhost:8080/Autoscout-1.0-SNAPSHOT/resource/dealer/update/",
-			"time": 9,
+			"time": 86,
 			"responseCode": {
 				"code": 200,
 				"name": "OK"
 			},
 			"tests": {
-				"Status test 200": true
+				"Status for admin": true
 			},
 			"testPassFailCounts": {
-				"Status test 200": {
+				"Status for user": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Status for guest": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Status for admin": {
 					"pass": 1,
 					"fail": 0
 				}
 			},
 			"times": [
-				9
+				82,
+				78,
+				86
 			],
 			"allTests": [
 				{
-					"Status test 200": true
+					"Status for user": true
+				},
+				{
+					"Status for guest": true
+				},
+				{
+					"Status for admin": true
 				}
 			]
 		},
 		{
 			"id": "b41b0fbe-ceb6-4f50-98a0-49c865b43e74",
 			"name": "fail insert marke Vehicle",
-			"url": "http://localhost:8080/Autoscout-1.0-SNAPSHOT/resource/vehicle/insert/",
-			"time": 25,
+			"time": 99,
 			"responseCode": {
 				"code": 400,
 				"name": "Bad Request"
 			},
 			"tests": {
-				"Status test 400": true
+				"Status for admin": true
 			},
 			"testPassFailCounts": {
-				"Status test 400": {
+				"Status for user": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Status for guest": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Status for admin": {
 					"pass": 1,
 					"fail": 0
 				}
 			},
 			"times": [
-				25
+				76,
+				76,
+				99
 			],
 			"allTests": [
 				{
-					"Status test 400": true
+					"Status for user": true
+				},
+				{
+					"Status for guest": true
+				},
+				{
+					"Status for admin": true
 				}
 			]
 		},
 		{
 			"id": "3feb0026-c9c7-4475-9952-76d3c40201fc",
 			"name": "fail insert modell Vehicle",
-			"url": "http://localhost:8080/Autoscout-1.0-SNAPSHOT/resource/vehicle/insert/",
-			"time": 10,
+			"time": 92,
 			"responseCode": {
 				"code": 400,
 				"name": "Bad Request"
 			},
 			"tests": {
-				"Status test 400": true
+				"Status for admin": true
 			},
 			"testPassFailCounts": {
-				"Status test 400": {
+				"Status for user": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Status for guest": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Status for admin": {
 					"pass": 1,
 					"fail": 0
 				}
 			},
 			"times": [
-				10
+				73,
+				75,
+				92
 			],
 			"allTests": [
 				{
-					"Status test 400": true
+					"Status for user": true
+				},
+				{
+					"Status for guest": true
+				},
+				{
+					"Status for admin": true
 				}
 			]
 		},
 		{
 			"id": "8ed4bc4d-6e42-45bf-b91c-47f2c55645b9",
 			"name": "fail insert no preis Vehicle",
-			"url": "http://localhost:8080/Autoscout-1.0-SNAPSHOT/resource/vehicle/insert/",
-			"time": 8,
+			"time": 79,
 			"responseCode": {
 				"code": 400,
 				"name": "Bad Request"
 			},
 			"tests": {
-				"Status test 400": true
+				"Status for admin": true
 			},
 			"testPassFailCounts": {
-				"Status test 400": {
+				"Status for user": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Status for guest": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Status for admin": {
 					"pass": 1,
 					"fail": 0
 				}
 			},
 			"times": [
-				8
+				90,
+				76,
+				79
 			],
 			"allTests": [
 				{
-					"Status test 400": true
+					"Status for user": true
+				},
+				{
+					"Status for guest": true
+				},
+				{
+					"Status for admin": true
 				}
 			]
 		},
 		{
 			"id": "9a72c688-5c33-4e08-8193-9d2906694ef8",
 			"name": "fail insert to low preis Vehicle",
-			"url": "http://localhost:8080/Autoscout-1.0-SNAPSHOT/resource/vehicle/insert/",
-			"time": 8,
+			"time": 89,
 			"responseCode": {
 				"code": 400,
 				"name": "Bad Request"
 			},
 			"tests": {
-				"Status test 400": true
+				"Status for admin": true
 			},
 			"testPassFailCounts": {
-				"Status test 400": {
+				"Status for user": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Status for guest": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Status for admin": {
 					"pass": 1,
 					"fail": 0
 				}
 			},
 			"times": [
-				8
+				97,
+				76,
+				89
 			],
 			"allTests": [
 				{
-					"Status test 400": true
+					"Status for user": true
+				},
+				{
+					"Status for guest": true
+				},
+				{
+					"Status for admin": true
 				}
 			]
 		},
 		{
 			"id": "250ef741-443c-4110-acda-4b83a51710a6",
 			"name": "fail insert dealerUUID Vehicle",
-			"url": "http://localhost:8080/Autoscout-1.0-SNAPSHOT/resource/vehicle/insert/",
-			"time": 8,
+			"time": 86,
 			"responseCode": {
 				"code": 400,
 				"name": "Bad Request"
 			},
 			"tests": {
-				"Status test 400": true
+				"Status for admin": true
 			},
 			"testPassFailCounts": {
-				"Status test 400": {
+				"Status for user": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Status for guest": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Status for admin": {
 					"pass": 1,
 					"fail": 0
 				}
 			},
 			"times": [
-				8
+				88,
+				86,
+				86
 			],
 			"allTests": [
 				{
-					"Status test 400": true
+					"Status for user": true
+				},
+				{
+					"Status for guest": true
+				},
+				{
+					"Status for admin": true
 				}
 			]
 		},
 		{
 			"id": "38b77f2d-5694-4487-b9dd-b86f8ba7b218",
 			"name": "fail insert no baujahr Vehicle",
-			"url": "http://localhost:8080/Autoscout-1.0-SNAPSHOT/resource/vehicle/insert/",
-			"time": 6,
+			"time": 89,
 			"responseCode": {
 				"code": 400,
 				"name": "Bad Request"
 			},
 			"tests": {
-				"Status test 400": true
+				"Status for admin": true
 			},
 			"testPassFailCounts": {
-				"Status test 400": {
+				"Status for user": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Status for guest": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Status for admin": {
 					"pass": 1,
 					"fail": 0
 				}
 			},
 			"times": [
-				6
+				85,
+				85,
+				89
 			],
 			"allTests": [
 				{
-					"Status test 400": true
+					"Status for user": true
+				},
+				{
+					"Status for guest": true
+				},
+				{
+					"Status for admin": true
 				}
 			]
 		},
 		{
 			"id": "f282c725-383f-41d5-8cf3-99bb23bf147e",
 			"name": "fail insert to low baujahr Vehicle",
-			"url": "http://localhost:8080/Autoscout-1.0-SNAPSHOT/resource/vehicle/insert/",
-			"time": 9,
+			"time": 91,
 			"responseCode": {
 				"code": 400,
 				"name": "Bad Request"
 			},
 			"tests": {
-				"Status test 400": true
+				"Status for admin": true
 			},
 			"testPassFailCounts": {
-				"Status test 400": {
+				"Status for user": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Status for guest": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Status for admin": {
 					"pass": 1,
 					"fail": 0
 				}
 			},
 			"times": [
-				9
+				81,
+				78,
+				91
 			],
 			"allTests": [
 				{
-					"Status test 400": true
+					"Status for user": true
+				},
+				{
+					"Status for guest": true
+				},
+				{
+					"Status for admin": true
 				}
 			]
 		},
 		{
 			"id": "393e90b1-9571-4ce7-b3a9-f798d090cd91",
 			"name": "fail insert no hubraum Vehicle",
-			"url": "http://localhost:8080/Autoscout-1.0-SNAPSHOT/resource/vehicle/insert/",
-			"time": 7,
+			"time": 84,
 			"responseCode": {
 				"code": 400,
 				"name": "Bad Request"
 			},
 			"tests": {
-				"Status test 400": true
+				"Status for admin": true
 			},
 			"testPassFailCounts": {
-				"Status test 400": {
+				"Status for user": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Status for guest": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Status for admin": {
 					"pass": 1,
 					"fail": 0
 				}
 			},
 			"times": [
-				7
+				82,
+				77,
+				84
 			],
 			"allTests": [
 				{
-					"Status test 400": true
+					"Status for user": true
+				},
+				{
+					"Status for guest": true
+				},
+				{
+					"Status for admin": true
 				}
 			]
 		},
 		{
 			"id": "241826b7-bf8c-4097-98a1-860c5c3979ac",
 			"name": "fail insert to low hubraum Vehicle",
-			"url": "http://localhost:8080/Autoscout-1.0-SNAPSHOT/resource/vehicle/insert/",
-			"time": 6,
+			"time": 84,
 			"responseCode": {
 				"code": 400,
 				"name": "Bad Request"
 			},
 			"tests": {
-				"Status test 400": true
+				"Status for admin": true
 			},
 			"testPassFailCounts": {
-				"Status test 400": {
+				"Status for user": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Status for guest": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Status for admin": {
 					"pass": 1,
 					"fail": 0
 				}
 			},
 			"times": [
-				6
+				75,
+				80,
+				84
 			],
 			"allTests": [
 				{
-					"Status test 400": true
+					"Status for user": true
+				},
+				{
+					"Status for guest": true
+				},
+				{
+					"Status for admin": true
 				}
 			]
 		},
 		{
 			"id": "1c7f8109-dd3b-4f5d-8902-02c2da03c859",
 			"name": "fail insert no leistung Vehicle",
-			"url": "http://localhost:8080/Autoscout-1.0-SNAPSHOT/resource/vehicle/insert/",
-			"time": 11,
+			"time": 84,
 			"responseCode": {
 				"code": 400,
 				"name": "Bad Request"
 			},
 			"tests": {
-				"Status test 400": true
+				"Status for admin": true
 			},
 			"testPassFailCounts": {
-				"Status test 400": {
+				"Status for user": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Status for guest": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Status for admin": {
 					"pass": 1,
 					"fail": 0
 				}
 			},
 			"times": [
-				11
+				81,
+				73,
+				84
 			],
 			"allTests": [
 				{
-					"Status test 400": true
+					"Status for user": true
+				},
+				{
+					"Status for guest": true
+				},
+				{
+					"Status for admin": true
 				}
 			]
 		},
 		{
 			"id": "3d03f749-686c-414f-a652-65e90962c62c",
 			"name": "fail insert to low leistung Vehicle",
-			"url": "http://localhost:8080/Autoscout-1.0-SNAPSHOT/resource/vehicle/insert/",
-			"time": 8,
+			"time": 90,
 			"responseCode": {
 				"code": 400,
 				"name": "Bad Request"
 			},
 			"tests": {
-				"Status test 400": true
+				"Status for admin": true
 			},
 			"testPassFailCounts": {
-				"Status test 400": {
+				"Status for user": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Status for guest": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Status for admin": {
 					"pass": 1,
 					"fail": 0
 				}
 			},
 			"times": [
-				8
+				98,
+				172,
+				90
 			],
 			"allTests": [
 				{
-					"Status test 400": true
+					"Status for user": true
+				},
+				{
+					"Status for guest": true
+				},
+				{
+					"Status for admin": true
 				}
 			]
 		},
 		{
 			"id": "da460470-02cb-4054-a767-078b26480ba3",
 			"name": "fail insert mfk Vehicle",
-			"url": "http://localhost:8080/Autoscout-1.0-SNAPSHOT/resource/vehicle/insert/",
-			"time": 8,
+			"time": 85,
 			"responseCode": {
 				"code": 400,
 				"name": "Bad Request"
 			},
 			"tests": {
-				"Status test 400": true
+				"Status for admin": true
 			},
 			"testPassFailCounts": {
-				"Status test 400": {
+				"Status for user": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Status for guest": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Status for admin": {
 					"pass": 1,
 					"fail": 0
 				}
 			},
 			"times": [
-				8
+				82,
+				102,
+				85
 			],
 			"allTests": [
 				{
-					"Status test 400": true
+					"Status for user": true
+				},
+				{
+					"Status for guest": true
+				},
+				{
+					"Status for admin": true
 				}
 			]
 		},
 		{
 			"id": "dbe87866-ff62-438f-bdf1-ba012051878b",
 			"name": "fail insert tuning Vehicle",
-			"url": "http://localhost:8080/Autoscout-1.0-SNAPSHOT/resource/vehicle/insert/",
-			"time": 8,
+			"time": 88,
 			"responseCode": {
 				"code": 400,
 				"name": "Bad Request"
 			},
 			"tests": {
-				"Status test 400": true
+				"Status for admin": true
 			},
 			"testPassFailCounts": {
-				"Status test 400": {
+				"Status for user": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Status for guest": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Status for admin": {
 					"pass": 1,
 					"fail": 0
 				}
 			},
 			"times": [
-				8
+				85,
+				82,
+				88
 			],
 			"allTests": [
 				{
-					"Status test 400": true
+					"Status for user": true
+				},
+				{
+					"Status for guest": true
+				},
+				{
+					"Status for admin": true
 				}
 			]
 		},
 		{
 			"id": "bb2aee9e-bc43-4498-a6ca-eb66a327824f",
 			"name": "fail insert no leergewicht Vehicle",
-			"url": "http://localhost:8080/Autoscout-1.0-SNAPSHOT/resource/vehicle/insert/",
-			"time": 9,
+			"time": 87,
 			"responseCode": {
 				"code": 400,
 				"name": "Bad Request"
 			},
 			"tests": {
-				"Status test 400": true
+				"Status for admin": true
 			},
 			"testPassFailCounts": {
-				"Status test 400": {
+				"Status for user": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Status for guest": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Status for admin": {
 					"pass": 1,
 					"fail": 0
 				}
 			},
 			"times": [
-				9
+				87,
+				73,
+				87
 			],
 			"allTests": [
 				{
-					"Status test 400": true
+					"Status for user": true
+				},
+				{
+					"Status for guest": true
+				},
+				{
+					"Status for admin": true
 				}
 			]
 		},
 		{
 			"id": "d05d7282-3bb9-4161-80c2-34485e787234",
 			"name": "fail insert to low leergewicht Vehicle",
-			"url": "http://localhost:8080/Autoscout-1.0-SNAPSHOT/resource/vehicle/insert/",
-			"time": 8,
+			"time": 88,
 			"responseCode": {
 				"code": 400,
 				"name": "Bad Request"
 			},
 			"tests": {
-				"Status test 400": true
+				"Status for admin": true
 			},
 			"testPassFailCounts": {
-				"Status test 400": {
+				"Status for user": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Status for guest": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Status for admin": {
 					"pass": 1,
 					"fail": 0
 				}
 			},
 			"times": [
-				8
+				79,
+				79,
+				88
 			],
 			"allTests": [
 				{
-					"Status test 400": true
+					"Status for user": true
+				},
+				{
+					"Status for guest": true
+				},
+				{
+					"Status for admin": true
 				}
 			]
 		},
 		{
 			"id": "b7e940b9-c62c-4967-b567-e203f871d614",
 			"name": "fail insert no kennzeichen Vehicle",
-			"url": "http://localhost:8080/Autoscout-1.0-SNAPSHOT/resource/vehicle/insert/",
-			"time": 8,
+			"time": 103,
 			"responseCode": {
 				"code": 400,
 				"name": "Bad Request"
 			},
 			"tests": {
-				"Status test 400": true
+				"Status for admin": true
 			},
 			"testPassFailCounts": {
-				"Status test 400": {
+				"Status for user": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Status for guest": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Status for admin": {
 					"pass": 1,
 					"fail": 0
 				}
 			},
 			"times": [
-				8
+				73,
+				96,
+				103
 			],
 			"allTests": [
 				{
-					"Status test 400": true
+					"Status for user": true
+				},
+				{
+					"Status for guest": true
+				},
+				{
+					"Status for admin": true
 				}
 			]
 		},
 		{
 			"id": "b5be933d-f6d2-4380-a525-f56cadade1f9",
 			"name": "fail insert wrong pattern kennzeichen Vehicle",
-			"url": "http://localhost:8080/Autoscout-1.0-SNAPSHOT/resource/vehicle/insert/",
-			"time": 8,
+			"time": 80,
 			"responseCode": {
 				"code": 400,
 				"name": "Bad Request"
 			},
 			"tests": {
-				"Status test 400": true
+				"Status for admin": true
 			},
 			"testPassFailCounts": {
-				"Status test 400": {
+				"Status for user": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Status for guest": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Status for admin": {
 					"pass": 1,
 					"fail": 0
 				}
 			},
 			"times": [
-				8
+				79,
+				94,
+				80
 			],
 			"allTests": [
 				{
-					"Status test 400": true
+					"Status for user": true
+				},
+				{
+					"Status for guest": true
+				},
+				{
+					"Status for admin": true
 				}
 			]
 		},
 		{
 			"id": "2122c364-a977-4f1a-ab22-a1fa1dd131a0",
 			"name": "fail Update marke Vehicle",
-			"url": "http://localhost:8080/Autoscout-1.0-SNAPSHOT/resource/vehicle/update/",
-			"time": 8,
+			"time": 187,
 			"responseCode": {
 				"code": 400,
 				"name": "Bad Request"
 			},
 			"tests": {
-				"Status test 400": true
+				"Status for admin": true
 			},
 			"testPassFailCounts": {
-				"Status test 400": {
+				"Status for user": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Status for guest": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Status for admin": {
 					"pass": 1,
 					"fail": 0
 				}
 			},
 			"times": [
-				8
+				90,
+				74,
+				187
 			],
 			"allTests": [
 				{
-					"Status test 400": true
+					"Status for user": true
+				},
+				{
+					"Status for guest": true
+				},
+				{
+					"Status for admin": true
 				}
 			]
 		},
 		{
 			"id": "6a55424b-a120-4e54-99d4-ba8b4285426b",
 			"name": "fail Update vehicleUUID Vehicle",
-			"url": "http://localhost:8080/Autoscout-1.0-SNAPSHOT/resource/vehicle/update/",
-			"time": 7,
+			"time": 107,
 			"responseCode": {
 				"code": 400,
 				"name": "Bad Request"
 			},
 			"tests": {
-				"Status test 400": true
+				"Status for admin": true
 			},
 			"testPassFailCounts": {
-				"Status test 400": {
+				"Status for user": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Status for guest": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Status for admin": {
 					"pass": 1,
 					"fail": 0
 				}
 			},
 			"times": [
-				7
+				75,
+				75,
+				107
 			],
 			"allTests": [
 				{
-					"Status test 400": true
+					"Status for user": true
+				},
+				{
+					"Status for guest": true
+				},
+				{
+					"Status for admin": true
 				}
 			]
 		},
 		{
 			"id": "a7051f57-6d7f-4b00-b98a-6448be7ab665",
 			"name": "fail Update modell Vehicle",
-			"url": "http://localhost:8080/Autoscout-1.0-SNAPSHOT/resource/vehicle/update/",
-			"time": 8,
+			"time": 88,
 			"responseCode": {
 				"code": 400,
 				"name": "Bad Request"
 			},
 			"tests": {
-				"Status test 400": true
+				"Status for admin": true
 			},
 			"testPassFailCounts": {
-				"Status test 400": {
+				"Status for user": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Status for guest": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Status for admin": {
 					"pass": 1,
 					"fail": 0
 				}
 			},
 			"times": [
-				8
+				77,
+				89,
+				88
 			],
 			"allTests": [
 				{
-					"Status test 400": true
+					"Status for user": true
+				},
+				{
+					"Status for guest": true
+				},
+				{
+					"Status for admin": true
 				}
 			]
 		},
 		{
 			"id": "6554c925-bdef-4c3c-acac-0e1681265917",
 			"name": "fail Update no preis Vehicle",
-			"url": "http://localhost:8080/Autoscout-1.0-SNAPSHOT/resource/vehicle/update/",
-			"time": 11,
+			"time": 80,
 			"responseCode": {
 				"code": 400,
 				"name": "Bad Request"
 			},
 			"tests": {
-				"Status test 400": true
+				"Status for admin": true
 			},
 			"testPassFailCounts": {
-				"Status test 400": {
+				"Status for user": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Status for guest": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Status for admin": {
 					"pass": 1,
 					"fail": 0
 				}
 			},
 			"times": [
-				11
+				123,
+				86,
+				80
 			],
 			"allTests": [
 				{
-					"Status test 400": true
+					"Status for user": true
+				},
+				{
+					"Status for guest": true
+				},
+				{
+					"Status for admin": true
 				}
 			]
 		},
 		{
 			"id": "9a9ba1b0-276e-481a-be9f-2105a18b8162",
 			"name": "fail Update to low preis Vehicle",
-			"url": "http://localhost:8080/Autoscout-1.0-SNAPSHOT/resource/vehicle/update/",
-			"time": 6,
+			"time": 87,
 			"responseCode": {
 				"code": 400,
 				"name": "Bad Request"
 			},
 			"tests": {
-				"Status test 400": true
+				"Status for admin": true
 			},
 			"testPassFailCounts": {
-				"Status test 400": {
+				"Status for user": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Status for guest": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Status for admin": {
 					"pass": 1,
 					"fail": 0
 				}
 			},
 			"times": [
-				6
+				94,
+				78,
+				87
 			],
 			"allTests": [
 				{
-					"Status test 400": true
+					"Status for user": true
+				},
+				{
+					"Status for guest": true
+				},
+				{
+					"Status for admin": true
 				}
 			]
 		},
 		{
 			"id": "35bdee1a-413a-4b4f-9909-ca0f21595fb2",
 			"name": "fail Update dealerUUID Vehicle",
-			"url": "http://localhost:8080/Autoscout-1.0-SNAPSHOT/resource/vehicle/update/",
-			"time": 9,
+			"time": 80,
 			"responseCode": {
 				"code": 400,
 				"name": "Bad Request"
 			},
 			"tests": {
-				"Status test 400": true
+				"Status for admin": true
 			},
 			"testPassFailCounts": {
-				"Status test 400": {
+				"Status for user": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Status for guest": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Status for admin": {
 					"pass": 1,
 					"fail": 0
 				}
 			},
 			"times": [
-				9
+				82,
+				78,
+				80
 			],
 			"allTests": [
 				{
-					"Status test 400": true
+					"Status for user": true
+				},
+				{
+					"Status for guest": true
+				},
+				{
+					"Status for admin": true
 				}
 			]
 		},
 		{
 			"id": "3a394848-cd71-41b8-ae2b-cf818758f8f0",
 			"name": "fail Update no baujahr Vehicle",
-			"url": "http://localhost:8080/Autoscout-1.0-SNAPSHOT/resource/vehicle/update/",
-			"time": 9,
+			"time": 89,
 			"responseCode": {
 				"code": 400,
 				"name": "Bad Request"
 			},
 			"tests": {
-				"Status test 400": true
+				"Status for admin": true
 			},
 			"testPassFailCounts": {
-				"Status test 400": {
+				"Status for user": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Status for guest": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Status for admin": {
 					"pass": 1,
 					"fail": 0
 				}
 			},
 			"times": [
-				9
+				83,
+				75,
+				89
 			],
 			"allTests": [
 				{
-					"Status test 400": true
+					"Status for user": true
+				},
+				{
+					"Status for guest": true
+				},
+				{
+					"Status for admin": true
 				}
 			]
 		},
 		{
 			"id": "19ee9f15-8177-49a5-b9a7-98cf6c5ca7ef",
 			"name": "fail Update to low baujahr Vehicle",
-			"url": "http://localhost:8080/Autoscout-1.0-SNAPSHOT/resource/vehicle/update/",
-			"time": 8,
+			"time": 93,
 			"responseCode": {
 				"code": 400,
 				"name": "Bad Request"
 			},
 			"tests": {
-				"Status test 400": true
+				"Status for admin": true
 			},
 			"testPassFailCounts": {
-				"Status test 400": {
+				"Status for user": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Status for guest": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Status for admin": {
 					"pass": 1,
 					"fail": 0
 				}
 			},
 			"times": [
-				8
+				81,
+				73,
+				93
 			],
 			"allTests": [
 				{
-					"Status test 400": true
+					"Status for user": true
+				},
+				{
+					"Status for guest": true
+				},
+				{
+					"Status for admin": true
 				}
 			]
 		},
 		{
 			"id": "338fb85e-b31c-44c5-986d-a1db644badc4",
 			"name": "fail Update no hubraum Vehicle",
-			"url": "http://localhost:8080/Autoscout-1.0-SNAPSHOT/resource/vehicle/update/",
-			"time": 6,
+			"time": 97,
 			"responseCode": {
 				"code": 400,
 				"name": "Bad Request"
 			},
 			"tests": {
-				"Status test 400": true
+				"Status for admin": true
 			},
 			"testPassFailCounts": {
-				"Status test 400": {
+				"Status for user": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Status for guest": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Status for admin": {
 					"pass": 1,
 					"fail": 0
 				}
 			},
 			"times": [
-				6
+				74,
+				70,
+				97
 			],
 			"allTests": [
 				{
-					"Status test 400": true
+					"Status for user": true
+				},
+				{
+					"Status for guest": true
+				},
+				{
+					"Status for admin": true
 				}
 			]
 		},
 		{
 			"id": "40ab1f0d-2f04-4e39-8a74-97b2b3ceb68f",
 			"name": "fail Update to low hubraum Vehicle",
-			"url": "http://localhost:8080/Autoscout-1.0-SNAPSHOT/resource/vehicle/update/",
-			"time": 11,
+			"time": 79,
 			"responseCode": {
 				"code": 400,
 				"name": "Bad Request"
 			},
 			"tests": {
-				"Status test 400": true
+				"Status for admin": true
 			},
 			"testPassFailCounts": {
-				"Status test 400": {
+				"Status for user": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Status for guest": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Status for admin": {
 					"pass": 1,
 					"fail": 0
 				}
 			},
 			"times": [
-				11
+				81,
+				80,
+				79
 			],
 			"allTests": [
 				{
-					"Status test 400": true
+					"Status for user": true
+				},
+				{
+					"Status for guest": true
+				},
+				{
+					"Status for admin": true
 				}
 			]
 		},
 		{
 			"id": "51b11dfd-b110-482a-8ed9-92f4f0c66715",
 			"name": "fail Update no leistung Vehicle",
-			"url": "http://localhost:8080/Autoscout-1.0-SNAPSHOT/resource/vehicle/update/",
-			"time": 7,
+			"time": 72,
 			"responseCode": {
 				"code": 400,
 				"name": "Bad Request"
 			},
 			"tests": {
-				"Status test 400": true
+				"Status for admin": true
 			},
 			"testPassFailCounts": {
-				"Status test 400": {
+				"Status for user": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Status for guest": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Status for admin": {
 					"pass": 1,
 					"fail": 0
 				}
 			},
 			"times": [
-				7
+				79,
+				74,
+				72
 			],
 			"allTests": [
 				{
-					"Status test 400": true
+					"Status for user": true
+				},
+				{
+					"Status for guest": true
+				},
+				{
+					"Status for admin": true
 				}
 			]
 		},
 		{
 			"id": "df9a8109-74d0-449d-b347-80f533b23b42",
 			"name": "fail Update to low leistung Vehicle",
-			"url": "http://localhost:8080/Autoscout-1.0-SNAPSHOT/resource/vehicle/update/",
-			"time": 9,
+			"time": 79,
 			"responseCode": {
 				"code": 400,
 				"name": "Bad Request"
 			},
 			"tests": {
-				"Status test 400": true
+				"Status for admin": true
 			},
 			"testPassFailCounts": {
-				"Status test 400": {
+				"Status for user": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Status for guest": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Status for admin": {
 					"pass": 1,
 					"fail": 0
 				}
 			},
 			"times": [
-				9
+				85,
+				80,
+				79
 			],
 			"allTests": [
 				{
-					"Status test 400": true
+					"Status for user": true
+				},
+				{
+					"Status for guest": true
+				},
+				{
+					"Status for admin": true
 				}
 			]
 		},
 		{
 			"id": "f31a78e0-a5f1-4d9a-8c2c-88ceab4e4182",
 			"name": "fail Update mfk Vehicle",
-			"url": "http://localhost:8080/Autoscout-1.0-SNAPSHOT/resource/vehicle/update/",
-			"time": 7,
+			"time": 78,
 			"responseCode": {
 				"code": 400,
 				"name": "Bad Request"
 			},
 			"tests": {
-				"Status test 400": true
+				"Status for admin": true
 			},
 			"testPassFailCounts": {
-				"Status test 400": {
+				"Status for user": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Status for guest": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Status for admin": {
 					"pass": 1,
 					"fail": 0
 				}
 			},
 			"times": [
-				7
+				81,
+				74,
+				78
 			],
 			"allTests": [
 				{
-					"Status test 400": true
+					"Status for user": true
+				},
+				{
+					"Status for guest": true
+				},
+				{
+					"Status for admin": true
 				}
 			]
 		},
 		{
 			"id": "6f0f3977-514a-47fc-a8b8-9923fef2efca",
 			"name": "fail Update tuning Vehicle",
-			"url": "http://localhost:8080/Autoscout-1.0-SNAPSHOT/resource/vehicle/update/",
-			"time": 6,
+			"time": 77,
 			"responseCode": {
 				"code": 400,
 				"name": "Bad Request"
 			},
 			"tests": {
-				"Status test 400": true
+				"Status for admin": true
 			},
 			"testPassFailCounts": {
-				"Status test 400": {
+				"Status for user": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Status for guest": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Status for admin": {
 					"pass": 1,
 					"fail": 0
 				}
 			},
 			"times": [
-				6
+				87,
+				83,
+				77
 			],
 			"allTests": [
 				{
-					"Status test 400": true
+					"Status for user": true
+				},
+				{
+					"Status for guest": true
+				},
+				{
+					"Status for admin": true
 				}
 			]
 		},
 		{
 			"id": "79e79f0f-dd76-4c8b-b83d-99f15b6b60ce",
 			"name": "fail Update no leergewicht Vehicle",
-			"url": "http://localhost:8080/Autoscout-1.0-SNAPSHOT/resource/vehicle/update/",
-			"time": 7,
+			"time": 85,
 			"responseCode": {
 				"code": 400,
 				"name": "Bad Request"
 			},
 			"tests": {
-				"Status test 400": true
+				"Status for admin": true
 			},
 			"testPassFailCounts": {
-				"Status test 400": {
+				"Status for user": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Status for guest": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Status for admin": {
 					"pass": 1,
 					"fail": 0
 				}
 			},
 			"times": [
-				7
+				85,
+				79,
+				85
 			],
 			"allTests": [
 				{
-					"Status test 400": true
+					"Status for user": true
+				},
+				{
+					"Status for guest": true
+				},
+				{
+					"Status for admin": true
 				}
 			]
 		},
 		{
 			"id": "083f546b-46e7-4e43-90ed-751205923f03",
 			"name": "fail Update to low leergewicht Vehicle",
-			"url": "http://localhost:8080/Autoscout-1.0-SNAPSHOT/resource/vehicle/update/",
-			"time": 8,
+			"time": 84,
 			"responseCode": {
 				"code": 400,
 				"name": "Bad Request"
 			},
 			"tests": {
-				"Status test 400": true
+				"Status for admin": true
 			},
 			"testPassFailCounts": {
-				"Status test 400": {
+				"Status for user": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Status for guest": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Status for admin": {
 					"pass": 1,
 					"fail": 0
 				}
 			},
 			"times": [
-				8
+				78,
+				75,
+				84
 			],
 			"allTests": [
 				{
-					"Status test 400": true
+					"Status for user": true
+				},
+				{
+					"Status for guest": true
+				},
+				{
+					"Status for admin": true
 				}
 			]
 		},
 		{
 			"id": "6a100261-b557-4731-ba24-4875188e4010",
 			"name": "fail Update no kennzeichen Vehicle",
-			"url": "http://localhost:8080/Autoscout-1.0-SNAPSHOT/resource/vehicle/update/",
-			"time": 7,
+			"time": 77,
 			"responseCode": {
 				"code": 400,
 				"name": "Bad Request"
 			},
 			"tests": {
-				"Status test 400": true
+				"Status for admin": true
 			},
 			"testPassFailCounts": {
-				"Status test 400": {
+				"Status for user": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Status for guest": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Status for admin": {
 					"pass": 1,
 					"fail": 0
 				}
 			},
 			"times": [
-				7
+				86,
+				96,
+				77
 			],
 			"allTests": [
 				{
-					"Status test 400": true
+					"Status for user": true
+				},
+				{
+					"Status for guest": true
+				},
+				{
+					"Status for admin": true
 				}
 			]
 		},
 		{
 			"id": "c1ff35d8-1a14-4e8b-b189-4f6b38088829",
 			"name": "fail Update wrong pattern kennzeichen Vehicle",
-			"url": "http://localhost:8080/Autoscout-1.0-SNAPSHOT/resource/vehicle/update/",
-			"time": 7,
+			"time": 85,
 			"responseCode": {
 				"code": 400,
 				"name": "Bad Request"
 			},
 			"tests": {
-				"Status test 400": true
+				"Status for admin": true
 			},
 			"testPassFailCounts": {
-				"Status test 400": {
+				"Status for user": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Status for guest": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Status for admin": {
 					"pass": 1,
 					"fail": 0
 				}
 			},
 			"times": [
-				7
+				91,
+				74,
+				85
 			],
 			"allTests": [
 				{
-					"Status test 400": true
+					"Status for user": true
+				},
+				{
+					"Status for guest": true
+				},
+				{
+					"Status for admin": true
 				}
 			]
 		},
 		{
 			"id": "75d84d8d-bbe9-430c-aa6f-7194c86a1654",
 			"name": "read list Vehicle",
-			"url": "http://localhost:8080/Autoscout-1.0-SNAPSHOT/resource/vehicle/list/",
-			"time": 11,
+			"time": 90,
 			"responseCode": {
 				"code": 200,
 				"name": "OK"
 			},
 			"tests": {
-				"Status test 200": true
+				"Status for admin": true
 			},
 			"testPassFailCounts": {
-				"Status test 200": {
+				"Status for user": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Status for guest": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Status for admin": {
 					"pass": 1,
 					"fail": 0
 				}
 			},
 			"times": [
-				11
+				81,
+				73,
+				90
 			],
 			"allTests": [
 				{
-					"Status test 200": true
+					"Status for user": true
+				},
+				{
+					"Status for guest": true
+				},
+				{
+					"Status for admin": true
 				}
 			]
 		},
 		{
 			"id": "2a61029f-090d-46ec-85e7-bd314473fb49",
 			"name": "successful read one Vehicle",
-			"url": "http://localhost:8080/Autoscout-1.0-SNAPSHOT/resource/vehicle/read/e2cfaa52-83e5-4c5c-b32a-abbf03c3c151",
-			"time": 27,
+			"time": 90,
 			"responseCode": {
 				"code": 200,
 				"name": "OK"
 			},
 			"tests": {
-				"Status test 200": true
+				"Status for admin": true
 			},
 			"testPassFailCounts": {
-				"Status test 200": {
+				"Status for user": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Status for guest": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Status for admin": {
 					"pass": 1,
 					"fail": 0
 				}
 			},
 			"times": [
-				27
+				87,
+				155,
+				90
 			],
 			"allTests": [
 				{
-					"Status test 200": true
+					"Status for user": true
+				},
+				{
+					"Status for guest": true
+				},
+				{
+					"Status for admin": true
 				}
 			]
 		},
 		{
 			"id": "051a58e9-7567-468e-a723-3c00fbbc69a4",
 			"name": "failing read one Vehicle",
-			"url": "http://localhost:8080/Autoscout-1.0-SNAPSHOT/resource/vehicle/read/495505b7-f069-4a61-aff0-7ce833634bf",
-			"time": 11,
+			"time": 74,
 			"responseCode": {
-				"code": 404,
-				"name": "Not Found"
+				"code": 400,
+				"name": "Bad Request"
 			},
 			"tests": {
-				"Status test 404": true
+				"Status for admin": true
 			},
 			"testPassFailCounts": {
-				"Status test 404": {
+				"Status for user": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Status for guest": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Status for admin": {
 					"pass": 1,
 					"fail": 0
 				}
 			},
 			"times": [
-				11
+				90,
+				78,
+				74
 			],
 			"allTests": [
 				{
-					"Status test 404": true
+					"Status for user": true
+				},
+				{
+					"Status for guest": true
+				},
+				{
+					"Status for admin": true
 				}
 			]
 		},
 		{
 			"id": "f6118bad-c252-4d5b-a8c2-f5905552cc58",
 			"name": "successful insert Vehicle",
-			"url": "http://localhost:8080/Autoscout-1.0-SNAPSHOT/resource/vehicle/insert/",
-			"time": 12,
+			"time": 84,
 			"responseCode": {
 				"code": 200,
 				"name": "OK"
 			},
 			"tests": {
-				"Status test 200": true
+				"Status for admin": true
 			},
 			"testPassFailCounts": {
-				"Status test 200": {
+				"Status for user": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Status for guest": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Status for admin": {
 					"pass": 1,
 					"fail": 0
 				}
 			},
 			"times": [
-				12
+				78,
+				73,
+				84
 			],
 			"allTests": [
 				{
-					"Status test 200": true
+					"Status for user": true
+				},
+				{
+					"Status for guest": true
+				},
+				{
+					"Status for admin": true
 				}
 			]
 		},
 		{
 			"id": "6e81ca9a-755b-4f3c-b8b9-34efe63b0225",
 			"name": "successful delete Vehicle",
-			"url": "http://localhost:8080/Autoscout-1.0-SNAPSHOT/resource/vehicle/delete/bc8907ed-298d-4065-befb-84af4886e718",
-			"time": 8,
+			"time": 85,
 			"responseCode": {
 				"code": 200,
 				"name": "OK"
 			},
 			"tests": {
-				"Status test 200": true
+				"Status for admin": true
 			},
 			"testPassFailCounts": {
-				"Status test 200": {
+				"Status for user": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Status for guest": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Status for admin": {
 					"pass": 1,
 					"fail": 0
 				}
 			},
 			"times": [
-				8
+				73,
+				77,
+				85
 			],
 			"allTests": [
 				{
-					"Status test 200": true
+					"Status for user": true
+				},
+				{
+					"Status for guest": true
+				},
+				{
+					"Status for admin": true
 				}
 			]
 		},
 		{
 			"id": "c0fdabdd-ec01-4892-a0a9-18762cf71542",
 			"name": "successful Update Vehicle",
-			"url": "http://localhost:8080/Autoscout-1.0-SNAPSHOT/resource/vehicle/update/",
-			"time": 10,
+			"time": 101,
 			"responseCode": {
 				"code": 200,
 				"name": "OK"
 			},
 			"tests": {
-				"Status test 200": true
+				"Status for admin": true
 			},
 			"testPassFailCounts": {
-				"Status test 200": {
+				"Status for user": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Status for guest": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Status for admin": {
 					"pass": 1,
 					"fail": 0
 				}
 			},
 			"times": [
-				10
+				81,
+				76,
+				101
 			],
 			"allTests": [
 				{
-					"Status test 200": true
+					"Status for user": true
+				},
+				{
+					"Status for guest": true
+				},
+				{
+					"Status for admin": true
 				}
 			]
 		},
 		{
 			"id": "7542751f-a01b-47df-853b-b22a897aa859",
 			"name": "fail insert watchlistUUID Buyer",
-			"url": "http://localhost:8080/Autoscout-1.0-SNAPSHOT/resource/buyer/insert/",
-			"time": 6,
+			"time": 136,
 			"responseCode": {
 				"code": 400,
 				"name": "Bad Request"
 			},
 			"tests": {
-				"Status test 400": true
+				"Status for admin": true
 			},
 			"testPassFailCounts": {
-				"Status test 400": {
+				"Status for user": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Status for guest": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Status for admin": {
 					"pass": 1,
 					"fail": 0
 				}
 			},
 			"times": [
-				6
+				84,
+				80,
+				136
 			],
 			"allTests": [
 				{
-					"Status test 400": true
+					"Status for user": true
+				},
+				{
+					"Status for guest": true
+				},
+				{
+					"Status for admin": true
 				}
 			]
 		},
 		{
 			"id": "6aa8711c-4f11-4d0e-b9e0-08116feca6e8",
 			"name": "fail insert no jahrgang Buyer",
-			"url": "http://localhost:8080/Autoscout-1.0-SNAPSHOT/resource/buyer/insert/",
-			"time": 7,
+			"time": 77,
 			"responseCode": {
 				"code": 400,
 				"name": "Bad Request"
 			},
 			"tests": {
-				"Status test 400": true
+				"Status for admin": true
 			},
 			"testPassFailCounts": {
-				"Status test 400": {
+				"Status for user": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Status for guest": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Status for admin": {
 					"pass": 1,
 					"fail": 0
 				}
 			},
 			"times": [
-				7
+				162,
+				70,
+				77
 			],
 			"allTests": [
 				{
-					"Status test 400": true
+					"Status for user": true
+				},
+				{
+					"Status for guest": true
+				},
+				{
+					"Status for admin": true
 				}
 			]
 		},
 		{
 			"id": "8a249b21-c957-4d34-9de3-6e2a8ce56a54",
 			"name": "fail insert to low jahrgang Buyer",
-			"url": "http://localhost:8080/Autoscout-1.0-SNAPSHOT/resource/buyer/insert/",
-			"time": 6,
+			"time": 84,
 			"responseCode": {
 				"code": 400,
 				"name": "Bad Request"
 			},
 			"tests": {
-				"Status test 400": true
+				"Status for admin": true
 			},
 			"testPassFailCounts": {
-				"Status test 400": {
+				"Status for user": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Status for guest": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Status for admin": {
 					"pass": 1,
 					"fail": 0
 				}
 			},
 			"times": [
-				6
+				96,
+				77,
+				84
 			],
 			"allTests": [
 				{
-					"Status test 400": true
+					"Status for user": true
+				},
+				{
+					"Status for guest": true
+				},
+				{
+					"Status for admin": true
 				}
 			]
 		},
 		{
 			"id": "c3b0a05e-c0a5-4995-ae0e-fa03b6a8a361",
 			"name": "fail Update watchlistUUID Buyer",
-			"url": "http://localhost:8080/Autoscout-1.0-SNAPSHOT/resource/buyer/update/",
-			"time": 10,
+			"time": 80,
 			"responseCode": {
 				"code": 400,
 				"name": "Bad Request"
 			},
 			"tests": {
-				"Status test 400": true
+				"Status for admin": true
 			},
 			"testPassFailCounts": {
-				"Status test 400": {
+				"Status for user": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Status for guest": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Status for admin": {
 					"pass": 1,
 					"fail": 0
 				}
 			},
 			"times": [
-				10
+				78,
+				78,
+				80
 			],
 			"allTests": [
 				{
-					"Status test 400": true
+					"Status for user": true
+				},
+				{
+					"Status for guest": true
+				},
+				{
+					"Status for admin": true
 				}
 			]
 		},
 		{
 			"id": "a6ae3cfb-254d-469b-93ae-a89c0aee1b9c",
 			"name": "fail Update no jahrgang Buyer",
-			"url": "http://localhost:8080/Autoscout-1.0-SNAPSHOT/resource/buyer/update/",
-			"time": 12,
+			"time": 85,
 			"responseCode": {
 				"code": 400,
 				"name": "Bad Request"
 			},
 			"tests": {
-				"Status test 400": true
+				"Status for admin": true
 			},
 			"testPassFailCounts": {
-				"Status test 400": {
+				"Status for user": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Status for guest": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Status for admin": {
 					"pass": 1,
 					"fail": 0
 				}
 			},
 			"times": [
-				12
+				77,
+				79,
+				85
 			],
 			"allTests": [
 				{
-					"Status test 400": true
+					"Status for user": true
+				},
+				{
+					"Status for guest": true
+				},
+				{
+					"Status for admin": true
 				}
 			]
 		},
 		{
 			"id": "243ce218-cbf0-428a-8309-5991f0467699",
 			"name": "fail Update to low jahrgang Buyer",
-			"url": "http://localhost:8080/Autoscout-1.0-SNAPSHOT/resource/buyer/update/",
-			"time": 8,
+			"time": 80,
 			"responseCode": {
 				"code": 400,
 				"name": "Bad Request"
 			},
 			"tests": {
-				"Status test 400": true
+				"Status for admin": true
 			},
 			"testPassFailCounts": {
-				"Status test 400": {
+				"Status for user": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Status for guest": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Status for admin": {
 					"pass": 1,
 					"fail": 0
 				}
 			},
 			"times": [
-				8
+				98,
+				77,
+				80
 			],
 			"allTests": [
 				{
-					"Status test 400": true
+					"Status for user": true
+				},
+				{
+					"Status for guest": true
+				},
+				{
+					"Status for admin": true
 				}
 			]
 		},
 		{
 			"id": "4c08a1b2-2cf9-4944-8327-72eebc9e6776",
 			"name": "fail Update buyerUUID Buyer",
-			"url": "http://localhost:8080/Autoscout-1.0-SNAPSHOT/resource/buyer/update/",
-			"time": 6,
+			"time": 96,
 			"responseCode": {
 				"code": 400,
 				"name": "Bad Request"
 			},
 			"tests": {
-				"Status test 400": true
+				"Status for admin": true
 			},
 			"testPassFailCounts": {
-				"Status test 400": {
+				"Status for user": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Status for guest": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Status for admin": {
 					"pass": 1,
 					"fail": 0
 				}
 			},
 			"times": [
-				6
+				80,
+				76,
+				96
 			],
 			"allTests": [
 				{
-					"Status test 400": true
+					"Status for user": true
+				},
+				{
+					"Status for guest": true
+				},
+				{
+					"Status for admin": true
 				}
 			]
 		},
 		{
 			"id": "27c4f407-d05a-477c-9b98-981c2490e929",
 			"name": "read list Buyer",
-			"url": "http://localhost:8080/Autoscout-1.0-SNAPSHOT/resource/buyer/list/",
-			"time": 8,
+			"time": 76,
 			"responseCode": {
 				"code": 200,
 				"name": "OK"
 			},
 			"tests": {
-				"Status test 200": true
+				"Status for admin": true
 			},
 			"testPassFailCounts": {
-				"Status test 200": {
+				"Status for user": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Status for guest": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Status for admin": {
 					"pass": 1,
 					"fail": 0
 				}
 			},
 			"times": [
-				8
+				90,
+				77,
+				76
 			],
 			"allTests": [
 				{
-					"Status test 200": true
+					"Status for user": true
+				},
+				{
+					"Status for guest": true
+				},
+				{
+					"Status for admin": true
 				}
 			]
 		},
 		{
 			"id": "f28ae7f4-fdcf-4b62-9daa-5a3d1033c973",
 			"name": "successful read one Buyer",
-			"url": "http://localhost:8080/Autoscout-1.0-SNAPSHOT/resource/buyer/read/7b1af934-fc46-4da4-b500-bc73b411a51a",
-			"time": 19,
+			"time": 83,
 			"responseCode": {
 				"code": 200,
 				"name": "OK"
 			},
 			"tests": {
-				"Status test 200": true
+				"Status for admin": true
 			},
 			"testPassFailCounts": {
-				"Status test 200": {
+				"Status for user": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Status for guest": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Status for admin": {
 					"pass": 1,
 					"fail": 0
 				}
 			},
 			"times": [
-				19
+				82,
+				83,
+				83
 			],
 			"allTests": [
 				{
-					"Status test 200": true
+					"Status for user": true
+				},
+				{
+					"Status for guest": true
+				},
+				{
+					"Status for admin": true
 				}
 			]
 		},
 		{
 			"id": "91a79769-8847-4fa5-9629-42f2e586d279",
 			"name": "failing read one Buyer",
-			"url": "http://localhost:8080/Autoscout-1.0-SNAPSHOT/resource/buyer/read/9f3ef303-dc2f-476a-b3ea-911a1eba9",
-			"time": 5,
+			"time": 79,
 			"responseCode": {
-				"code": 404,
-				"name": "Not Found"
+				"code": 400,
+				"name": "Bad Request"
 			},
 			"tests": {
-				"Status test 404": true
+				"Status for admin": true
 			},
 			"testPassFailCounts": {
-				"Status test 404": {
+				"Status for user": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Status for guest": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Status for admin": {
 					"pass": 1,
 					"fail": 0
 				}
 			},
 			"times": [
-				5
+				83,
+				81,
+				79
 			],
 			"allTests": [
 				{
-					"Status test 404": true
+					"Status for user": true
+				},
+				{
+					"Status for guest": true
+				},
+				{
+					"Status for admin": true
 				}
 			]
 		},
 		{
 			"id": "df4a86bb-4c84-4a95-abd8-64ad241efe9b",
 			"name": "successful insert Buyer",
-			"url": "http://localhost:8080/Autoscout-1.0-SNAPSHOT/resource/buyer/insert/",
-			"time": 5,
+			"time": 114,
 			"responseCode": {
 				"code": 200,
 				"name": "OK"
 			},
 			"tests": {
-				"Status test 200": true
+				"Status for admin": true
 			},
 			"testPassFailCounts": {
-				"Status test 200": {
+				"Status for user": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Status for guest": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Status for admin": {
 					"pass": 1,
 					"fail": 0
 				}
 			},
 			"times": [
-				5
+				83,
+				82,
+				114
 			],
 			"allTests": [
 				{
-					"Status test 200": true
+					"Status for user": true
+				},
+				{
+					"Status for guest": true
+				},
+				{
+					"Status for admin": true
 				}
 			]
 		},
 		{
 			"id": "fa22e3de-2ace-4812-a61b-3d0da0fcfd58",
 			"name": "successful delete Buyer",
-			"url": "http://localhost:8080/Autoscout-1.0-SNAPSHOT/resource/buyer/delete/62c74fbd-d324-4d03-8f1e-577836250da2",
-			"time": 11,
+			"time": 89,
 			"responseCode": {
 				"code": 200,
 				"name": "OK"
 			},
 			"tests": {
-				"Status test 200": true
+				"Status for admin": true
 			},
 			"testPassFailCounts": {
-				"Status test 200": {
+				"Status for user": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Status for guest": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Status for admin": {
 					"pass": 1,
 					"fail": 0
 				}
 			},
 			"times": [
-				11
+				84,
+				78,
+				89
 			],
 			"allTests": [
 				{
-					"Status test 200": true
+					"Status for user": true
+				},
+				{
+					"Status for guest": true
+				},
+				{
+					"Status for admin": true
 				}
 			]
 		},
 		{
 			"id": "3a23eb44-c4ad-4d29-bb87-390b8d415009",
 			"name": "successful Update Buyer",
-			"url": "http://localhost:8080/Autoscout-1.0-SNAPSHOT/resource/buyer/update/",
-			"time": 8,
+			"time": 84,
 			"responseCode": {
 				"code": 200,
 				"name": "OK"
 			},
 			"tests": {
-				"Status test 200": true
+				"Status for admin": true
 			},
 			"testPassFailCounts": {
-				"Status test 200": {
+				"Status for user": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Status for guest": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Status for admin": {
 					"pass": 1,
 					"fail": 0
 				}
 			},
 			"times": [
-				8
+				78,
+				88,
+				84
 			],
 			"allTests": [
 				{
-					"Status test 200": true
+					"Status for user": true
+				},
+				{
+					"Status for guest": true
+				},
+				{
+					"Status for admin": true
 				}
 			]
 		},
 		{
 			"id": "2173d75e-26f1-4079-a0af-244cc0890190",
 			"name": "fail insert vehicleUUID Watchlist",
-			"url": "http://localhost:8080/Autoscout-1.0-SNAPSHOT/resource/watchlist/insert/",
-			"time": 11,
+			"time": 97,
 			"responseCode": {
 				"code": 400,
 				"name": "Bad Request"
 			},
 			"tests": {
-				"Status test 400": true
+				"Status for admin": true
 			},
 			"testPassFailCounts": {
-				"Status test 400": {
+				"Status for user": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Status for guest": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Status for admin": {
 					"pass": 1,
 					"fail": 0
 				}
 			},
 			"times": [
-				11
+				88,
+				85,
+				97
 			],
 			"allTests": [
 				{
-					"Status test 400": true
+					"Status for user": true
+				},
+				{
+					"Status for guest": true
+				},
+				{
+					"Status for admin": true
 				}
 			]
 		},
 		{
 			"id": "c3a5a559-4015-4695-8974-e16f4160a2da",
 			"name": "fail insert beschreibung Watchlist",
-			"url": "http://localhost:8080/Autoscout-1.0-SNAPSHOT/resource/watchlist/insert/",
-			"time": 7,
+			"time": 80,
 			"responseCode": {
 				"code": 400,
 				"name": "Bad Request"
 			},
 			"tests": {
-				"Status test 400": true
+				"Status for admin": true
 			},
 			"testPassFailCounts": {
-				"Status test 400": {
+				"Status for user": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Status for guest": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Status for admin": {
 					"pass": 1,
 					"fail": 0
 				}
 			},
 			"times": [
-				7
+				86,
+				74,
+				80
 			],
 			"allTests": [
 				{
-					"Status test 400": true
+					"Status for user": true
+				},
+				{
+					"Status for guest": true
+				},
+				{
+					"Status for admin": true
 				}
 			]
 		},
 		{
 			"id": "4637b699-ba62-4c8c-8df2-0258847c3845",
 			"name": "fail Update vehicleUUID Watchlist",
-			"url": "http://localhost:8080/Autoscout-1.0-SNAPSHOT/resource/watchlist/update/",
-			"time": 6,
+			"time": 80,
 			"responseCode": {
 				"code": 400,
 				"name": "Bad Request"
 			},
 			"tests": {
-				"Status test 400": true
+				"Status for admin": true
 			},
 			"testPassFailCounts": {
-				"Status test 400": {
+				"Status for user": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Status for guest": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Status for admin": {
 					"pass": 1,
 					"fail": 0
 				}
 			},
 			"times": [
-				6
+				76,
+				80,
+				80
 			],
 			"allTests": [
 				{
-					"Status test 400": true
+					"Status for user": true
+				},
+				{
+					"Status for guest": true
+				},
+				{
+					"Status for admin": true
 				}
 			]
 		},
 		{
 			"id": "441c5a18-22f8-4e79-b970-1c707bdace96",
 			"name": "fail Update beschreibung Watchlist",
-			"url": "http://localhost:8080/Autoscout-1.0-SNAPSHOT/resource/watchlist/update/",
-			"time": 7,
+			"time": 78,
 			"responseCode": {
 				"code": 400,
 				"name": "Bad Request"
 			},
 			"tests": {
-				"Status test 400": true
+				"Status for admin": true
 			},
 			"testPassFailCounts": {
-				"Status test 400": {
+				"Status for user": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Status for guest": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Status for admin": {
 					"pass": 1,
 					"fail": 0
 				}
 			},
 			"times": [
-				7
+				78,
+				73,
+				78
 			],
 			"allTests": [
 				{
-					"Status test 400": true
+					"Status for user": true
+				},
+				{
+					"Status for guest": true
+				},
+				{
+					"Status for admin": true
 				}
 			]
 		},
 		{
 			"id": "004d53f4-a08c-49a4-b159-863547237952",
 			"name": "fail Update watchlistUUID Watchlist",
-			"url": "http://localhost:8080/Autoscout-1.0-SNAPSHOT/resource/watchlist/update/",
-			"time": 6,
+			"time": 87,
 			"responseCode": {
 				"code": 400,
 				"name": "Bad Request"
 			},
 			"tests": {
-				"Status test 400": true
+				"Status for admin": true
 			},
 			"testPassFailCounts": {
-				"Status test 400": {
+				"Status for user": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Status for guest": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Status for admin": {
 					"pass": 1,
 					"fail": 0
 				}
 			},
 			"times": [
-				6
+				80,
+				88,
+				87
 			],
 			"allTests": [
 				{
-					"Status test 400": true
+					"Status for user": true
+				},
+				{
+					"Status for guest": true
+				},
+				{
+					"Status for admin": true
 				}
 			]
 		},
 		{
 			"id": "9ed4a6e9-7a48-4e1a-9b96-b20c2c6670be",
 			"name": "read list Watchlist",
-			"url": "http://localhost:8080/Autoscout-1.0-SNAPSHOT/resource/watchlist/list/",
-			"time": 10,
+			"time": 87,
 			"responseCode": {
 				"code": 200,
 				"name": "OK"
 			},
 			"tests": {
-				"Status test 200": true
+				"Status for admin": true
 			},
 			"testPassFailCounts": {
-				"Status test 200": {
+				"Status for user": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Status for guest": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Status for admin": {
 					"pass": 1,
 					"fail": 0
 				}
 			},
 			"times": [
-				10
+				88,
+				172,
+				87
 			],
 			"allTests": [
 				{
-					"Status test 200": true
+					"Status for user": true
+				},
+				{
+					"Status for guest": true
+				},
+				{
+					"Status for admin": true
 				}
 			]
 		},
 		{
 			"id": "e02763b7-1c7d-4c97-9b10-31f53cf370b7",
 			"name": "successful read one Watchlist",
-			"url": "http://localhost:8080/Autoscout-1.0-SNAPSHOT/resource/watchlist/read/4a0139a1-1773-41a9-9de4-3a8fa3d28e54",
-			"time": 8,
+			"time": 83,
 			"responseCode": {
-				"code": 200,
-				"name": "OK"
+				"code": 500,
+				"name": "Internal Server Error"
 			},
 			"tests": {
-				"Status test 200": true
+				"Status for admin": true
 			},
 			"testPassFailCounts": {
-				"Status test 200": {
+				"Status for user": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Status for guest": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Status for admin": {
 					"pass": 1,
 					"fail": 0
 				}
 			},
 			"times": [
-				8
+				83,
+				109,
+				83
 			],
 			"allTests": [
 				{
-					"Status test 200": true
+					"Status for user": true
+				},
+				{
+					"Status for guest": true
+				},
+				{
+					"Status for admin": true
 				}
 			]
 		},
 		{
 			"id": "2a855285-63e5-4009-a9cc-d96517f83594",
 			"name": "failing read one Watchlist",
-			"url": "http://localhost:8080/Autoscout-1.0-SNAPSHOT/resource/watchlist/read/4f8cda75-c359-4ade-bf23-9cdb1e86f65",
-			"time": 6,
+			"time": 89,
 			"responseCode": {
-				"code": 404,
-				"name": "Not Found"
+				"code": 400,
+				"name": "Bad Request"
 			},
 			"tests": {
-				"Status test 404": true
+				"Status for admin": true
 			},
 			"testPassFailCounts": {
-				"Status test 404": {
+				"Status for user": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Status for guest": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Status for admin": {
 					"pass": 1,
 					"fail": 0
 				}
 			},
 			"times": [
-				6
+				83,
+				82,
+				89
 			],
 			"allTests": [
 				{
-					"Status test 404": true
+					"Status for user": true
+				},
+				{
+					"Status for guest": true
+				},
+				{
+					"Status for admin": true
 				}
 			]
 		},
 		{
 			"id": "39b384bf-db1c-421d-88eb-492ec9e7a94e",
 			"name": "successful insert Watchlist",
-			"url": "http://localhost:8080/Autoscout-1.0-SNAPSHOT/resource/watchlist/insert/",
-			"time": 8,
+			"time": 88,
 			"responseCode": {
 				"code": 200,
 				"name": "OK"
 			},
 			"tests": {
-				"Status test 200": true
+				"Status for admin": true
 			},
 			"testPassFailCounts": {
-				"Status test 200": {
+				"Status for user": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Status for guest": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Status for admin": {
 					"pass": 1,
 					"fail": 0
 				}
 			},
 			"times": [
-				8
+				81,
+				100,
+				88
 			],
 			"allTests": [
 				{
-					"Status test 200": true
+					"Status for user": true
+				},
+				{
+					"Status for guest": true
+				},
+				{
+					"Status for admin": true
 				}
 			]
 		},
 		{
 			"id": "72ef4037-d409-451e-902b-c182cd02e9e3",
 			"name": "successful delete Watchlist",
-			"url": "http://localhost:8080/Autoscout-1.0-SNAPSHOT/resource/watchlist/delete/ac1db514-4f8a-45a7-902a-d09be120ed3f",
-			"time": 9,
+			"time": 152,
 			"responseCode": {
 				"code": 200,
 				"name": "OK"
 			},
 			"tests": {
-				"Status test 200": true
+				"Status for admin": true
 			},
 			"testPassFailCounts": {
-				"Status test 200": {
+				"Status for user": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Status for guest": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Status for admin": {
 					"pass": 1,
 					"fail": 0
 				}
 			},
 			"times": [
-				9
+				92,
+				81,
+				152
 			],
 			"allTests": [
 				{
-					"Status test 200": true
+					"Status for user": true
+				},
+				{
+					"Status for guest": true
+				},
+				{
+					"Status for admin": true
 				}
 			]
 		},
 		{
 			"id": "893cb0f4-ca54-47b6-8bcb-4319f7d55ba4",
 			"name": "successful Update Watchlist",
-			"url": "http://localhost:8080/Autoscout-1.0-SNAPSHOT/resource/watchlist/update/",
-			"time": 7,
+			"time": 87,
 			"responseCode": {
 				"code": 200,
 				"name": "OK"
 			},
 			"tests": {
-				"Status test 200": true
+				"Status for admin": true
 			},
 			"testPassFailCounts": {
-				"Status test 200": {
+				"Status for user": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Status for guest": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Status for admin": {
 					"pass": 1,
 					"fail": 0
 				}
 			},
 			"times": [
-				7
+				99,
+				74,
+				87
 			],
 			"allTests": [
 				{
-					"Status test 200": true
+					"Status for user": true
+				},
+				{
+					"Status for guest": true
+				},
+				{
+					"Status for admin": true
 				}
+			]
+		},
+		{
+			"id": "6fbe5055-21e3-41bc-87f4-351d31cd3b88",
+			"name": "Logout User/Admin",
+			"time": 5,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				4,
+				3,
+				5
+			],
+			"allTests": [
+				{},
+				{},
+				{}
 			]
 		}
 	],
-	"count": 1,
-	"totalTime": 1560,
+	"count": 3,
+	"totalTime": 26512,
 	"collection": {
 		"requests": [
+			{
+				"id": "4922f0ed-1041-4ded-a2ad-bbe5cb30ba9a",
+				"method": "POST"
+			},
+			{
+				"id": "5ca824d2-e593-449f-84e5-2fb749d20640",
+				"method": "POST"
+			},
+			{
+				"id": "859d6ac1-63ee-4891-b2a0-69354b43b15e",
+				"method": "POST"
+			},
 			{
 				"id": "d8844501-8e1c-45cd-8804-4a89d074b570",
 				"method": "PUT"
@@ -2430,6 +3696,10 @@
 			{
 				"id": "893cb0f4-ca54-47b6-8bcb-4319f7d55ba4",
 				"method": "PUT"
+			},
+			{
+				"id": "6fbe5055-21e3-41bc-87f4-351d31cd3b88",
+				"method": "POST"
 			}
 		]
 	}

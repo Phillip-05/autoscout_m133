@@ -36,6 +36,10 @@ public class DataHandler {
 
     }
 
+    /**
+     * creates all lists and enters JSON data
+     *
+     */
     static {
         setUserList(new ArrayList<>());
         setBuyerList(new ArrayList<>());
@@ -50,6 +54,10 @@ public class DataHandler {
 
     }
 
+    /**
+     * function for reset of all lists
+     *
+     */
     public static void resetAllLists() {
         setUserList(new ArrayList<>());
         setBuyerList(new ArrayList<>());
@@ -569,7 +577,6 @@ public class DataHandler {
      *
      * @param userList the value to set
      */
-
     public static void setUserList(List<User> userList) {
         DataHandler.userList = userList;
     }

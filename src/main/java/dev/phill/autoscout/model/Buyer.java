@@ -10,6 +10,9 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 
+/**
+ *  A buyer
+ */
 @Getter
 @Setter
 @NoArgsConstructor

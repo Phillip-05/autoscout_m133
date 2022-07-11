@@ -60,6 +60,9 @@ public class UserService {
                 .entity(loggedInUser.getUsername() + " successfully logged in!").build();
     }
 
+    /**
+     * Logout a User
+     */
     @PermitAll
     @Path("logout")
     @POST
@@ -82,6 +85,9 @@ public class UserService {
 
     }
 
+    /**
+     * 2-Factor Authentication
+     */
     @PermitAll
     @Path("2fa")
     @POST
